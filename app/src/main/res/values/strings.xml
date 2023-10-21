@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">TMDBCompose</string>
+
+    <!--Details-->
+    <string name="release_date">Release</string>
+    <string name="vote_average">"Average (votes)"</string>
+    <string name="duration">Duration</string>
+
+    <string name="duration_minutes">%1$s min</string>
+    <string name="movies_similar">Similar Movies</string>
+    <string name="description">Description</string>
+
+    <!--TopBar-->
+    <string name="popular_movies">Popular Movies</string>
+    <string name="search_movies">Movie Search</string>
+    <string name="favorite_movies">Favorite Movies</string>
+    <string name="detail_movie">Movie Detail</string>
+
+    <!--Search-->
+    <string name="search_movies_field">Search movies</string>
 </resources>
