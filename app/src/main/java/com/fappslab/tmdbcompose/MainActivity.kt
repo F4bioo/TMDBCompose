@@ -14,7 +14,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TMDBComposeTheme {
-                MainScreen(navController = rememberNavController())
+                MainScreen(
+                    window = window,
+                    navController = rememberNavController()
+                )
             }
         }
     }
