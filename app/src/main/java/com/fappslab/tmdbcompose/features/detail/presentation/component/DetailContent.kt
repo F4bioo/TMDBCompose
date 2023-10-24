@@ -20,9 +20,6 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -48,7 +45,7 @@ import kotlinx.coroutines.flow.flowOf
 @Composable
 fun DetailContent(
     modifier: Modifier = Modifier,
-    state: State<DetailViewState>,
+    state: DetailViewState,
     paddingValues: PaddingValues,
     pagingItems: LazyPagingItems<Movie>,
     onFavorite: (movie: Movie) -> Unit,
@@ -56,7 +53,6 @@ fun DetailContent(
     onCollapse: () -> Unit,
     onRetry: () -> Unit
 ) {
-    val detail = state.value.detail
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -81,19 +77,19 @@ fun DetailContent(
             ) {
                 IconButton(
                     onClick = {
-                        onFavorite(detail.toMovie())
+                        onFavorite(state.detail.toMovie())
                     }
                 ) {
                     Icon(
                         imageVector = Icons.Default.Favorite,
                         contentDescription = null,
-                        tint = state.value.favoriteIconColor
+                        tint = state.favoriteIconColor
                     )
                 }
             }
             Text(
                 modifier = Modifier.padding(horizontal = 8.dp),
-                text = detail.title,
+                text = state.detail.title,
                 color = Color.White,
                 fontFamily = FontFamily.SansSerif,
                 fontWeight = FontWeight.ExtraBold,
@@ -109,27 +105,27 @@ fun DetailContent(
                 mainAxisAlignment = MainAxisAlignment.Center,
                 crossAxisSpacing = 10.dp
             ) {
-                detail.genres.forEach { genre ->
+                state.detail.genres.forEach { genre ->
                     GenreView(genre = genre)
                 }
             }
             Spacer(modifier = Modifier.height(8.dp))
             InfoGroupView(
                 modifier = Modifier.fillMaxWidth(),
-                detail = detail
+                detail = state.detail
             )
             Spacer(modifier = Modifier.height(8.dp))
             RatingView(
                 modifier = Modifier.height(15.dp),
-                rating = (detail.voteAverage.toFloat().div(other = 2f))
+                rating = (state.detail.voteAverage.toFloat().div(other = 2f))
             )
             Spacer(modifier = Modifier.height(15.dp))
             SynopsisView(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(8.dp),
-                shouldCollapseText = state.value.shouldCollapseText,
-                overview = detail.overview,
+                shouldCollapseText = state.shouldCollapseText,
+                overview = state.detail.overview,
                 onCollapse = onCollapse
             )
             Spacer(modifier = Modifier.height(15.dp))
@@ -178,7 +174,7 @@ fun DetailContentPreview() {
 
     DetailContent(
         modifier = Modifier.fillMaxWidth(),
-        state = remember { mutableStateOf(state) },
+        state = state,
         paddingValues = PaddingValues(),
         pagingItems = pagingItems,
         onFavorite = {},

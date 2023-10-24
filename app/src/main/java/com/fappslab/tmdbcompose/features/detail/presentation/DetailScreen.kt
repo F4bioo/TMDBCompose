@@ -33,7 +33,7 @@ fun DetailScreen(
         },
         content = {
             DetailContent(
-                state = state,
+                state = state.value,
                 paddingValues = it,
                 pagingItems = pagingItems,
                 onFavorite = {},

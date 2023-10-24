@@ -34,7 +34,7 @@ fun SearchScreen(
         },
         content = {
             SearchContent(
-                state = state,
+                state = state.value,
                 paddingValues = it,
                 pagingItems = pagingItems,
                 onSearch = onSearch,

@@ -11,9 +11,6 @@ import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -33,7 +30,7 @@ import com.fappslab.tmdbcompose.ui.theme.yellow
 @Composable
 fun BackdropView(
     modifier: Modifier = Modifier,
-    state: State<DetailViewState>
+    state: DetailViewState
 ) {
     Box(modifier = modifier.background(Color(0xFF2F2F2F))) {
         Text(
@@ -41,7 +38,7 @@ fun BackdropView(
                 .fillMaxSize()
                 .wrapContentSize(Alignment.Center)
                 .padding(8.dp),
-            text = state.value.detail.title,
+            text = state.detail.title,
             maxLines = 2,
             fontSize = 14.sp,
             color = Color.White,
@@ -51,24 +48,24 @@ fun BackdropView(
         AsyncImage(
             modifier = Modifier.fillMaxSize(),
             model = ImageRequest.Builder(LocalContext.current)
-                .data(state.value.detail.imageUrl)
+                .data(state.detail.imageUrl)
                 .crossfade(enable = true)
                 .build(),
             contentDescription = null,
             contentScale = ContentScale.Crop
         )
-        if (state.value.shouldShowLoading) {
+        if (state.shouldShowLoading) {
             CircularProgressIndicator(
                 modifier = Modifier.align(Alignment.Center),
                 color = yellow
             )
         }
-        if (state.value.errorMessage.isNotBlank()) {
+        if (state.errorMessage.isNotBlank()) {
             Text(
                 modifier = Modifier
                     .fillMaxWidth()
                     .align(Alignment.Center),
-                text = state.value.errorMessage,
+                text = state.errorMessage,
                 color = MaterialTheme.colors.error,
                 textAlign = TextAlign.Center
             )
@@ -96,6 +93,6 @@ fun BackdropViewPreview() {
         modifier = Modifier
             .fillMaxWidth()
             .height(200.dp),
-        state = remember { mutableStateOf(state) }
+        state = state
     )
 }

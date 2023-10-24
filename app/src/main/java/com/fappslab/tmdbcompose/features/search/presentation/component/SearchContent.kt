@@ -12,7 +12,6 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -30,7 +29,7 @@ import com.fappslab.tmdbcompose.features.search.presentation.viewmodel.SearchVie
 @Composable
 fun SearchContent(
     modifier: Modifier = Modifier,
-    state: State<SearchViewState>,
+    state: SearchViewState,
     paddingValues: PaddingValues,
     pagingItems: LazyPagingItems<Movie>,
     onSearch: (query: String) -> Unit,
@@ -46,7 +45,7 @@ fun SearchContent(
     ) {
         SearchView(
             modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp),
-            query = state.value.query,
+            query = state.query,
             onSearch = { query ->
                 onSearch(query)
             },
@@ -76,7 +75,7 @@ fun SearchContent(
             }
             pagingItems.apply {
                 when {
-                    state.value.shouldShowLoading &&
+                    state.shouldShowLoading &&
                             loadState.refresh is LoadState.Loading ||
                             loadState.append is LoadState.Loading -> {
                         item(
