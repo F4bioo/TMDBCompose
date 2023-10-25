@@ -7,6 +7,7 @@ import com.fappslab.tmdbcompose.core.arch.viewmodel.ViewModel
 import com.fappslab.tmdbcompose.core.domain.model.Movie
 import com.fappslab.tmdbcompose.features.popular.domain.usecase.GetMoviesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.catch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -20,6 +21,7 @@ class PopularViewModel @Inject constructor(
 
     private fun getMovies() {
         val movies = getMoviesUseCase()
+            .catch { }
             .cachedIn(viewModelScope)
         onState { it.copy(movies = movies) }
     }

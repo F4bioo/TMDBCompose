@@ -22,7 +22,7 @@ fun BottomNavigationBar(
     val items = listOf(
         BottomNavigationItem.Popular,
         BottomNavigationItem.Search,
-        BottomNavigationItem.Favorites,
+        BottomNavigationItem.Favorite,
     )
 
     BottomNavigation(

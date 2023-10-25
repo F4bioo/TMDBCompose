@@ -1,4 +1,4 @@
-package com.fappslab.tmdbcompose.core.data.extension
+package com.fappslab.tmdbcompose.core.data.common.extension
 
 import android.os.Build
 import android.os.Bundle

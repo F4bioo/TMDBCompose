@@ -20,7 +20,7 @@
     <string name="popular">Popular</string>
     <string name="search">Search</string>
     <string name="favorite">Favorites</string>
-    <string name="detail">Detail</string>
+    <string name="detail">Details</string>
 
     <!--Search-->
     <string name="search_movies_field">Search movies</string>

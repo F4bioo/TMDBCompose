@@ -6,9 +6,9 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.fappslab.tmdbcompose.core.data.extension.orZero
+import com.fappslab.tmdbcompose.core.data.common.extension.orZero
 import com.fappslab.tmdbcompose.features.detail.presentation.Detail
-import com.fappslab.tmdbcompose.features.favorites.presentation.Favorites
+import com.fappslab.tmdbcompose.features.favorite.presentation.Favorite
 import com.fappslab.tmdbcompose.features.popular.presentation.Popular
 import com.fappslab.tmdbcompose.features.search.presentation.Search
 
@@ -29,9 +29,9 @@ fun NavigationGraph(navController: NavHostController) {
             Search(navController)
         }
         composable(
-            route = BottomNavigationItem.Favorites.route
+            route = BottomNavigationItem.Favorite.route
         ) {
-            Favorites(navController)
+            Favorite(navController)
         }
         composable(
             route = BottomNavigationItem.Detail.route,

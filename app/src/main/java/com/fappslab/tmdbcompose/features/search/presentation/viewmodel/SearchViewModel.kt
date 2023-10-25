@@ -7,6 +7,7 @@ import com.fappslab.tmdbcompose.core.arch.viewmodel.ViewModel
 import com.fappslab.tmdbcompose.core.domain.model.Movie
 import com.fappslab.tmdbcompose.features.search.domain.usecase.GetSearchMovieUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.catch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -16,6 +17,7 @@ class SearchViewModel @Inject constructor(
 
     fun getSearchMovie(query: String) {
         val movies = getSearchMovieUseCase(query)
+            .catch { }
             .cachedIn(viewModelScope)
         onState { it.copy(movies = movies) }
     }

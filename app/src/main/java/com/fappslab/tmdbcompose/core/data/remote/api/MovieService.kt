@@ -1,7 +1,7 @@
-package com.fappslab.tmdbcompose.core.data.api
+package com.fappslab.tmdbcompose.core.data.remote.api
 
-import com.fappslab.tmdbcompose.core.data.model.DetailResponse
-import com.fappslab.tmdbcompose.core.data.model.MovieResponse
+import com.fappslab.tmdbcompose.core.data.remote.model.DetailResponse
+import com.fappslab.tmdbcompose.core.data.remote.model.MovieResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

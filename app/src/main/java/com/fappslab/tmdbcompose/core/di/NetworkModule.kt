@@ -2,10 +2,10 @@ package com.fappslab.tmdbcompose.core.di
 
 import androidx.paging.PagingConfig
 import com.fappslab.tmdbcompose.BuildConfig
-import com.fappslab.tmdbcompose.core.data.api.MovieService
-import com.fappslab.tmdbcompose.core.data.network.HttpClient
-import com.fappslab.tmdbcompose.core.data.network.HttpClientImpl
-import com.fappslab.tmdbcompose.core.data.network.QueryInterceptor
+import com.fappslab.tmdbcompose.core.data.remote.api.MovieService
+import com.fappslab.tmdbcompose.core.data.remote.network.HttpClient
+import com.fappslab.tmdbcompose.core.data.remote.network.HttpClientImpl
+import com.fappslab.tmdbcompose.core.data.remote.network.QueryInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

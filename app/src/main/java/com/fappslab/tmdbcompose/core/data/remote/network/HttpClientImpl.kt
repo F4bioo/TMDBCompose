@@ -1,4 +1,4 @@
-package com.fappslab.tmdbcompose.core.data.network
+package com.fappslab.tmdbcompose.core.data.remote.network
 
 import retrofit2.Retrofit
 

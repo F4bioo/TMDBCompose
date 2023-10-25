@@ -1,7 +1,7 @@
 package com.fappslab.tmdbcompose.features.popular.di
 
 import androidx.paging.PagingConfig
-import com.fappslab.tmdbcompose.core.data.api.MovieService
+import com.fappslab.tmdbcompose.core.data.remote.api.MovieService
 import com.fappslab.tmdbcompose.features.popular.data.repository.PopularRepositoryImpl
 import com.fappslab.tmdbcompose.features.popular.data.source.remote.PopularRemoteDataSource
 import com.fappslab.tmdbcompose.features.popular.data.source.remote.PopularRemoteDataSourceImpl

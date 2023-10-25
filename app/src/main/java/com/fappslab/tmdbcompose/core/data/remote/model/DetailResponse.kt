@@ -1,4 +1,4 @@
-package com.fappslab.tmdbcompose.core.data.model
+package com.fappslab.tmdbcompose.core.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 

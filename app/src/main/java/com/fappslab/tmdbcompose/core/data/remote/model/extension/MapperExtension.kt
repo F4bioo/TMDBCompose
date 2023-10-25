@@ -1,11 +1,11 @@
-package com.fappslab.tmdbcompose.core.data.model.extension
+package com.fappslab.tmdbcompose.core.data.remote.model.extension
 
 import com.fappslab.tmdbcompose.BuildConfig
-import com.fappslab.tmdbcompose.core.data.extension.orDash
-import com.fappslab.tmdbcompose.core.data.extension.orZero
-import com.fappslab.tmdbcompose.core.data.model.DetailResponse
-import com.fappslab.tmdbcompose.core.data.model.DetailResponse.GenreResponse
-import com.fappslab.tmdbcompose.core.data.model.MovieResponse.ResultResponse
+import com.fappslab.tmdbcompose.core.data.common.extension.orDash
+import com.fappslab.tmdbcompose.core.data.common.extension.orZero
+import com.fappslab.tmdbcompose.core.data.remote.model.DetailResponse
+import com.fappslab.tmdbcompose.core.data.remote.model.DetailResponse.GenreResponse
+import com.fappslab.tmdbcompose.core.data.remote.model.MovieResponse.ResultResponse
 import com.fappslab.tmdbcompose.core.domain.model.Detail
 import com.fappslab.tmdbcompose.core.domain.model.Movie
 

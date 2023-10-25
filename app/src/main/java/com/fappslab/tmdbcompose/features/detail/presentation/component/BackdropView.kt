@@ -52,7 +52,7 @@ fun BackdropView(
                 .crossfade(enable = true)
                 .build(),
             contentDescription = null,
-            contentScale = ContentScale.Crop
+            contentScale = ContentScale.FillWidth
         )
         if (state.shouldShowLoading) {
             CircularProgressIndicator(

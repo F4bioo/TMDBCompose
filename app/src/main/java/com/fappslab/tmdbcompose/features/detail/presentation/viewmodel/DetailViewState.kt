@@ -1,8 +1,7 @@
 package com.fappslab.tmdbcompose.features.detail.presentation.viewmodel
 
-import androidx.compose.ui.graphics.Color
 import androidx.paging.PagingData
-import com.fappslab.tmdbcompose.core.data.model.extension.INIT_STRING
+import com.fappslab.tmdbcompose.core.data.remote.model.extension.INIT_STRING
 import com.fappslab.tmdbcompose.core.domain.model.Detail
 import com.fappslab.tmdbcompose.core.domain.model.Movie
 import kotlinx.coroutines.flow.Flow
@@ -13,6 +12,6 @@ data class DetailViewState(
     val errorMessage: String = INIT_STRING,
     val shouldCollapseText: Boolean = true,
     val shouldShowLoading: Boolean = false,
-    val favoriteIconColor: Color = Color.White,
+    val isFavoriteChecked: Boolean = false,
     val movies: Flow<PagingData<Movie>> = emptyFlow()
 )

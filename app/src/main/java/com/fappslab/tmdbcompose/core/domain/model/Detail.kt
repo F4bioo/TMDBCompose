@@ -1,8 +1,8 @@
 package com.fappslab.tmdbcompose.core.domain.model
 
-import com.fappslab.tmdbcompose.core.data.model.extension.INIT_DOUBLE
-import com.fappslab.tmdbcompose.core.data.model.extension.INIT_INT
-import com.fappslab.tmdbcompose.core.data.model.extension.INIT_STRING
+import com.fappslab.tmdbcompose.core.data.remote.model.extension.INIT_DOUBLE
+import com.fappslab.tmdbcompose.core.data.remote.model.extension.INIT_INT
+import com.fappslab.tmdbcompose.core.data.remote.model.extension.INIT_STRING
 
 data class Detail(
     val id: Int = INIT_INT,

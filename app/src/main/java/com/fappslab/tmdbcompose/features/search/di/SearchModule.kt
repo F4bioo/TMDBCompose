@@ -1,7 +1,7 @@
 package com.fappslab.tmdbcompose.features.search.di
 
 import androidx.paging.PagingConfig
-import com.fappslab.tmdbcompose.core.data.api.MovieService
+import com.fappslab.tmdbcompose.core.data.remote.api.MovieService
 import com.fappslab.tmdbcompose.features.search.data.repository.SearchRepositoryImpl
 import com.fappslab.tmdbcompose.features.search.data.source.remote.SearchRemoteDataSource
 import com.fappslab.tmdbcompose.features.search.data.source.remote.SearchRemoteDataSourceImpl

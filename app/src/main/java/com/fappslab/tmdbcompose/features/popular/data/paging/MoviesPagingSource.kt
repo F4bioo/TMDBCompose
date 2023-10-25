@@ -2,8 +2,8 @@ package com.fappslab.tmdbcompose.features.popular.data.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.fappslab.tmdbcompose.core.data.constant.Common.FETCH_LIMIT
-import com.fappslab.tmdbcompose.core.data.model.extension.toMovies
+import com.fappslab.tmdbcompose.core.data.common.constant.Util.FETCH_LIMIT
+import com.fappslab.tmdbcompose.core.data.remote.model.extension.toMovies
 import com.fappslab.tmdbcompose.core.domain.model.Movie
 import com.fappslab.tmdbcompose.features.popular.data.source.remote.PopularRemoteDataSource
 

@@ -23,7 +23,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.zIndex
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 
@@ -61,14 +60,6 @@ fun CoverView(
                 overflow = TextOverflow.Ellipsis,
                 textAlign = TextAlign.Center
             )
-            RateView(
-                modifier = Modifier
-                    .align(Alignment.BottomStart)
-                    .zIndex(2f)
-                    .background(Color(0x80000000))
-                    .fillMaxWidth(),
-                voteAverage = voteAverage
-            )
             AsyncImage(
                 modifier = Modifier
                     .fillMaxSize()
@@ -79,6 +70,13 @@ fun CoverView(
                     .build(),
                 contentDescription = null,
                 contentScale = ContentScale.FillHeight
+            )
+            RateView(
+                modifier = Modifier
+                    .align(Alignment.BottomStart)
+                    .fillMaxWidth()
+                    .background(Color(0x80000000)),
+                voteAverage = voteAverage
             )
         }
     }

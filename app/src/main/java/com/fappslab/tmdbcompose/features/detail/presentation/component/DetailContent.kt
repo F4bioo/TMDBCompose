@@ -14,11 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -34,9 +30,10 @@ import androidx.paging.PagingData
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.fappslab.tmdbcompose.R
-import com.fappslab.tmdbcompose.core.data.model.extension.toMovie
+import com.fappslab.tmdbcompose.core.data.remote.model.extension.toMovie
 import com.fappslab.tmdbcompose.core.domain.model.Detail
 import com.fappslab.tmdbcompose.core.domain.model.Movie
+import com.fappslab.tmdbcompose.core.presentaion.component.FavoriteToggleView
 import com.fappslab.tmdbcompose.features.detail.presentation.viewmodel.DetailViewState
 import com.google.accompanist.flowlayout.FlowRow
 import com.google.accompanist.flowlayout.MainAxisAlignment
@@ -75,17 +72,12 @@ fun DetailContent(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.End
             ) {
-                IconButton(
-                    onClick = {
+                FavoriteToggleView(
+                    isChecked = state.isFavoriteChecked,
+                    onCheckedChange = {
                         onFavorite(state.detail.toMovie())
                     }
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Favorite,
-                        contentDescription = null,
-                        tint = state.favoriteIconColor
-                    )
-                }
+                )
             }
             Text(
                 modifier = Modifier.padding(horizontal = 8.dp),

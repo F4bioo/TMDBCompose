@@ -28,10 +28,10 @@ sealed class BottomNavigationItem(
         route = "search_screen"
     )
 
-    object Favorites : BottomNavigationItem(
+    object Favorite : BottomNavigationItem(
         titleRes = R.string.favorite,
         icon = Icons.Default.Favorite,
-        route = "favorites_screen"
+        route = "favorite_screen"
     )
 
     object Detail : BottomNavigationItem(
