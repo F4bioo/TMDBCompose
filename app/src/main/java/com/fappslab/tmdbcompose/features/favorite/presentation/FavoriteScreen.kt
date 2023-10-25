@@ -13,6 +13,7 @@ import com.fappslab.tmdbcompose.R
 import com.fappslab.tmdbcompose.core.arch.viewmodel.compose.OnViewAction
 import com.fappslab.tmdbcompose.core.domain.model.Movie
 import com.fappslab.tmdbcompose.core.presentaion.component.AppBarView
+import com.fappslab.tmdbcompose.core.presentaion.component.preview.moviesDataPreview
 import com.fappslab.tmdbcompose.core.presentaion.navigation.extension.navigateToDetail
 import com.fappslab.tmdbcompose.features.favorite.presentation.component.FavoriteContent
 import com.fappslab.tmdbcompose.features.favorite.presentation.viewmodel.FavoriteViewAction
@@ -62,20 +63,7 @@ fun Favorite(navHostController: NavHostController) {
 @Preview
 @Composable
 fun FavoriteScreenPreview() {
-    fun movie(id: Int) = Movie(
-        id = id,
-        title = "Avatar: The Way of Water",
-        imageUrl = "/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
-        voteAverage = 7.65,
-    )
-
-    val state = remember {
-        mutableStateOf(
-            FavoriteViewState(
-                movies = listOf(movie(id = 1), movie(id = 2))
-            )
-        )
-    }
+    val state = remember { mutableStateOf(FavoriteViewState(movies = moviesDataPreview())) }
 
     FavoriteScreen(
         state = state,

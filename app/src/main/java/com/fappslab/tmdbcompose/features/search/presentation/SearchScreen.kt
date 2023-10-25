@@ -61,7 +61,7 @@ fun Search(navHostController: NavHostController) {
         onTryAgain = viewModel::onTryAgain
     )
 
-    OnViewAction(viewModel = viewModel) { action ->
+    OnViewAction(viewModel) { action ->
         when (action) {
             is SearchViewAction.ItemClicked -> navHostController.navigateToDetail(action.id)
             is SearchViewAction.TryAgain -> action.pagingItems.retry()

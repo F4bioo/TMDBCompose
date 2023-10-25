@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.fappslab.tmdbcompose.core.presentaion.component.preview.movieDataPreview
 
 @Composable
 fun CoverView(
@@ -85,11 +86,13 @@ fun CoverView(
 @Preview
 @Composable
 fun CoverViewPreview() {
+    val movie = movieDataPreview()
+
     CoverView(
-        id = 1,
-        title = "Avatar: The Way of Water",
-        imageUrl = "/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
-        voteAverage = 5.0,
+        id = movie.id,
+        title = movie.title,
+        imageUrl = movie.imageUrl,
+        voteAverage = movie.voteAverage,
         onItemClick = {}
     )
 }

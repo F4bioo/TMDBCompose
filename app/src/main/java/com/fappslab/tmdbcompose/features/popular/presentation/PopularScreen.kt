@@ -54,7 +54,7 @@ fun Popular(navHostController: NavHostController) {
         onTryAgain = viewModel::onTryAgain
     )
 
-    OnViewAction(viewModel = viewModel) { action ->
+    OnViewAction(viewModel) { action ->
         when (action) {
             is PopularViewAction.ItemClicked -> navHostController.navigateToDetail(action.id)
             is PopularViewAction.TryAgain -> action.pagingItems.retry()

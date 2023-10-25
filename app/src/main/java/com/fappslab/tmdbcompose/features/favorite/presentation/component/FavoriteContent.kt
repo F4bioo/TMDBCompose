@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.fappslab.tmdbcompose.core.domain.model.Movie
+import com.fappslab.tmdbcompose.core.presentaion.component.preview.moviesDataPreview
 
 @Composable
 fun FavoriteContent(
@@ -52,15 +53,9 @@ fun FavoriteContent(
 @Preview
 @Composable
 fun FavoriteContentPreview() {
-    fun movie(id: Int) = Movie(
-        id = id,
-        title = "Avatar: The Way of Water",
-        imageUrl = "/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
-        voteAverage = 7.65,
-    )
     FavoriteContent(
         paddingValues = PaddingValues(),
-        movies = listOf(movie(id = 1), movie(id = 2)),
+        movies = moviesDataPreview(),
         isFavorite = true,
         onCheckedChange = {},
         onItemClick = {}

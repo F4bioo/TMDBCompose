@@ -34,6 +34,7 @@ import coil.request.ImageRequest
 import com.fappslab.tmdbcompose.core.domain.model.Movie
 import com.fappslab.tmdbcompose.core.presentaion.component.FavoriteToggleView
 import com.fappslab.tmdbcompose.core.presentaion.component.RateView
+import com.fappslab.tmdbcompose.core.presentaion.component.preview.movieDataPreview
 
 @Composable
 fun ItemView(
@@ -124,12 +125,8 @@ fun ItemView(
 @Preview
 @Composable
 fun ItemViewPreview() {
-    val movie = Movie(
-        id = 1,
-        title = "Avatar: The Way of Water",
-        imageUrl = "/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
-        voteAverage = 7.65,
-    )
+    val movie = movieDataPreview()
+
     ItemView(
         movie = movie,
         isFavorite = true,
