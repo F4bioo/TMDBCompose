@@ -25,7 +25,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.fappslab.tmdbcompose.core.presentaion.component.preview.detailDataPreview
 import com.fappslab.tmdbcompose.features.detail.presentation.viewmodel.DetailViewState
-import com.fappslab.tmdbcompose.ui.theme.yellow
+import com.fappslab.tmdbcompose.ui.theme.blue
 
 @Composable
 fun BackdropView(
@@ -57,7 +57,7 @@ fun BackdropView(
         if (state.shouldShowLoading) {
             CircularProgressIndicator(
                 modifier = Modifier.align(Alignment.Center),
-                color = yellow
+                color = blue
             )
         }
         if (state.errorMessage.isNotBlank()) {

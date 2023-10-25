@@ -22,16 +22,16 @@ sealed class BottomNavigationItem(
         route = "popular_screen"
     )
 
-    object Search : BottomNavigationItem(
-        titleRes = R.string.search,
-        icon = Icons.Default.Search,
-        route = "search_screen"
-    )
-
     object Favorite : BottomNavigationItem(
         titleRes = R.string.favorite,
         icon = Icons.Default.Favorite,
         route = "favorite_screen"
+    )
+
+    object Search : BottomNavigationItem(
+        titleRes = R.string.search,
+        icon = Icons.Default.Search,
+        route = "search_screen"
     )
 
     object Detail : BottomNavigationItem(
