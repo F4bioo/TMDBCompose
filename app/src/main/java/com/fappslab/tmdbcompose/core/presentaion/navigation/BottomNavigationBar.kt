@@ -12,7 +12,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.fappslab.tmdbcompose.ui.theme.black
-import com.fappslab.tmdbcompose.ui.theme.blue
+import com.fappslab.tmdbcompose.ui.theme.white
 
 @Composable
 fun BottomNavigationBar(
@@ -26,7 +26,7 @@ fun BottomNavigationBar(
     )
 
     BottomNavigation(
-        contentColor = blue,
+        contentColor = white,
         backgroundColor = black
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()

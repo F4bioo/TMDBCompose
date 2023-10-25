@@ -11,7 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.fappslab.tmdbcompose.ui.theme.blue
+import com.fappslab.tmdbcompose.ui.theme.red
 
 @Composable
 fun LoadingView(
@@ -26,7 +26,7 @@ fun LoadingView(
     ) {
         CircularProgressIndicator(
             modifier = Modifier.size(40.dp),
-            color = blue
+            color = red
         )
     }
 }
