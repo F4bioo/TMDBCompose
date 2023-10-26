@@ -5,8 +5,6 @@ import com.fappslab.tmdbcompose.core.arch.viewmodel.ViewModel
 import com.fappslab.tmdbcompose.core.domain.model.Movie
 import com.fappslab.tmdbcompose.features.favorite.domain.usecase.DeleteFavoriteUseCase
 import com.fappslab.tmdbcompose.features.favorite.domain.usecase.GetFavoritesUseCase
-import com.fappslab.tmdbcompose.features.favorite.domain.usecase.IsFavoriteUseCase
-import com.fappslab.tmdbcompose.features.favorite.domain.usecase.SetFavoriteUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn
@@ -41,7 +39,6 @@ class FavoriteViewModel @Inject constructor(
                 .runCatching { deleteFavoriteUseCase(movie) }
                 .apply { onState { it.copy(shouldShowLoading = false) } }
                 .onFailure { }
-                .onSuccess { }
         }
     }
 

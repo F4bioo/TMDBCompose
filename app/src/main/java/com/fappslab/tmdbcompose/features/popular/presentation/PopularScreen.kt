@@ -20,6 +20,26 @@ import com.fappslab.tmdbcompose.features.popular.presentation.viewmodel.PopularV
 
 @Composable
 fun PopularScreen(
+    navHostController: NavHostController,
+    viewModel: PopularViewModel = hiltViewModel()
+) {
+    PopularScaffold(
+        state = viewModel.state.collectAsState(),
+        navigateToDetail = viewModel::onItemClicked,
+        onTryAgain = viewModel::onTryAgain
+    )
+
+    OnViewAction(viewModel) { action ->
+        when (action) {
+            is PopularViewAction.ItemClicked -> navHostController.navigateToDetail(action.id)
+            is PopularViewAction.TryAgain -> action.pagingItems.retry()
+        }
+    }
+}
+
+
+@Composable
+private fun PopularScaffold(
     state: State<PopularViewState>,
     navigateToDetail: (id: Int) -> Unit,
     onTryAgain: (pagingItems: LazyPagingItems<Movie>) -> Unit
@@ -41,23 +61,4 @@ fun PopularScreen(
             )
         }
     )
-}
-
-@Composable
-fun Popular(navHostController: NavHostController) {
-    val viewModel = hiltViewModel<PopularViewModel>()
-    val state = viewModel.state.collectAsState()
-
-    PopularScreen(
-        state = state,
-        navigateToDetail = viewModel::onItemClicked,
-        onTryAgain = viewModel::onTryAgain
-    )
-
-    OnViewAction(viewModel) { action ->
-        when (action) {
-            is PopularViewAction.ItemClicked -> navHostController.navigateToDetail(action.id)
-            is PopularViewAction.TryAgain -> action.pagingItems.retry()
-        }
-    }
 }

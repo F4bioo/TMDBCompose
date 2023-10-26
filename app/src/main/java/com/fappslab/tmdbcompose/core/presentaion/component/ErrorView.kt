@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -16,6 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.fappslab.tmdbcompose.R
+import com.fappslab.tmdbcompose.ui.theme.red
 import com.fappslab.tmdbcompose.ui.theme.white
 
 @Composable
@@ -40,9 +42,13 @@ fun ErrorView(
         )
         Button(
             modifier = Modifier.padding(top = 8.dp),
-            onClick = onClick
+            onClick = onClick,
+            colors = ButtonDefaults.buttonColors(backgroundColor = red)
         ) {
-            Text(text = stringResource(id = R.string.try_again))
+            Text(
+                text = stringResource(id = R.string.try_again),
+                color = white
+            )
         }
     }
 }
