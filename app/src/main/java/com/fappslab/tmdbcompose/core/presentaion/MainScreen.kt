@@ -10,17 +10,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.navigation.NavHostController
+import com.fappslab.tmdbcompose.core.data.common.extension.isNotNull
 import com.fappslab.tmdbcompose.core.presentaion.navigation.BottomNavigationBar
 import com.fappslab.tmdbcompose.core.presentaion.navigation.NavigationGraph
 
 @Composable
 fun MainScreen(
-    window: Window,
+    window: Window? = null,
     color: Color = Color.Black,
     navController: NavHostController
 ) {
-    LaunchedEffect(key1 = true) {
-        window.statusBarColor = color.toArgb()
+    if (window.isNotNull()) {
+        LaunchedEffect(key1 = true) {
+            window?.statusBarColor = color.toArgb()
+        }
     }
     Scaffold(
         content = {

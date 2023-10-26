@@ -70,7 +70,7 @@ fun CoverView(
                     .crossfade(enable = true)
                     .build(),
                 contentDescription = null,
-                contentScale = ContentScale.FillHeight
+                contentScale = ContentScale.Crop
             )
             RateView(
                 modifier = Modifier

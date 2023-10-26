@@ -15,7 +15,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             TMDBComposeTheme {
                 MainScreen(
-                    window = window,
                     navController = rememberNavController()
                 )
             }
