@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">TMDBCompose</string>
+
+    <!--Details-->
+    <string name="release_date">Release</string>
+    <string name="vote_average">"Average (votes)"</string>
+    <string name="duration">Duration</string>
+
+    <string name="duration_minutes">%1$s min.</string>
+    <string name="movies_similar">Similar Movies</string>
+    <string name="synopsis">Synopsis</string>
+
+    <!--TopBar-->
+    <string name="popular_movies">Popular Movies</string>
+    <string name="search_movies">Movie Search</string>
+    <string name="favorite_movies">Favorite Movies</string>
+    <string name="detail_movie">Movie Detail</string>
+
+    <!--BottomBar-->
+    <string name="popular">Popular</string>
+    <string name="search">Search</string>
+    <string name="favorite">Favorites</string>
+    <string name="detail">Details</string>
+
+    <!--Search-->
+    <string name="search_movies_field">Search movies</string>
+
+    <!--Favorite-->
+    <string name="favorite_empty_list">It seems you haven\'t added any movies to your favorites yet.</string>
+
+    <!--Error-->
+    <string name="error">Error</string>
+    <string name="error_message">Something was wrong! Please check the internet connection and try again.</string>
+    <string name="try_again">Try again</string>
 </resources>
