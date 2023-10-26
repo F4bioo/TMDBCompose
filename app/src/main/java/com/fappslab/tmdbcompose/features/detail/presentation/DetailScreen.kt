@@ -53,11 +53,11 @@ fun DetailScreen(
 }
 
 @Composable
-fun Detail(id: Int, navHostController: NavHostController) {
+fun Detail(navHostController: NavHostController) {
     val viewModel = hiltViewModel<DetailViewModel>()
     val state = viewModel.state.collectAsState()
 
-    viewModel.getMovieDetail(id)
+    viewModel.getMovieDetail()
 
     DetailScreen(
         state = state,

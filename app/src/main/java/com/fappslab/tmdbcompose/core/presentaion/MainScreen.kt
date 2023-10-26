@@ -13,6 +13,8 @@ import androidx.navigation.NavHostController
 import com.fappslab.tmdbcompose.core.data.common.extension.isNotNull
 import com.fappslab.tmdbcompose.core.presentaion.navigation.BottomNavigationBar
 import com.fappslab.tmdbcompose.core.presentaion.navigation.NavigationGraph
+import com.fappslab.tmdbcompose.core.presentaion.navigation.currentRout
+import com.fappslab.tmdbcompose.features.detail.navigation.DetailScreenNav
 
 @Composable
 fun MainScreen(
@@ -34,7 +36,9 @@ fun MainScreen(
             }
         },
         bottomBar = {
-            BottomNavigationBar(navController = navController)
+            if (currentRout(navController = navController) != DetailScreenNav.Detail.route) {
+                BottomNavigationBar(navController = navController)
+            }
         }
     )
 }

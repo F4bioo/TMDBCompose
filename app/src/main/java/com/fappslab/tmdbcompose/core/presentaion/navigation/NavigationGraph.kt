@@ -6,7 +6,8 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.fappslab.tmdbcompose.core.data.common.extension.orZero
+import com.fappslab.tmdbcompose.core.data.common.constant.Util.ID_ARGS_KEY
+import com.fappslab.tmdbcompose.features.detail.navigation.DetailScreenNav
 import com.fappslab.tmdbcompose.features.detail.presentation.Detail
 import com.fappslab.tmdbcompose.features.favorite.presentation.Favorite
 import com.fappslab.tmdbcompose.features.popular.presentation.Popular
@@ -34,16 +35,15 @@ fun NavigationGraph(navController: NavHostController) {
             Favorite(navController)
         }
         composable(
-            route = BottomNavigationItem.Detail.route,
+            route = DetailScreenNav.Detail.route,
             arguments = listOf(
                 navArgument(ID_ARGS_KEY) {
                     type = NavType.IntType
                     defaultValue = 0
                 }
             )
-        ) { backStackEntry ->
-            val id = backStackEntry.arguments?.getInt(ID_ARGS_KEY)
-            Detail(id = id.orZero(), navController)
+        ) {
+            Detail(navController)
         }
     }
 }

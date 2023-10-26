@@ -9,10 +9,6 @@ import com.fappslab.tmdbcompose.core.data.remote.model.MovieResponse.ResultRespo
 import com.fappslab.tmdbcompose.core.domain.model.Detail
 import com.fappslab.tmdbcompose.core.domain.model.Movie
 
-const val INIT_STRING = ""
-const val INIT_DOUBLE = 0.0
-const val INIT_INT = 0
-
 private fun String?.toImageUrl(): String =
     "${BuildConfig.BASE_URL_IMAGE}$this"
 

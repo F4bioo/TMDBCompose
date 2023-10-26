@@ -1,8 +1,8 @@
 package com.fappslab.tmdbcompose.core.presentaion.navigation.extension
 
 import androidx.navigation.NavHostController
-import com.fappslab.tmdbcompose.core.presentaion.navigation.BottomNavigationItem
+import com.fappslab.tmdbcompose.features.detail.navigation.DetailScreenNav
 
 fun NavHostController.navigateToDetail(id: Int) {
-    navigate(BottomNavigationItem.Detail.withArgs(id))
+    navigate(DetailScreenNav.Detail.withArgs(id))
 }
