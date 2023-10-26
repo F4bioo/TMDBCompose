@@ -18,7 +18,7 @@ abstract class ViewModel<S, A>(initialState: S) : LifecycleViewModel() {
     val action: Flow<A> = _action.receiveAsFlow()
 
     protected fun onState(stateBlock: (S) -> S) {
-        _state.update { stateBlock(it) }
+        _state.update { state -> stateBlock(state) }
     }
 
     protected fun onAction(actionBlock: () -> A) {

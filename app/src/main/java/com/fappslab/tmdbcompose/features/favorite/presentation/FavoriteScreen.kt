@@ -22,6 +22,24 @@ import com.fappslab.tmdbcompose.features.favorite.presentation.viewmodel.Favorit
 
 @Composable
 fun FavoriteScreen(
+    navHostController: NavHostController,
+    viewModel: FavoriteViewModel = hiltViewModel()
+) {
+    FavoriteScaffold(
+        state = viewModel.state.collectAsState(),
+        navigateToDetail = viewModel::onItemClicked,
+        onCheckedChange = viewModel::onFavorite
+    )
+
+    OnViewAction(viewModel) { action ->
+        when (action) {
+            is FavoriteViewAction.ItemClicked -> navHostController.navigateToDetail(action.id)
+        }
+    }
+}
+
+@Composable
+private fun FavoriteScaffold(
     state: State<FavoriteViewState>,
     navigateToDetail: (id: Int) -> Unit,
     onCheckedChange: (movie: Movie) -> Unit
@@ -42,30 +60,12 @@ fun FavoriteScreen(
     )
 }
 
-@Composable
-fun Favorite(navHostController: NavHostController) {
-    val viewModel = hiltViewModel<FavoriteViewModel>()
-    val state = viewModel.state.collectAsState()
-
-    FavoriteScreen(
-        state = state,
-        navigateToDetail = viewModel::onItemClicked,
-        onCheckedChange = viewModel::onFavorite
-    )
-
-    OnViewAction(viewModel) { action ->
-        when (action) {
-            is FavoriteViewAction.ItemClicked -> navHostController.navigateToDetail(action.id)
-        }
-    }
-}
-
 @Preview
 @Composable
-fun FavoriteScreenPreview() {
+fun FavoriteScaffoldPreview() {
     val state = remember { mutableStateOf(FavoriteViewState(movies = moviesDataPreview())) }
 
-    FavoriteScreen(
+    FavoriteScaffold(
         state = state,
         navigateToDetail = {},
         onCheckedChange = {}

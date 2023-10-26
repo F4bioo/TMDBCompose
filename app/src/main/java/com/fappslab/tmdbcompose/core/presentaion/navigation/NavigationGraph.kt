@@ -8,10 +8,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.fappslab.tmdbcompose.core.data.common.constant.Util.ID_ARGS_KEY
 import com.fappslab.tmdbcompose.features.detail.navigation.DetailScreenNav
-import com.fappslab.tmdbcompose.features.detail.presentation.Detail
-import com.fappslab.tmdbcompose.features.favorite.presentation.Favorite
-import com.fappslab.tmdbcompose.features.popular.presentation.Popular
-import com.fappslab.tmdbcompose.features.search.presentation.Search
+import com.fappslab.tmdbcompose.features.detail.presentation.DetailScreen
+import com.fappslab.tmdbcompose.features.favorite.presentation.FavoriteScreen
+import com.fappslab.tmdbcompose.features.popular.presentation.PopularScreen
+import com.fappslab.tmdbcompose.features.search.presentation.SearchScreen
 
 @Composable
 fun NavigationGraph(navController: NavHostController) {
@@ -22,17 +22,17 @@ fun NavigationGraph(navController: NavHostController) {
         composable(
             route = BottomNavigationItem.Popular.route
         ) {
-            Popular(navController)
+            PopularScreen(navController)
         }
         composable(
             route = BottomNavigationItem.Search.route
         ) {
-            Search(navController)
+            SearchScreen(navController)
         }
         composable(
             route = BottomNavigationItem.Favorite.route
         ) {
-            Favorite(navController)
+            FavoriteScreen(navController)
         }
         composable(
             route = DetailScreenNav.Detail.route,
@@ -43,7 +43,7 @@ fun NavigationGraph(navController: NavHostController) {
                 }
             )
         ) {
-            Detail(navController)
+            DetailScreen(navController)
         }
     }
 }

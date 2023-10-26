@@ -24,6 +24,29 @@ import com.fappslab.tmdbcompose.features.detail.presentation.viewmodel.DetailVie
 
 @Composable
 fun DetailScreen(
+    navHostController: NavHostController,
+    viewModel: DetailViewModel = hiltViewModel()
+) {
+    viewModel.getMovieDetail()
+
+    DetailScaffold(
+        state = viewModel.state.collectAsState(),
+        navigateToDetail = viewModel::onItemClicked,
+        onCollapse = viewModel::onCollapse,
+        onFavorite = viewModel::onFavorite,
+        onTryAgain = viewModel::onTryAgain
+    )
+
+    OnViewAction(viewModel) { action ->
+        when (action) {
+            is DetailViewAction.ItemClicked -> navHostController.navigateToDetail(action.id)
+            is DetailViewAction.TryAgain -> action.pagingItems.retry()
+        }
+    }
+}
+
+@Composable
+private fun DetailScaffold(
     state: State<DetailViewState>,
     navigateToDetail: (id: Int) -> Unit,
     onCollapse: () -> Unit,
@@ -52,35 +75,12 @@ fun DetailScreen(
     )
 }
 
-@Composable
-fun Detail(navHostController: NavHostController) {
-    val viewModel = hiltViewModel<DetailViewModel>()
-    val state = viewModel.state.collectAsState()
-
-    viewModel.getMovieDetail()
-
-    DetailScreen(
-        state = state,
-        navigateToDetail = viewModel::onItemClicked,
-        onCollapse = viewModel::onCollapse,
-        onFavorite = viewModel::onFavorite,
-        onTryAgain = viewModel::onTryAgain
-    )
-
-    OnViewAction(viewModel) { action ->
-        when (action) {
-            is DetailViewAction.ItemClicked -> navHostController.navigateToDetail(action.id)
-            is DetailViewAction.TryAgain -> action.pagingItems.retry()
-        }
-    }
-}
-
 @Preview
 @Composable
 fun DetailScreenPreview() {
     val state = remember { mutableStateOf(DetailViewState(detail = detailDataPreview())) }
 
-    DetailScreen(
+    DetailScaffold(
         state = state,
         navigateToDetail = {},
         onCollapse = {},

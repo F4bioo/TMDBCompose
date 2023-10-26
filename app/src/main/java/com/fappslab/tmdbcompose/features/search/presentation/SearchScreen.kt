@@ -20,6 +20,27 @@ import com.fappslab.tmdbcompose.features.search.presentation.viewmodel.SearchVie
 
 @Composable
 fun SearchScreen(
+    navHostController: NavHostController,
+    viewModel: SearchViewModel = hiltViewModel()
+) {
+    SearchScaffold(
+        state = viewModel.state.collectAsState(),
+        onSearch = viewModel::getSearchMovie,
+        onValueChange = viewModel::onSearch,
+        navigateToDetail = viewModel::onItemClicked,
+        onTryAgain = viewModel::onTryAgain
+    )
+
+    OnViewAction(viewModel) { action ->
+        when (action) {
+            is SearchViewAction.ItemClicked -> navHostController.navigateToDetail(action.id)
+            is SearchViewAction.TryAgain -> action.pagingItems.retry()
+        }
+    }
+}
+
+@Composable
+private fun SearchScaffold(
     state: State<SearchViewState>,
     onSearch: (query: String) -> Unit,
     onValueChange: (queryChanged: String) -> Unit,
@@ -46,25 +67,4 @@ fun SearchScreen(
             )
         }
     )
-}
-
-@Composable
-fun Search(navHostController: NavHostController) {
-    val viewModel = hiltViewModel<SearchViewModel>()
-    val state = viewModel.state.collectAsState()
-
-    SearchScreen(
-        state = state,
-        onSearch = viewModel::getSearchMovie,
-        onValueChange = viewModel::onSearch,
-        navigateToDetail = viewModel::onItemClicked,
-        onTryAgain = viewModel::onTryAgain
-    )
-
-    OnViewAction(viewModel) { action ->
-        when (action) {
-            is SearchViewAction.ItemClicked -> navHostController.navigateToDetail(action.id)
-            is SearchViewAction.TryAgain -> action.pagingItems.retry()
-        }
-    }
 }

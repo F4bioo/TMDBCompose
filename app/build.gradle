@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.dagger.hilt.android'
+    id 'com.google.devtools.ksp'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
 }
@@ -13,18 +14,19 @@ if (apiKeyPropertiesFile.exists()) {
     apiKeyProperties.load(new FileInputStream(apiKeyPropertiesFile))
 } else {
     println "The apiKey.properties file not found. Creating a new one, please fill out with your own API key."
+    // Note: Do not hard-code your API key here. This line is merely for the purpose of creating the apiKey.properties file.
     apiKeyProperties['API_KEY'] = "\"YOUR_DEFAULT_API_KEY_HERE\""
     apiKeyProperties.store(new FileOutputStream(apiKeyPropertiesFile), null)
 }
 
 android {
     namespace 'com.fappslab.tmdbcompose'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.fappslab.tmdbcompose"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -68,12 +70,12 @@ android {
 
 dependencies {
     // App Default
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
-    implementation 'androidx.activity:activity-compose:1.3.1'
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
+    implementation 'androidx.activity:activity-compose:1.8.0'
     implementation "androidx.compose.ui:ui:$compose_ui_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_ui_version"
-    implementation 'androidx.compose.material:material:1.2.0'
+    implementation 'androidx.compose.material:material:1.5.4'
 
     // App Default Tests
     testImplementation 'junit:junit:4.13.2'
@@ -88,6 +90,7 @@ dependencies {
 
     // Image Loading
     implementation "io.coil-kt:coil-compose:2.2.2"
+    implementation "com.github.bumptech.glide:compose:1.0.0-beta01"
 
     // Logging
     implementation "com.jakewharton.timber:timber:5.0.1"
@@ -97,10 +100,10 @@ dependencies {
     implementation "com.google.code.gson:gson:2.10"
 
     // Compose UI
-    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
-    implementation "androidx.compose.material:material-icons-extended:1.4.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2"
+    implementation "androidx.compose.material:material-icons-extended:1.5.4"
     implementation "com.google.accompanist:accompanist-flowlayout:0.17.0"
-    implementation "androidx.navigation:navigation-compose:2.5.3"
+    implementation "androidx.navigation:navigation-compose:2.7.4"
     implementation "androidx.constraintlayout:constraintlayout-compose:1.0.1"
 
     // Paging
@@ -108,8 +111,8 @@ dependencies {
     implementation "androidx.paging:paging-compose:3.2.1"
 
     // Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
 
     // Lifecycle Scopes
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2"
@@ -128,7 +131,7 @@ dependencies {
     kapt "androidx.hilt:hilt-compiler:1.0.0"
 
     // Database
-    implementation "androidx.room:room-ktx:2.4.2"
-    implementation "androidx.room:room-runtime:2.4.2"
-    kapt "androidx.room:room-compiler:2.4.2"
+    implementation "androidx.room:room-ktx:2.6.0"
+    implementation "androidx.room:room-runtime:2.6.0"
+    kapt "androidx.room:room-compiler:2.6.0"
 }
