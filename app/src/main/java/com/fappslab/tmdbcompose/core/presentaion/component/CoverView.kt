@@ -16,15 +16,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
-import coil.request.ImageRequest
 import com.fappslab.tmdbcompose.core.presentaion.component.preview.movieDataPreview
 
 @Composable
@@ -61,16 +57,11 @@ fun CoverView(
                 overflow = TextOverflow.Ellipsis,
                 textAlign = TextAlign.Center
             )
-            AsyncImage(
+            ImageLoaderView(
                 modifier = Modifier
                     .fillMaxSize()
                     .clip(RoundedCornerShape(8.dp)),
-                model = ImageRequest.Builder(LocalContext.current)
-                    .data(imageUrl)
-                    .crossfade(enable = true)
-                    .build(),
-                contentDescription = null,
-                contentScale = ContentScale.Crop
+                imageUrl = imageUrl
             )
             RateView(
                 modifier = Modifier

@@ -25,6 +25,9 @@
     <!--Search-->
     <string name="search_movies_field">Search movies</string>
 
+    <!--Favorite-->
+    <string name="favorite_empty_list">It seems you haven\'t added any movies to your favorites yet.</string>
+
     <!--Error-->
     <string name="error">Error</string>
     <string name="error_message">Something was wrong! Please check the internet connection and try again.</string>

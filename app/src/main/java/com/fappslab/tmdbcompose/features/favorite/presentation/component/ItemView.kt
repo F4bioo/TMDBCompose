@@ -21,18 +21,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
-import coil.request.ImageRequest
 import com.fappslab.tmdbcompose.core.domain.model.Movie
 import com.fappslab.tmdbcompose.core.presentaion.component.FavoriteToggleView
+import com.fappslab.tmdbcompose.core.presentaion.component.ImageLoaderView
 import com.fappslab.tmdbcompose.core.presentaion.component.RateView
 import com.fappslab.tmdbcompose.core.presentaion.component.preview.movieDataPreview
 
@@ -73,14 +70,9 @@ fun ItemView(
                         contentDescription = null,
                         colorFilter = ColorFilter.tint(Color.DarkGray)
                     )
-                    AsyncImage(
+                    ImageLoaderView(
                         modifier = Modifier.fillMaxSize(),
-                        model = ImageRequest.Builder(LocalContext.current)
-                            .data(movie.imageUrl)
-                            .crossfade(enable = true)
-                            .build(),
-                        contentDescription = null,
-                        contentScale = ContentScale.Crop
+                        imageUrl = movie.imageUrl
                     )
                     RateView(
                         modifier = Modifier
