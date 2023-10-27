@@ -20,6 +20,7 @@ class SearchViewModel @Inject constructor(
             .catch { }
             .cachedIn(viewModelScope)
         onState { it.copy(movies = movies) }
+        onAction { SearchViewAction.HideKeyboard }
     }
 
     fun onSearch(queryChanged: String) {

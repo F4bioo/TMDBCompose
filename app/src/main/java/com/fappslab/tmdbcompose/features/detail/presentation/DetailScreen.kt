@@ -3,11 +3,11 @@ package com.fappslab.tmdbcompose.features.detail.presentation
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
@@ -30,7 +30,7 @@ fun DetailScreen(
     viewModel.getMovieDetail()
 
     DetailScaffold(
-        state = viewModel.state.collectAsState(),
+        state = viewModel.state.collectAsStateWithLifecycle(),
         navigateToDetail = viewModel::onItemClicked,
         onCollapse = viewModel::onCollapse,
         onFavorite = viewModel::onFavorite,

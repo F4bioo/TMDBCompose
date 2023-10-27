@@ -3,13 +3,15 @@ package com.fappslab.tmdbcompose.features.search.presentation
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
-import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.platform.LocalView
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.fappslab.tmdbcompose.R
 import com.fappslab.tmdbcompose.core.arch.viewmodel.compose.OnViewAction
+import com.fappslab.tmdbcompose.core.data.common.extension.hideKeyboard
 import com.fappslab.tmdbcompose.core.domain.model.Movie
 import com.fappslab.tmdbcompose.core.presentaion.component.AppBarView
 import com.fappslab.tmdbcompose.core.presentaion.navigation.extension.navigateToDetail
@@ -23,8 +25,10 @@ fun SearchScreen(
     navHostController: NavHostController,
     viewModel: SearchViewModel = hiltViewModel()
 ) {
+    val view = LocalView.current
+
     SearchScaffold(
-        state = viewModel.state.collectAsState(),
+        state = viewModel.state.collectAsStateWithLifecycle(),
         onSearch = viewModel::getSearchMovie,
         onValueChange = viewModel::onSearch,
         navigateToDetail = viewModel::onItemClicked,
@@ -33,6 +37,7 @@ fun SearchScreen(
 
     OnViewAction(viewModel) { action ->
         when (action) {
+            SearchViewAction.HideKeyboard -> view.hideKeyboard()
             is SearchViewAction.ItemClicked -> navHostController.navigateToDetail(action.id)
             is SearchViewAction.TryAgain -> action.pagingItems.retry()
         }

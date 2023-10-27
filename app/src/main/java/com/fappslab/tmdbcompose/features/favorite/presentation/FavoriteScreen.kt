@@ -3,11 +3,11 @@ package com.fappslab.tmdbcompose.features.favorite.presentation
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import com.fappslab.tmdbcompose.R
 import com.fappslab.tmdbcompose.core.arch.viewmodel.compose.OnViewAction
@@ -26,7 +26,7 @@ fun FavoriteScreen(
     viewModel: FavoriteViewModel = hiltViewModel()
 ) {
     FavoriteScaffold(
-        state = viewModel.state.collectAsState(),
+        state = viewModel.state.collectAsStateWithLifecycle(),
         navigateToDetail = viewModel::onItemClicked,
         onCheckedChange = viewModel::onFavorite
     )
