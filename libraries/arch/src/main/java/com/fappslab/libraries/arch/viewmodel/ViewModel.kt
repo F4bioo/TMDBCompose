@@ -1,4 +1,4 @@
-package com.fappslab.tmdbcompose.core.arch.viewmodel
+package com.fappslab.libraries.arch.viewmodel
 
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
