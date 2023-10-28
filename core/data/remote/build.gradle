@@ -1,6 +1,6 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinAndroid)
 }
 apply from: "$rootDir/plugins/android-build.gradle"
 
@@ -31,15 +31,12 @@ android {
 
 dependencies {
     // Libs
-    // Networking
-    api "com.squareup.retrofit2:retrofit:2.9.0"
-    api "com.squareup.retrofit2:converter-gson:2.9.0"
-    implementation "com.squareup.okhttp3:okhttp:4.10.0"
-    implementation "com.squareup.okhttp3:logging-interceptor:4.9.3"
-
-    // Paging
-    api "androidx.paging:paging-runtime-ktx:3.2.1"
-    api "androidx.paging:paging-compose:3.2.1"
+    api libs.pagingRuntime
+    api libs.paging
+    api libs.retrofit
+    api libs.gsonConverter
+    implementation libs.okhttp
+    implementation libs.loggingInterceptor
 
     // Modules
     implementation project(Modules.arch)

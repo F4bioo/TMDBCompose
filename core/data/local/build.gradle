@@ -1,6 +1,6 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinAndroid)
 }
 apply from: "$rootDir/plugins/android-build.gradle"
 
@@ -17,11 +17,9 @@ android {
 
 dependencies {
     // Libs
-
-    // Database
-    implementation "androidx.room:room-ktx:2.6.0"
-    implementation "androidx.room:room-runtime:2.6.0"
-    kapt "androidx.room:room-compiler:2.6.0"
+    implementation libs.room
+    implementation libs.roomRuntime
+    kapt libs.roomCompiler
 
     // Modules
     implementation project(Modules.domain)

@@ -1,6 +1,6 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinAndroid)
 }
 apply from: "$rootDir/plugins/android-build.gradle"
 
@@ -10,11 +10,10 @@ android {
 
 dependencies {
     // Libs
-
-    // Lifecycle Scopes
-    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2"
-    api "androidx.lifecycle:lifecycle-runtime-ktx:2.6.2"
-    api "androidx.lifecycle:lifecycle-runtime-compose:2.6.2"
+    api libs.lifecycleViewmodelKtx
+    api libs.lifecycleRuntimeKtx
+    api libs.lifecycleRuntime
+    implementation libs.timber
 
     // Modules
 

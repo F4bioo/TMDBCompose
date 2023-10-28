@@ -11,11 +11,7 @@ java {
 
 dependencies {
     // Libs
-
-    // Dependency injection
-    implementation "javax.inject:javax.inject:1"
-
-    // Coroutines
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
+    implementation libs.javaxInject
+    api libs.kotlinxCoroutines
+    api libs.kotlinxCoroutinesAndroid
 }

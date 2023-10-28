@@ -1,7 +1,7 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-parcelize'
+    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.kotlinParcelize)
 }
 apply from: "$rootDir/plugins/android-build.gradle"
 
@@ -33,6 +33,10 @@ android {
 }
 
 dependencies {
+    // Libs
+    implementation libs.splashscreen
+    implementation libs.timber
+
     // Modules
     implementation project(Modules.local)
     implementation project(Modules.remote)
@@ -44,49 +48,4 @@ dependencies {
     implementation project(Modules.search)
     implementation project(Modules.arch)
     implementation project(Modules.design)
-
-    // Core Libraries
-    implementation "androidx.core:core-splashscreen:1.0.1"
-
-    // Image Loading
-    implementation "io.coil-kt:coil-compose:2.2.2"
-    implementation "com.github.bumptech.glide:compose:1.0.0-beta01"
-
-    // Logging
-    implementation "com.jakewharton.timber:timber:5.0.1"
-
-    // Data Storage
-    implementation "androidx.datastore:datastore-preferences:1.0.0"
-    implementation "com.google.code.gson:gson:2.10"
-
-    // Compose UI
-    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2"
-    implementation "androidx.compose.material:material-icons-extended:1.5.4"
-    implementation "com.google.accompanist:accompanist-flowlayout:0.17.0"
-    implementation "androidx.navigation:navigation-compose:2.7.4"
-    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.1"
-
-    // Paging
-    implementation "androidx.paging:paging-runtime-ktx:3.2.1"
-    implementation "androidx.paging:paging-compose:3.2.1"
-
-    // Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
-
-    // Lifecycle Scopes
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.2"
-    implementation "androidx.lifecycle:lifecycle-runtime-compose:2.6.2"
-
-    // Networking
-    implementation "com.squareup.retrofit2:retrofit:2.9.0"
-    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
-    implementation "com.squareup.okhttp3:okhttp:5.0.0-alpha.2"
-    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2"
-
-    // Database
-    implementation "androidx.room:room-ktx:2.6.0"
-    implementation "androidx.room:room-runtime:2.6.0"
-    kapt "androidx.room:room-compiler:2.6.0"
 }
