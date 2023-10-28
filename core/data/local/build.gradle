@@ -1,0 +1,26 @@
+plugins {
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinAndroid)
+}
+apply from: "$rootDir/plugins/android-build.gradle"
+
+android {
+    namespace "${Config.namespace}.core.data.local"
+
+    defaultConfig {
+        buildConfigField "String", "DATA_BASE", '"movie"'
+    }
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+    // Libs
+    implementation libs.room
+    implementation libs.roomRuntime
+    kapt libs.roomCompiler
+
+    // Modules
+    implementation project(Modules.domain)
+}

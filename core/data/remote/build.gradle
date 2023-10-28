@@ -1,0 +1,44 @@
+plugins {
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinAndroid)
+}
+apply from: "$rootDir/plugins/android-build.gradle"
+
+def apiKeyPropertiesFile = rootProject.file("apiKey.properties")
+def apiKeyProperties = new Properties()
+
+if (apiKeyPropertiesFile.exists()) {
+    apiKeyProperties.load(new FileInputStream(apiKeyPropertiesFile))
+} else {
+    println "The apiKey.properties file not found. Creating a new one, please fill out with your own API key."
+    // Note: Do not hard-code your API key here. This line is merely for the purpose of creating the apiKey.properties file.
+    apiKeyProperties['API_KEY'] = "\"YOUR_DEFAULT_API_KEY_HERE\""
+    apiKeyProperties.store(new FileOutputStream(apiKeyPropertiesFile), null)
+}
+
+android {
+    namespace "${Config.namespace}.core.data.remote"
+
+    defaultConfig {
+        buildConfigField "String", "API_KEY", apiKeyProperties['API_KEY']
+        buildConfigField "String", "BASE_URL", '"https://api.themoviedb.org/3/"'
+        buildConfigField "String", "BASE_URL_IMAGE", '"https://image.tmdb.org/t/p/w1280"'
+    }
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+    // Libs
+    api libs.pagingRuntime
+    api libs.paging
+    api libs.retrofit
+    api libs.gsonConverter
+    implementation libs.okhttp
+    implementation libs.loggingInterceptor
+
+    // Modules
+    implementation project(Modules.arch)
+    implementation project(Modules.domain)
+}

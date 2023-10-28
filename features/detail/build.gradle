@@ -1,0 +1,21 @@
+plugins {
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinAndroid)
+}
+apply from: "$rootDir/plugins/android-build.gradle"
+
+android {
+    namespace "${Config.namespace}.features.detail"
+}
+
+dependencies {
+    // Libs
+
+    // Modules
+    implementation project(Modules.domain)
+    implementation project(Modules.arch)
+    implementation project(Modules.design)
+    implementation project(Modules.local)
+    implementation project(Modules.remote)
+    implementation project(Modules.navigation)
+}

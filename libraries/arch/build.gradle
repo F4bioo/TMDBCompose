@@ -1,0 +1,20 @@
+plugins {
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinAndroid)
+}
+apply from: "$rootDir/plugins/android-build.gradle"
+
+android {
+    namespace "${Config.namespace}.libraries.arch"
+}
+
+dependencies {
+    // Libs
+    api libs.lifecycleViewmodelKtx
+    api libs.lifecycleRuntimeKtx
+    api libs.lifecycleRuntime
+    implementation libs.timber
+
+    // Modules
+
+}

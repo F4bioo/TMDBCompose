@@ -1,0 +1,5 @@
+<resources>
+    <string name="favorite">Favorites</string>
+    <string name="favorite_movies">Favorite Movies</string>
+    <string name="favorite_empty_list">It seems you haven\'t added any movies to your favorites yet.</string>
+</resources>

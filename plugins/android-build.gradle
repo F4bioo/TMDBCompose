@@ -1,0 +1,77 @@
+apply plugin: "com.google.dagger.hilt.android"
+apply plugin: "com.google.devtools.ksp"
+apply plugin: "kotlin-kapt"
+
+android {
+    compileSdk Config.compileSdk
+
+    defaultConfig {
+        minSdk Config.minSdk
+        targetSdk Config.targetSdk
+        versionCode Config.versionCode
+        versionName Config.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "$rootDir/app/proguard-rules.pro"
+
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled = true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    "$rootDir/app/proguard-rules.pro"
+        }
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.4.3'
+    }
+    packaging {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+        freeCompilerArgs += ["-opt-in=kotlin.RequiresOptIn"]
+    }
+    kotlin {
+        jvmToolchain(17)
+    }
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+        disable 'MissingTranslation', 'ExtraTranslation'
+        xmlReport true
+    }
+    hilt {
+        enableAggregatingTask = true
+    }
+}
+
+dependencies {
+    // Libs
+    implementation libs.bundles.defaultAndroid
+    implementation libs.lifecycleViewmodel
+    implementation libs.materialIcons
+    implementation libs.flowlayout
+    implementation libs.navigation
+    implementation libs.constraintlayout
+    implementation libs.hiltAndroid
+    implementation libs.hiltNavigation
+    kapt libs.hiltCompiler
+    kapt libs.androidxHiltCompiler
+
+    // TestLibs
+    testImplementation libs.bundles.defaultAndroidTest
+}

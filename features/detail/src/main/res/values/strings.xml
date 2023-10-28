@@ -1,0 +1,9 @@
+<resources>
+    <string name="detail_movie">Movie Detail</string>
+    <string name="release_date">Release</string>
+    <string name="vote_average">"Average (votes)"</string>
+    <string name="duration">Duration</string>
+    <string name="duration_minutes">%1$s min.</string>
+    <string name="movies_similar">Similar Movies</string>
+    <string name="synopsis">Synopsis</string>
+</resources>

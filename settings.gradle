@@ -14,4 +14,24 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "TMDBCompose"
+
+// keep it in alphabetical order
+
+// App
 include ':app'
+
+// Core
+include ':core:data:local',
+        ':core:data:remote',
+        ':core:domain',
+        ':core:navigation'
+
+// Features
+include ':features:detail',
+        ':features:favorite',
+        ':features:popular',
+        ':features:search'
+
+// Libraries
+include ':libraries:arch',
+        ':libraries:design'
