@@ -1,0 +1,28 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+apply from: "$rootDir/plugins/android-build.gradle"
+
+android {
+    namespace "${Config.namespace}.core.data.local"
+
+    defaultConfig {
+        buildConfigField "String", "DATA_BASE", '"movie"'
+    }
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+    // Libs
+
+    // Database
+    implementation "androidx.room:room-ktx:2.6.0"
+    implementation "androidx.room:room-runtime:2.6.0"
+    kapt "androidx.room:room-compiler:2.6.0"
+
+    // Modules
+    implementation project(Modules.domain)
+}
