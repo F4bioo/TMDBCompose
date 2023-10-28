@@ -1,0 +1,20 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+apply from: "$rootDir/plugins/android-build.gradle"
+
+android {
+    namespace "${Config.namespace}.features.favorites"
+}
+
+dependencies {
+    // Libs
+
+    // Modules
+    implementation project(Modules.domain)
+    implementation project(Modules.arch)
+    implementation project(Modules.design)
+    implementation project(Modules.local)
+    implementation project(Modules.navigation)
+}
