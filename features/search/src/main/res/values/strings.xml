@@ -1,0 +1,5 @@
+<resources>
+    <string name="search">Search</string>
+    <string name="search_movies">Movie Search</string>
+    <string name="search_movies_field">Search movies</string>
+</resources>
