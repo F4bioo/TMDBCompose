@@ -1,0 +1,47 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+apply from: "$rootDir/plugins/android-build.gradle"
+
+def apiKeyPropertiesFile = rootProject.file("apiKey.properties")
+def apiKeyProperties = new Properties()
+
+if (apiKeyPropertiesFile.exists()) {
+    apiKeyProperties.load(new FileInputStream(apiKeyPropertiesFile))
+} else {
+    println "The apiKey.properties file not found. Creating a new one, please fill out with your own API key."
+    // Note: Do not hard-code your API key here. This line is merely for the purpose of creating the apiKey.properties file.
+    apiKeyProperties['API_KEY'] = "\"YOUR_DEFAULT_API_KEY_HERE\""
+    apiKeyProperties.store(new FileOutputStream(apiKeyPropertiesFile), null)
+}
+
+android {
+    namespace "${Config.namespace}.core.data.remote"
+
+    defaultConfig {
+        buildConfigField "String", "API_KEY", apiKeyProperties['API_KEY']
+        buildConfigField "String", "BASE_URL", '"https://api.themoviedb.org/3/"'
+        buildConfigField "String", "BASE_URL_IMAGE", '"https://image.tmdb.org/t/p/w1280"'
+    }
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+    // Libs
+    // Networking
+    api "com.squareup.retrofit2:retrofit:2.9.0"
+    api "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.okhttp3:okhttp:4.10.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.3"
+
+    // Paging
+    api "androidx.paging:paging-runtime-ktx:3.2.1"
+    api "androidx.paging:paging-compose:3.2.1"
+
+    // Modules
+    implementation project(Modules.arch)
+    implementation project(Modules.domain)
+}
