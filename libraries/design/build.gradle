@@ -1,0 +1,19 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+apply from: "$rootDir/plugins/android-build.gradle"
+
+android {
+    namespace "${Config.namespace}.libraries.design"
+}
+
+dependencies {
+    // Libs
+    implementation "io.coil-kt:coil-compose:2.2.2"
+    implementation "androidx.core:core-splashscreen:1.0.1"
+
+    // Modules
+    implementation project(Modules.domain)
+    implementation project(Modules.arch)
+}

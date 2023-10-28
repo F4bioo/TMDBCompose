@@ -1,4 +1,4 @@
-package com.fappslab.tmdbcompose.ui.theme
+package com.fappslab.libraries.design.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
