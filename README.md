@@ -6,7 +6,7 @@ Work in Progress...
 
 This project has been developed in Android Studio version:
 -  `Giraffe | 2022.3.1 Patch 2`
--  `Build `#AI-223.8836.35.2231.10811636`
+-  `Build #AI-223.8836.35.2231.10811636`
 -  `Java JDK 17`
 
 To get started with this project, you'll need an API key from The Movie Database (TMDB). Find more details and instructions on how to obtain the key [here](https://developer.themoviedb.org/docs).
