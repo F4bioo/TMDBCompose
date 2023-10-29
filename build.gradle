@@ -5,6 +5,11 @@ plugins {
     alias(libs.plugins.androidLibrary) apply false
     alias(libs.plugins.kotlinJvm) apply false
     alias(libs.plugins.kotlinParcelize) apply false
-    alias(libs.plugins.hiltDndroid) apply false
+    alias(libs.plugins.hiltAndroidPlugin) apply false
     alias(libs.plugins.devtoolsKsp) apply false
+    alias(libs.plugins.graphAssertion)
 }
+
+// Plugin 'graphAssertion': This will generate a file named 'graphviz.txt' in the 'build\reports' directory.
+// To execute this command, use the following Gradle command:
+// gradlew generateModulesGraphvizText -Pmodules.graph.output.gv=build\reports\graphviz.txt

@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" width="943pt" height="838pt"
+    viewBox="0.00 0.00 942.89 838.37">
+    <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 834.3702)">
+        <title>G</title>
+        <polygon fill="#ffffff" stroke="transparent"
+            points="-4,4 -4,-834.3702 938.8936,-834.3702 938.8936,4 -4,4" />
+        <!-- :app -->
+        <g id="node1" class="node">
+            <title>:app</title>
+            <ellipse fill="none" stroke="#000000" cx="76.9886" cy="-528.2358" rx="27.8286"
+                ry="18" />
+            <text text-anchor="middle" x="76.9886" y="-524.0358" font-family="Times,serif"
+                font-size="14.00" fill="#000000">:app
+            </text>
+        </g>
+        <!-- :core:data:local -->
+        <g id="node2" class="node">
+            <title>:core:data:local</title>
+            <ellipse fill="none" stroke="#000000" cx="799.5732" cy="-198.2425" rx="70.6181"
+                ry="18" />
+            <text text-anchor="middle" x="799.5732" y="-194.0425" font-family="Times,serif"
+                font-size="14.00" fill="#000000">:core:data:local
+            </text>
+        </g>
+        <!-- :app&#45;&gt;:core:data:local -->
+        <g id="edge1" class="edge">
+            <title>:app-&gt;:core:data:local</title>
+            <path fill="none" stroke="#000000"
+                d="M99.8076,-517.8147C201.9495,-471.168 618.1417,-281.0994 755.4154,-218.4086" />
+            <polygon fill="#000000" stroke="#000000"
+                points="757.1666,-221.4567 764.809,-214.1187 754.2587,-215.0892 757.1666,-221.4567" />
+        </g>
+        <!-- :core:data:remote -->
+        <g id="node3" class="node">
+            <title>:core:data:remote</title>
+            <ellipse fill="none" stroke="#000000" cx="799.5732" cy="-632.1277" rx="78.7047"
+                ry="18" />
+            <text text-anchor="middle" x="799.5732" y="-627.9277" font-family="Times,serif"
+                font-size="14.00" fill="#000000">:core:data:remote
+            </text>
+        </g>
+        <!-- :app&#45;&gt;:core:data:remote -->
+        <g id="edge2" class="edge">
+            <title>:app-&gt;:core:data:remote</title>
+            <path fill="none" stroke="#000000"
+                d="M104.4324,-532.1816C206.1531,-546.8068 563.9599,-598.2517 722.7174,-621.0776" />
+            <polygon fill="#000000" stroke="#000000"
+                points="722.4854,-624.5801 732.8818,-622.539 723.4817,-617.6514 722.4854,-624.5801" />
+        </g>
+        <!-- :core:domain -->
+        <g id="node4" class="node">
+            <title>:core:domain</title>
+            <ellipse fill="none" stroke="#000000" cx="404.8972" cy="-18" rx="61.977" ry="18" />
+            <text text-anchor="middle" x="404.8972" y="-13.8" font-family="Times,serif"
+                font-size="14.00" fill="#000000">:core:domain
+            </text>
+        </g>
+        <!-- :app&#45;&gt;:core:domain -->
+        <g id="edge3" class="edge">
+            <title>:app-&gt;:core:domain</title>
+            <path fill="none" stroke="#000000"
+                d="M87.7123,-511.5494C135.4659,-437.2434 328.9953,-136.1058 387.8409,-44.5401" />
+            <polygon fill="#000000" stroke="#000000"
+                points="390.9538,-46.1701 393.4159,-35.8653 385.065,-42.3856 390.9538,-46.1701" />
+        </g>
+        <!-- :core:navigation -->
+        <g id="node5" class="node">
+            <title>:core:navigation</title>
+            <ellipse fill="none" stroke="#000000" cx="199.2282" cy="-111.9259" rx="73.5753"
+                ry="18" />
+            <text text-anchor="middle" x="199.2282" y="-107.7259" font-family="Times,serif"
+                font-size="14.00" fill="#000000">:core:navigation
+            </text>
+        </g>
+        <!-- :app&#45;&gt;:core:navigation -->
+        <g id="edge4" class="edge">
+            <title>:app-&gt;:core:navigation</title>
+            <path fill="none" stroke="#000000"
+                d="M82.2411,-510.3475C101.3968,-445.1091 167.6015,-219.6367 190.9763,-140.0292" />
+            <polygon fill="#000000" stroke="#000000"
+                points="194.3985,-140.7974 193.8576,-130.2164 187.682,-138.8253 194.3985,-140.7974" />
+        </g>
+        <!-- :features:detail -->
+        <g id="node6" class="node">
+            <title>:features:detail</title>
+            <ellipse fill="none" stroke="#000000" cx="628.6972" cy="-50.1776" rx="68.3285"
+                ry="18" />
+            <text text-anchor="middle" x="628.6972" y="-45.9776" font-family="Times,serif"
+                font-size="14.00" fill="#000000">:features:detail
+            </text>
+        </g>
+        <!-- :app&#45;&gt;:features:detail -->
+        <g id="edge5" class="edge">
+            <title>:app-&gt;:features:detail</title>
+            <path fill="none" stroke="#000000"
+                d="M93.8014,-513.6674C172.2298,-445.7088 502.4579,-159.5645 600.8922,-74.2707" />
+            <polygon fill="#000000" stroke="#000000"
+                points="603.3681,-76.7565 608.6336,-67.5628 598.7841,-71.4663 603.3681,-76.7565" />
+        </g>
+        <!-- :features:favorite -->
+        <g id="node7" class="node">
+            <title>:features:favorite</title>
+            <ellipse fill="none" stroke="#000000" cx="76.9886" cy="-302.1344" rx="76.9772"
+                ry="18" />
+            <text text-anchor="middle" x="76.9886" y="-297.9344" font-family="Times,serif"
+                font-size="14.00" fill="#000000">:features:favorite
+            </text>
+        </g>
+        <!-- :app&#45;&gt;:features:favorite -->
+        <g id="edge6" class="edge">
+            <title>:app-&gt;:features:favorite</title>
+            <path fill="none" stroke="#000000"
+                d="M76.9886,-510.1152C76.9886,-470.839 76.9886,-377.6129 76.9886,-330.4714" />
+            <polygon fill="#000000" stroke="#000000"
+                points="80.4887,-330.3413 76.9886,-320.3414 73.4887,-330.3414 80.4887,-330.3413" />
+        </g>
+        <!-- :features:popular -->
+        <g id="node8" class="node">
+            <title>:features:popular</title>
+            <ellipse fill="none" stroke="#000000" cx="404.8972" cy="-812.3702" rx="76.4208"
+                ry="18" />
+            <text text-anchor="middle" x="404.8972" y="-808.1702" font-family="Times,serif"
+                font-size="14.00" fill="#000000">:features:popular
+            </text>
+        </g>
+        <!-- :app&#45;&gt;:features:popular -->
+        <g id="edge7" class="edge">
+            <title>:app-&gt;:features:popular</title>
+            <path fill="none" stroke="#000000"
+                d="M93.7005,-542.7167C146.5169,-588.4824 310.2607,-730.3672 376.5779,-787.8313" />
+            <polygon fill="#000000" stroke="#000000"
+                points="374.6865,-790.8236 384.536,-794.7271 379.2705,-785.5334 374.6865,-790.8236" />
+        </g>
+        <!-- :features:search -->
+        <g id="node9" class="node">
+            <title>:features:search</title>
+            <ellipse fill="none" stroke="#000000" cx="863.2733" cy="-415.1851" rx="71.7408"
+                ry="18" />
+            <text text-anchor="middle" x="863.2733" y="-410.9851" font-family="Times,serif"
+                font-size="14.00" fill="#000000">:features:search
+            </text>
+        </g>
+        <!-- :app&#45;&gt;:features:search -->
+        <g id="edge8" class="edge">
+            <title>:app-&gt;:features:search</title>
+            <path fill="none" stroke="#000000"
+                d="M104.0543,-524.3443C213.2157,-508.6493 623.2746,-449.6917 791.0453,-425.5699" />
+            <polygon fill="#000000" stroke="#000000"
+                points="791.6191,-429.0235 801.0192,-424.1359 790.6229,-422.0947 791.6191,-429.0235" />
+        </g>
+        <!-- :libraries:arch -->
+        <g id="node10" class="node">
+            <title>:libraries:arch</title>
+            <ellipse fill="none" stroke="#000000" cx="628.6972" cy="-780.1926" rx="64.8176"
+                ry="18" />
+            <text text-anchor="middle" x="628.6972" y="-775.9926" font-family="Times,serif"
+                font-size="14.00" fill="#000000">:libraries:arch
+            </text>
+        </g>
+        <!-- :app&#45;&gt;:libraries:arch -->
+        <g id="edge9" class="edge">
+            <title>:app-&gt;:libraries:arch</title>
+            <path fill="none" stroke="#000000"
+                d="M99.6448,-538.5825C183.1836,-576.7334 474.8397,-709.9283 585.5896,-760.5061" />
+            <polygon fill="#000000" stroke="#000000"
+                points="584.2523,-763.743 594.8026,-764.7135 587.1602,-757.3756 584.2523,-763.743" />
+        </g>
+        <!-- :libraries:design -->
+        <g id="node11" class="node">
+            <title>:libraries:design</title>
+            <ellipse fill="none" stroke="#000000" cx="199.2282" cy="-718.4443" rx="73.0074"
+                ry="18" />
+            <text text-anchor="middle" x="199.2282" y="-714.2443" font-family="Times,serif"
+                font-size="14.00" fill="#000000">:libraries:design
+            </text>
+        </g>
+        <!-- :app&#45;&gt;:libraries:design -->
+        <g id="edge10" class="edge">
+            <title>:app-&gt;:libraries:design</title>
+            <path fill="none" stroke="#000000"
+                d="M87.8366,-545.1155C109.1404,-578.265 156.5895,-652.0972 182.1442,-691.8611" />
+            <polygon fill="#000000" stroke="#000000"
+                points="179.3438,-693.9775 187.6947,-700.4978 185.2326,-690.193 179.3438,-693.9775" />
+        </g>
+        <!-- :core:data:local&#45;&gt;:core:domain -->
+        <g id="edge11" class="edge">
+            <title>:core:data:local-&gt;:core:domain</title>
+            <path fill="none" stroke="#000000"
+                d="M764.8942,-182.4051C692.5925,-149.386 525.9553,-73.2854 447.3732,-37.3981" />
+            <polygon fill="#000000" stroke="#000000"
+                points="448.7891,-34.1971 438.2388,-33.2266 445.8811,-40.5645 448.7891,-34.1971" />
+        </g>
+        <!-- :core:data:remote&#45;&gt;:core:domain -->
+        <g id="edge13" class="edge">
+            <title>:core:data:remote-&gt;:core:domain</title>
+            <path fill="none" stroke="#000000"
+                d="M787.975,-614.0807C731.862,-526.7671 488.5339,-148.1413 421.8507,-44.3802" />
+            <polygon fill="#000000" stroke="#000000"
+                points="424.6566,-42.2723 416.3057,-35.752 418.7678,-46.0568 424.6566,-42.2723" />
+        </g>
+        <!-- :core:data:remote&#45;&gt;:libraries:arch -->
+        <g id="edge12" class="edge">
+            <title>:core:data:remote-&gt;:libraries:arch</title>
+            <path fill="none" stroke="#000000"
+                d="M779.3004,-649.6942C748.7728,-676.1465 690.9176,-726.2783 656.4831,-756.116" />
+            <polygon fill="#000000" stroke="#000000"
+                points="653.9446,-753.6844 648.6791,-762.8782 658.5287,-758.9747 653.9446,-753.6844" />
+        </g>
+        <!-- :core:navigation&#45;&gt;:core:domain -->
+        <g id="edge14" class="edge">
+            <title>:core:navigation-&gt;:core:domain</title>
+            <path fill="none" stroke="#000000"
+                d="M234.1172,-95.9926C269.5107,-79.8289 324.3411,-54.7887 362.2835,-37.461" />
+            <polygon fill="#000000" stroke="#000000"
+                points="363.9015,-40.5699 371.5439,-33.232 360.9936,-34.2025 363.9015,-40.5699" />
+        </g>
+        <!-- :features:detail&#45;&gt;:core:data:local -->
+        <g id="edge18" class="edge">
+            <title>:features:detail-&gt;:core:data:local</title>
+            <path fill="none" stroke="#000000"
+                d="M648.6333,-67.4523C679.0341,-93.7947 737.0866,-144.0976 771.6631,-174.0582" />
+            <polygon fill="#000000" stroke="#000000"
+                points="769.6504,-176.9454 779.4999,-180.8489 774.2344,-171.6551 769.6504,-176.9454" />
+        </g>
+        <!-- :features:detail&#45;&gt;:core:data:remote -->
+        <g id="edge19" class="edge">
+            <title>:features:detail-&gt;:core:data:remote</title>
+            <path fill="none" stroke="#000000"
+                d="M633.9985,-68.2323C658.5632,-151.8917 761.3899,-502.0875 791.3491,-604.119" />
+            <polygon fill="#000000" stroke="#000000"
+                points="788.0737,-605.3874 794.2493,-613.9963 794.7901,-603.4152 788.0737,-605.3874" />
+        </g>
+        <!-- :features:detail&#45;&gt;:core:domain -->
+        <g id="edge15" class="edge">
+            <title>:features:detail-&gt;:core:domain</title>
+            <path fill="none" stroke="#000000"
+                d="M568.4285,-41.5122C538.3026,-37.1808 501.7819,-31.9299 470.9018,-27.49" />
+            <polygon fill="#000000" stroke="#000000"
+                points="471.0593,-23.9768 460.663,-26.0179 470.0631,-30.9055 471.0593,-23.9768" />
+        </g>
+        <!-- :features:detail&#45;&gt;:core:navigation -->
+        <g id="edge20" class="edge">
+            <title>:features:detail-&gt;:core:navigation</title>
+            <path fill="none" stroke="#000000"
+                d="M568.5292,-58.8284C490.9983,-69.9757 356.2801,-89.3452 272.7584,-101.3538" />
+            <polygon fill="#000000" stroke="#000000"
+                points="272.234,-97.8932 262.8339,-102.7808 273.2302,-104.8219 272.234,-97.8932" />
+        </g>
+        <!-- :features:detail&#45;&gt;:libraries:arch -->
+        <g id="edge16" class="edge">
+            <title>:features:detail-&gt;:libraries:arch</title>
+            <path fill="none" stroke="#000000"
+                d="M628.6972,-68.223C628.6972,-165.9515 628.6972,-631.8388 628.6972,-751.9118" />
+            <polygon fill="#000000" stroke="#000000"
+                points="625.1973,-752.1245 628.6972,-762.1245 632.1973,-752.1245 625.1973,-752.1245" />
+        </g>
+        <!-- :features:detail&#45;&gt;:libraries:design -->
+        <g id="edge17" class="edge">
+            <title>:features:detail-&gt;:libraries:design</title>
+            <path fill="none" stroke="#000000"
+                d="M617.2099,-68.0521C557.9807,-160.2146 287.1282,-581.6693 216.2458,-691.9645" />
+            <polygon fill="#000000" stroke="#000000"
+                points="213.2131,-690.2097 210.751,-700.5145 219.1019,-693.9942 213.2131,-690.2097" />
+        </g>
+        <!-- :features:favorite&#45;&gt;:core:data:local -->
+        <g id="edge24" class="edge">
+            <title>:features:favorite-&gt;:core:data:local</title>
+            <path fill="none" stroke="#000000"
+                d="M142.7078,-292.6854C278.1312,-273.2145 587.3137,-228.7608 727.771,-208.5661" />
+            <polygon fill="#000000" stroke="#000000"
+                points="728.5934,-211.9839 737.9934,-207.0963 727.5971,-205.0551 728.5934,-211.9839" />
+        </g>
+        <!-- :features:favorite&#45;&gt;:core:domain -->
+        <g id="edge21" class="edge">
+            <title>:features:favorite-&gt;:core:domain</title>
+            <path fill="none" stroke="#000000"
+                d="M97.5008,-284.3606C154.1078,-235.3103 312.5787,-97.9945 377.068,-42.1142" />
+            <polygon fill="#000000" stroke="#000000"
+                points="379.546,-44.5981 384.8115,-35.4044 374.962,-39.3079 379.546,-44.5981" />
+        </g>
+        <!-- :features:favorite&#45;&gt;:core:navigation -->
+        <g id="edge25" class="edge">
+            <title>:features:favorite-&gt;:core:navigation</title>
+            <path fill="none" stroke="#000000"
+                d="M88.4886,-284.2401C110.0573,-250.6785 156.6857,-178.1234 182.013,-138.7134" />
+            <polygon fill="#000000" stroke="#000000"
+                points="185.2077,-140.2161 187.6697,-129.9113 179.3189,-136.4316 185.2077,-140.2161" />
+        </g>
+        <!-- :features:favorite&#45;&gt;:libraries:arch -->
+        <g id="edge22" class="edge">
+            <title>:features:favorite-&gt;:libraries:arch</title>
+            <path fill="none" stroke="#000000"
+                d="M97.2785,-319.7157C181.6125,-392.7915 504.5303,-672.6014 601.1986,-756.365" />
+            <polygon fill="#000000" stroke="#000000"
+                points="598.9551,-759.0521 608.8046,-762.9556 603.5391,-753.7618 598.9551,-759.0521" />
+        </g>
+        <!-- :features:favorite&#45;&gt;:libraries:design -->
+        <g id="edge23" class="edge">
+            <title>:features:favorite-&gt;:libraries:design</title>
+            <path fill="none" stroke="#000000"
+                d="M82.3197,-320.2904C101.582,-385.8918 167.666,-610.9534 190.9937,-690.4" />
+            <polygon fill="#000000" stroke="#000000"
+                points="187.6934,-691.5839 193.8691,-700.1927 194.4099,-689.6117 187.6934,-691.5839" />
+        </g>
+        <!-- :features:popular&#45;&gt;:core:data:local -->
+        <g id="edge29" class="edge">
+            <title>:features:popular-&gt;:core:data:local</title>
+            <path fill="none" stroke="#000000"
+                d="M416.4954,-794.3231C472.5466,-707.1058 715.4007,-329.2173 782.3987,-224.9665" />
+            <polygon fill="#000000" stroke="#000000"
+                points="785.5123,-226.5953 787.9744,-216.2905 779.6235,-222.8108 785.5123,-226.5953" />
+        </g>
+        <!-- :features:popular&#45;&gt;:core:data:remote -->
+        <g id="edge30" class="edge">
+            <title>:features:popular-&gt;:core:data:remote</title>
+            <path fill="none" stroke="#000000"
+                d="M440.2694,-796.2163C512.2683,-763.3355 675.7179,-688.6905 754.9103,-652.5246" />
+            <polygon fill="#000000" stroke="#000000"
+                points="756.4961,-655.6482 764.1384,-648.3103 753.5881,-649.2808 756.4961,-655.6482" />
+        </g>
+        <!-- :features:popular&#45;&gt;:core:domain -->
+        <g id="edge26" class="edge">
+            <title>:features:popular-&gt;:core:domain</title>
+            <path fill="none" stroke="#000000"
+                d="M404.8972,-794.2862C404.8972,-690.7248 404.8972,-173.0838 404.8972,-46.1399" />
+            <polygon fill="#000000" stroke="#000000"
+                points="408.3973,-46.0558 404.8972,-36.0558 401.3973,-46.0559 408.3973,-46.0558" />
+        </g>
+        <!-- :features:popular&#45;&gt;:core:navigation -->
+        <g id="edge31" class="edge">
+            <title>:features:popular-&gt;:core:navigation</title>
+            <path fill="none" stroke="#000000"
+                d="M399.6066,-794.3519C371.7121,-699.3522 241.7092,-256.6027 207.4964,-140.0848" />
+            <polygon fill="#000000" stroke="#000000"
+                points="210.7539,-138.7555 204.5783,-130.1466 204.0375,-140.7277 210.7539,-138.7555" />
+        </g>
+        <!-- :features:popular&#45;&gt;:libraries:arch -->
+        <g id="edge27" class="edge">
+            <title>:features:popular-&gt;:libraries:arch</title>
+            <path fill="none" stroke="#000000"
+                d="M470.2311,-802.9766C498.7377,-798.878 532.1515,-794.0738 560.9286,-789.9363" />
+            <polygon fill="#000000" stroke="#000000"
+                points="561.4983,-793.3905 570.8983,-788.5029 560.502,-786.4617 561.4983,-793.3905" />
+        </g>
+        <!-- :features:popular&#45;&gt;:libraries:design -->
+        <g id="edge28" class="edge">
+            <title>:features:popular-&gt;:libraries:design</title>
+            <path fill="none" stroke="#000000"
+                d="M369.5415,-796.2238C334.6016,-780.2673 281.0542,-755.813 243.3469,-738.5927" />
+            <polygon fill="#000000" stroke="#000000"
+                points="244.6729,-735.3506 234.1226,-734.3801 241.765,-741.718 244.6729,-735.3506" />
+        </g>
+        <!-- :features:search&#45;&gt;:core:data:remote -->
+        <g id="edge35" class="edge">
+            <title>:features:search-&gt;:core:data:remote</title>
+            <path fill="none" stroke="#000000"
+                d="M857.9518,-433.3084C846.8277,-471.1935 821.048,-558.9911 807.7834,-604.1663" />
+            <polygon fill="#000000" stroke="#000000"
+                points="804.3835,-603.3225 804.9243,-613.9035 811.0999,-605.2946 804.3835,-603.3225" />
+        </g>
+        <!-- :features:search&#45;&gt;:core:domain -->
+        <g id="edge32" class="edge">
+            <title>:features:search-&gt;:core:domain</title>
+            <path fill="none" stroke="#000000"
+                d="M843.2827,-397.8632C770.0847,-334.4367 516.5768,-114.7709 432.3459,-41.7844" />
+            <polygon fill="#000000" stroke="#000000"
+                points="434.5843,-39.0928 424.7347,-35.1893 430.0002,-44.3831 434.5843,-39.0928" />
+        </g>
+        <!-- :features:search&#45;&gt;:core:navigation -->
+        <g id="edge36" class="edge">
+            <title>:features:search-&gt;:core:navigation</title>
+            <path fill="none" stroke="#000000"
+                d="M828.5063,-399.3076C716.8002,-348.2931 367.1285,-188.6034 243.2635,-132.0361" />
+            <polygon fill="#000000" stroke="#000000"
+                points="244.6009,-128.7992 234.0506,-127.8287 241.693,-135.1667 244.6009,-128.7992" />
+        </g>
+        <!-- :features:search&#45;&gt;:libraries:arch -->
+        <g id="edge33" class="edge">
+            <title>:features:search-&gt;:libraries:arch</title>
+            <path fill="none" stroke="#000000"
+                d="M851.8004,-433.0373C813.6828,-492.3494 691.1189,-683.0626 645.774,-753.6205" />
+            <polygon fill="#000000" stroke="#000000"
+                points="642.61,-752.07 640.148,-762.3748 648.4988,-755.8545 642.61,-752.07" />
+        </g>
+        <!-- :features:search&#45;&gt;:libraries:design -->
+        <g id="edge34" class="edge">
+            <title>:features:search-&gt;:libraries:design</title>
+            <path fill="none" stroke="#000000"
+                d="M828.5063,-431.0627C716.8002,-482.0771 367.1285,-641.7669 243.2635,-698.3341" />
+            <polygon fill="#000000" stroke="#000000"
+                points="241.693,-695.2035 234.0506,-702.5415 244.6009,-701.571 241.693,-695.2035" />
+        </g>
+        <!-- :libraries:design&#45;&gt;:core:domain -->
+        <g id="edge37" class="edge">
+            <title>:libraries:design-&gt;:core:domain</title>
+            <path fill="none" stroke="#000000"
+                d="M204.5189,-700.426C232.4133,-605.4263 362.4163,-162.6768 396.629,-46.1589" />
+            <polygon fill="#000000" stroke="#000000"
+                points="400.088,-46.8018 399.5471,-36.2207 393.3715,-44.8296 400.088,-46.8018" />
+        </g>
+        <!-- :libraries:design&#45;&gt;:libraries:arch -->
+        <g id="edge38" class="edge">
+            <title>:libraries:design-&gt;:libraries:arch</title>
+            <path fill="none" stroke="#000000"
+                d="M262.5978,-727.5555C342.4488,-739.0363 479.1164,-758.6862 560.9718,-770.4552" />
+            <polygon fill="#000000" stroke="#000000"
+                points="560.5236,-773.9267 570.92,-771.8855 561.5199,-766.9979 560.5236,-773.9267" />
+        </g>
+    </g>
+</svg>
