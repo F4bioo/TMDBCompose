@@ -12,15 +12,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import com.fappslab.core.domain.model.Movie
 import com.fappslab.libraries.design.component.CoverView
-import com.fappslab.libraries.design.component.ErrorView
-import com.fappslab.libraries.design.component.LoadingView
-import com.fappslab.tmdbcompose.features.popular.R
+import com.fappslab.libraries.design.component.FooterItemView
 
 @Composable
 internal fun MovieContent(
@@ -41,45 +37,21 @@ internal fun MovieContent(
             verticalArrangement = Arrangement.Top
         ) {
             items(pagingItems.itemCount) { index ->
-                val movie = pagingItems[index]
-                movie?.let {
-                    CoverView(
-                        id = it.id,
-                        title = it.title,
-                        voteAverage = it.voteAverage,
-                        imageUrl = it.imageUrl,
-                        onItemClick = onItemClick
-                    )
-                }
+                CoverView(
+                    movie = pagingItems[index],
+                    onItemClick = onItemClick
+                )
             }
-            pagingItems.apply {
-                when {
-                    loadState.refresh is LoadState.Loading ||
-                            loadState.append is LoadState.Loading -> {
-                        item(
-                            span = {
-                                GridItemSpan(maxLineSpan)
-                            }
-                        ) {
-                            LoadingView()
-                        }
-                    }
 
-                    loadState.refresh is LoadState.Error ||
-                            loadState.append is LoadState.Error -> {
-                        item(
-                            span = {
-                                GridItemSpan(maxLineSpan)
-                            }
-                        ) {
-                            ErrorView(
-                                message = stringResource(id = R.string.common_error_message)
-                            ) {
-                                onRetry()
-                            }
-                        }
-                    }
+            item(
+                span = {
+                    GridItemSpan(maxLineSpan)
                 }
+            ) {
+                FooterItemView(
+                    loadState = pagingItems.loadState,
+                    onRetry = onRetry
+                )
             }
         }
     }

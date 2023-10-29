@@ -12,6 +12,7 @@ dependencies {
     // Libs
     implementation libs.coil
     implementation libs.splashscreen
+    implementation libs.pagingCommon
 
     // Modules
     implementation project(Modules.domain)

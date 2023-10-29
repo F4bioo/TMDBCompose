@@ -21,7 +21,7 @@ import com.fappslab.libraries.design.component.preview.detailDataPreview
 import com.fappslab.tmdbcompose.features.detail.R
 
 @Composable
-fun InfoGroupView(
+internal fun InfoGroupView(
     modifier: Modifier = Modifier,
     detail: Detail
 ) {

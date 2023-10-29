@@ -24,7 +24,7 @@ import com.fappslab.libraries.design.component.preview.moviesDataPreview
 import com.fappslab.tmdbcompose.features.favorites.R
 
 @Composable
-fun FavoriteContent(
+internal fun FavoriteContent(
     modifier: Modifier = Modifier,
     paddingValues: PaddingValues,
     movies: List<Movie>,
@@ -72,7 +72,7 @@ fun FavoriteContent(
 
 @Preview
 @Composable
-fun FavoriteContentPreview() {
+private fun FavoriteContentPreview() {
     FavoriteContent(
         paddingValues = PaddingValues(),
         movies = moviesDataPreview(),

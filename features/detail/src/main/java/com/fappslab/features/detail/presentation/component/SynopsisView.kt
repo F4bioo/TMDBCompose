@@ -1,9 +1,11 @@
-package com.fappslab.tmdbcompose.features.detail.presentation.component
+package com.fappslab.features.detail.presentation.component
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -20,7 +22,7 @@ import androidx.compose.ui.unit.sp
 import com.fappslab.tmdbcompose.features.detail.R
 
 @Composable
-fun SynopsisView(
+internal fun SynopsisView(
     modifier: Modifier = Modifier,
     shouldCollapseText: Boolean,
     overview: String,
@@ -38,6 +40,9 @@ fun SynopsisView(
             fontWeight = FontWeight.ExtraBold,
             fontSize = 20.sp
         )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
         val (maxLines, overflow) = if (shouldCollapseText) {
             3 to TextOverflow.Ellipsis
         } else Int.MAX_VALUE to TextOverflow.Clip

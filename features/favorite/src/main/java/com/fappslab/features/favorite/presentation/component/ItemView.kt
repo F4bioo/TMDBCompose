@@ -34,7 +34,7 @@ import com.fappslab.libraries.design.component.RateView
 import com.fappslab.libraries.design.component.preview.movieDataPreview
 
 @Composable
-fun ItemView(
+internal fun ItemView(
     modifier: Modifier = Modifier,
     movie: Movie,
     isFavorite: Boolean,
@@ -116,7 +116,7 @@ fun ItemView(
 
 @Preview
 @Composable
-fun ItemViewPreview() {
+private fun ItemViewPreview() {
     val movie = movieDataPreview()
 
     ItemView(

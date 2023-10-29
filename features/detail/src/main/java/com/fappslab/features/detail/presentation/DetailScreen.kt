@@ -80,7 +80,7 @@ private fun DetailScaffold(
 
 @Preview
 @Composable
-fun DetailScreenPreview() {
+private fun DetailScreenPreview() {
     val state = remember { mutableStateOf(DetailViewState(detail = detailDataPreview())) }
 
     DetailScaffold(

@@ -14,7 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun GenreView(
+internal fun GenreView(
     genre: String
 ) {
     Box(

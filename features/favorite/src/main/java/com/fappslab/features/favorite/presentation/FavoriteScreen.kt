@@ -65,7 +65,7 @@ private fun FavoriteScaffold(
 
 @Preview
 @Composable
-fun FavoriteScaffoldPreview() {
+private fun FavoriteScaffoldPreview() {
     val state = remember { mutableStateOf(FavoriteViewState(movies = moviesDataPreview())) }
 
     FavoriteScaffold(
