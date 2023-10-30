@@ -8,11 +8,12 @@ import com.fappslab.tmdbcompose.libraries.design.R
 
 @Composable
 fun FooterItemView(
+    shouldShowLoading: Boolean = true,
     loadState: CombinedLoadStates,
     onRetry: () -> Unit
 ) {
     when {
-        loadState.refresh is LoadState.Loading || loadState.append is LoadState.Loading -> {
+        shouldShowLoading && loadState.refresh is LoadState.Loading || loadState.append is LoadState.Loading -> {
             LoadingView()
         }
 

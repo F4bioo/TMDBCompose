@@ -100,7 +100,8 @@ internal class DetailScreenKtTest {
         val expectedReleaseTitle = "Release"
         val expectedRelease = "2022-12-14"
 
-        screenRobot.givenState { initialState.copy(detail = detailDataPreview()) }
+        screenRobot
+            .givenState { initialState.copy(detail = detailDataPreview()) }
             .whenLaunch()
             .thenCheck { checkIfHasExactlyText(expectedAverageVotesTitle) }
             .thenCheck { checkIfHasExactlyText(expectedAverageVotes) }

@@ -72,6 +72,7 @@ internal fun SearchContent(
                 }
             ) {
                 FooterItemView(
+                    shouldShowLoading = state.shouldShowLoading,
                     loadState = pagingItems.loadState,
                     onRetry = onRetry
                 )

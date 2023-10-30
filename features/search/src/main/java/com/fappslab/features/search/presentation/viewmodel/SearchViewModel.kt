@@ -24,7 +24,7 @@ internal class SearchViewModel @Inject constructor(
     }
 
     fun onSearch(queryChanged: String) {
-        onState { it.copy(query = queryChanged) }
+        onState { it.copy(query = queryChanged, shouldShowLoading = true) }
     }
 
     fun onItemClicked(id: Int) {
