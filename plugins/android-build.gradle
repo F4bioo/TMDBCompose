@@ -73,7 +73,18 @@ dependencies {
     kapt libs.androidxHiltCompiler
 
     // TestLibs
+    debugImplementation libs.bundles.debugBundle
+
+    implementation libs.bundles.defaultAndroidTestBundle
+    implementation libs.hiltAndroidTesting
+    implementation libs.mockkAndroid
+    implementation libs.truth
+
     testImplementation libs.bundles.defaultTestBundle
+    testImplementation libs.mockk
+
     androidTestImplementation libs.bundles.defaultAndroidTestBundle
-    debugImplementation  libs.bundles.debugBundle
+    androidTestImplementation libs.hiltAndroidTesting
+    androidTestImplementation libs.mockkAndroid
+    androidTestImplementation libs.truth
 }

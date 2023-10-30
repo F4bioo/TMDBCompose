@@ -9,7 +9,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
+
+const val FAVORITE_TOGGLE_VIEW_TAG = "FavoriteToggleView"
 
 @Composable
 fun FavoriteToggleView(
@@ -20,7 +23,7 @@ fun FavoriteToggleView(
     val (imageVector, tint) = checkedHandler(isChecked)
 
     IconToggleButton(
-        modifier = modifier,
+        modifier = modifier.testTag(FAVORITE_TOGGLE_VIEW_TAG),
         checked = isChecked,
         onCheckedChange = onCheckedChange
     ) {

@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -28,14 +29,19 @@ import com.fappslab.tmdbcompose.features.detail.R
 import com.google.accompanist.flowlayout.FlowRow
 import com.google.accompanist.flowlayout.MainAxisAlignment
 
+internal const val HEADER_ITEM_VIEW_TAG = "HeaderItemView"
+internal const val MOVIE_TITLE_VIEW_TAG = "MovieTitleViewTag"
+
 @Composable
 internal fun HeaderItemView(
     state: DetailViewState,
     onFavorite: (movie: Movie) -> Unit,
-    onCollapse: () -> Unit,
+    onCollapse: (isExpanded: Boolean) -> Unit
 ) {
     Column(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .testTag(HEADER_ITEM_VIEW_TAG),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         BackdropView(
@@ -58,7 +64,8 @@ internal fun HeaderItemView(
         }
 
         Text(
-            modifier = Modifier.padding(horizontal = 8.dp),
+            modifier = Modifier.padding(horizontal = 8.dp)
+                .testTag(MOVIE_TITLE_VIEW_TAG),
             text = state.detail.title,
             color = Color.White,
             fontFamily = FontFamily.SansSerif,
@@ -101,8 +108,7 @@ internal fun HeaderItemView(
 
         SynopsisView(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 8.dp),
+                .fillMaxWidth(),
             shouldCollapseText = state.shouldCollapseText,
             overview = state.detail.overview,
             onCollapse = onCollapse

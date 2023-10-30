@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.paging.PagingData
@@ -24,6 +25,8 @@ import com.fappslab.libraries.design.component.FooterItemView
 import com.fappslab.libraries.design.component.preview.detailDataPreview
 import kotlinx.coroutines.flow.flowOf
 
+internal const val LIST_VIEW_TAG = "ListViewTag"
+
 @Composable
 internal fun DetailContent(
     modifier: Modifier = Modifier,
@@ -32,13 +35,14 @@ internal fun DetailContent(
     pagingItems: LazyPagingItems<Movie>,
     onFavorite: (movie: Movie) -> Unit,
     onItemClick: (id: Int) -> Unit,
-    onCollapse: () -> Unit,
+    onCollapse: (isExpanded: Boolean) -> Unit,
     onRetry: () -> Unit
 ) {
     LazyVerticalGrid(
         modifier = modifier
             .fillMaxSize()
-            .background(Color.Black),
+            .background(Color.Black)
+            .testTag(LIST_VIEW_TAG),
         columns = GridCells.Fixed(count = 3),
         contentPadding = paddingValues,
         horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.Start),

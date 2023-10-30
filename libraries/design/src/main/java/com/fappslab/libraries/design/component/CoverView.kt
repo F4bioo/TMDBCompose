@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -23,6 +24,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.fappslab.core.domain.model.Movie
 import com.fappslab.libraries.design.component.preview.movieDataPreview
+
+const val COVER_VIEW_TAG = "CoverView"
 
 @Composable
 fun CoverView(
@@ -32,6 +35,7 @@ fun CoverView(
     movie?.apply {
         Card(
             modifier = Modifier
+                .testTag("${COVER_VIEW_TAG}_$id")
                 .fillMaxWidth()
                 .height(200.dp)
                 .padding(4.dp)

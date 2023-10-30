@@ -6,7 +6,10 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+
+const val APP_BAR_VIEW_TAG = "AppBarView"
 
 @Composable
 fun AppBarView(
@@ -16,7 +19,7 @@ fun AppBarView(
     backgroundColor: Color = Color.Black
 ) {
     TopAppBar(
-        modifier = modifier,
+        modifier = modifier.testTag(APP_BAR_VIEW_TAG),
         title = {
             Text(
                 text = stringResource(id = titleRes),

@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -24,12 +25,19 @@ import com.fappslab.libraries.design.component.ImageLoaderView
 import com.fappslab.libraries.design.component.preview.detailDataPreview
 import com.fappslab.libraries.design.theme.red
 
+internal const val BACKDROP_VIEW_TAG = "BackdropView"
+internal const val PROGRESS_HEADER_VIEW_TAG = "ProgressHeaderView"
+
 @Composable
 internal fun BackdropView(
     modifier: Modifier = Modifier,
     state: DetailViewState
 ) {
-    Box(modifier = modifier.background(Color(0xFF2F2F2F))) {
+    Box(
+        modifier = modifier
+            .background(Color(0xFF2F2F2F))
+            .testTag(BACKDROP_VIEW_TAG)
+    ) {
         Text(
             modifier = Modifier
                 .fillMaxSize()
@@ -48,7 +56,9 @@ internal fun BackdropView(
         )
         if (state.shouldShowLoading) {
             CircularProgressIndicator(
-                modifier = Modifier.align(Alignment.Center),
+                modifier = Modifier
+                    .align(Alignment.Center)
+                    .testTag(PROGRESS_HEADER_VIEW_TAG),
                 color = red
             )
         }
