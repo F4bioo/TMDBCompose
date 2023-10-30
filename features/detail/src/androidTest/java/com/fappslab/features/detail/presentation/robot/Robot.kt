@@ -1,4 +1,4 @@
-package com.fappslab.features.detail.presentation
+package com.fappslab.features.detail.presentation.robot
 
 import androidx.annotation.VisibleForTesting
 import androidx.compose.runtime.Composable
@@ -6,32 +6,25 @@ import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import com.fappslab.libraries.arch.viewmodel.ViewModel
 import io.mockk.MockKMatcherScope
 import io.mockk.every
-import io.mockk.mockkClass
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
-import kotlin.reflect.KClass
 
-// TODO move to common module
 
 @VisibleForTesting
-abstract class RobotBase<S, A, VM : ViewModel<S, A>>(
-    initialState: S,
-    viewModelClass: KClass<VM>,
+abstract class Robot<RC : RobotCheck<RC>, S, A, VM : ViewModel<S, A>>(
+    private val robotCheck: RC,
     private val composeTestRule: ComposeContentTestRule,
     private val subject: @Composable (viewModel: VM) -> Unit
 ) {
 
-    private val fakeState = MutableStateFlow(initialState)
-    private val fakeAction = MutableSharedFlow<A>()
-    private val fakeViewModel = mockkClass(viewModelClass, relaxed = true) {
-        every { state } returns fakeState
-        every { action } returns fakeAction
-    }
+    protected abstract val fakeState: MutableStateFlow<S>
+    protected abstract val fakeAction: MutableSharedFlow<A>
+    protected abstract val fakeViewModel: VM
 
     open fun givenState(
         state: () -> S
-    ): RobotBase<S, A, VM> {
+    ): Robot<RC, S, A, VM> {
         fakeState.update { state() }
         return this
     }
@@ -39,7 +32,7 @@ abstract class RobotBase<S, A, VM : ViewModel<S, A>>(
     open fun everyState(
         onInvoke: MockKMatcherScope.(viewModel: VM) -> Unit,
         doReturn: () -> S
-    ): RobotBase<S, A, VM> {
+    ): Robot<RC, S, A, VM> {
         every { onInvoke(fakeViewModel) } answers {
             fakeState.update { doReturn() }
         }
@@ -49,7 +42,7 @@ abstract class RobotBase<S, A, VM : ViewModel<S, A>>(
     open fun everyAction(
         onInvoke: MockKMatcherScope.(viewModel: VM) -> Unit,
         doReturn: () -> A
-    ): RobotBase<S, A, VM> {
+    ): Robot<RC, S, A, VM> {
         every { onInvoke(fakeViewModel) } coAnswers {
             fakeAction.emit(doReturn())
         }
@@ -58,7 +51,7 @@ abstract class RobotBase<S, A, VM : ViewModel<S, A>>(
 
     open fun whenLaunch(
         ruleBlock: ComposeContentTestRule.() -> Unit = {}
-    ): RobotBase<S, A, VM> {
+    ): Robot<RC, S, A, VM> {
         composeTestRule.setContent {
             subject(fakeViewModel)
         }
@@ -67,9 +60,9 @@ abstract class RobotBase<S, A, VM : ViewModel<S, A>>(
     }
 
     open fun thenCheck(
-        ruleBlock: ComposeContentTestRule.() -> Unit
-    ): RobotBase<S, A, VM> {
-        ruleBlock(composeTestRule)
-        return this
+        checkBlock: RC.() -> Unit
+    ): RC {
+        checkBlock(robotCheck)
+        return robotCheck
     }
 }
