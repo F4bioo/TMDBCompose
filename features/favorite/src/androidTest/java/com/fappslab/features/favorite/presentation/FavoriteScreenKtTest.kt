@@ -53,6 +53,14 @@ internal class FavoriteScreenKtTest {
     }
 
     @Test
+    fun emptyScreen_Should_displayEmptyScreen_When_favoriteListIsEmpty() {
+        val expectedText = "It seems you haven\'t added any movies to your favorites yet."
+        screenRobot
+            .whenLaunch()
+            .thenCheck { checkIfHasExactlyText(expectedText) }
+    }
+
+    @Test
     fun movieTitle_Should_displayMovieTitle_When_screenIsShowing() {
         val expectedTitle = "Avatar: The Way of Water"
 
