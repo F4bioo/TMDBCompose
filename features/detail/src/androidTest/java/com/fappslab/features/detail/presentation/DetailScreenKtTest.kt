@@ -51,7 +51,6 @@ internal class DetailScreenKtTest {
     @Test
     fun toolbarTitle_Should_displayTopBarTile_When_screenIsShowing() {
         screenRobot
-            .givenState { initialState.copy(shouldShowLoading = true) }
             .whenLaunch()
             .thenCheck { checkIfToolbarHasExactlyText() }
     }

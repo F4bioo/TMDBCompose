@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,6 +23,8 @@ import com.fappslab.core.domain.model.Movie
 import com.fappslab.libraries.arch.extension.visible
 import com.fappslab.libraries.design.component.preview.moviesDataPreview
 import com.fappslab.tmdbcompose.features.favorites.R
+
+internal const val EMPTY_VIEW_TAG = "EmptyViewTag"
 
 @Composable
 internal fun FavoriteContent(
@@ -38,6 +41,7 @@ internal fun FavoriteContent(
 
         Text(
             modifier = Modifier
+                .testTag(EMPTY_VIEW_TAG)
                 .visible(movies.isEmpty())
                 .padding(16.dp)
                 .align(Alignment.Center),

@@ -21,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -32,6 +33,9 @@ import com.fappslab.libraries.design.component.FavoriteToggleView
 import com.fappslab.libraries.design.component.ImageLoaderView
 import com.fappslab.libraries.design.component.RateView
 import com.fappslab.libraries.design.component.preview.movieDataPreview
+
+internal const val ITEM_VIEW_TAG = "ItemView"
+internal const val MOVIE_TITLE_VIEW_TAG = "MovieTileView"
 
 @Composable
 internal fun ItemView(
@@ -45,6 +49,7 @@ internal fun ItemView(
         modifier = modifier
             .fillMaxWidth()
             .height(130.dp)
+            .testTag("${ITEM_VIEW_TAG}_${movie.id}")
             .clickable {
                 onItemClick(movie.id)
             },
@@ -97,6 +102,7 @@ internal fun ItemView(
                     )
                     Text(
                         modifier = Modifier
+                            .testTag(MOVIE_TITLE_VIEW_TAG)
                             .fillMaxWidth()
                             .align(Alignment.CenterStart)
                             .padding(8.dp),
