@@ -7,7 +7,7 @@ import com.fappslab.core.navigation.DetailNavigation
 import com.fappslab.core.navigation.FavoriteNavigation
 import com.fappslab.core.navigation.PopularNavigation
 import com.fappslab.core.navigation.SearchNavigation
-import com.fappslab.libraries.popular.presentation.model.PopularNavItem
+import com.fappslab.features.popular.presentation.model.PopularNavItem
 
 @Composable
 fun NavGraph(
