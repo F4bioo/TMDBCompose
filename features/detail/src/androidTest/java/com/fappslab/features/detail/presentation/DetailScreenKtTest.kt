@@ -22,7 +22,6 @@ import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.flow.flowOf
 import org.junit.After
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -36,18 +35,12 @@ internal class DetailScreenKtTest {
     private val initialState = DetailViewState()
     private val navController = mockk<NavHostController>()
     private val detailNavigation = mockk<DetailNavigation>()
-    private val robotCheck = DetailScreenRobotCheck()
-    private lateinit var screenRobot: DetailScreenRobot
-
-    @Before
-    fun setUp() {
-        screenRobot = DetailScreenRobot(initialState, robotCheck, composeRule) { viewModel ->
-            DetailScreen(
-                navController = navController,
-                detailNavigation = detailNavigation,
-                viewModel = viewModel
-            )
-        }
+    private val screenRobot = DetailScreenRobot(initialState, composeRule) { viewModel ->
+        DetailScreen(
+            navController = navController,
+            detailNavigation = detailNavigation,
+            viewModel = viewModel
+        )
     }
 
     @After
@@ -60,7 +53,7 @@ internal class DetailScreenKtTest {
         screenRobot
             .givenState { initialState.copy(shouldShowLoading = true) }
             .whenLaunch()
-            .thenCheck { composeRule.checkIfToolbarHasExactlyText() }
+            .thenCheck { checkIfToolbarHasExactlyText() }
     }
 
     @Test
@@ -68,7 +61,7 @@ internal class DetailScreenKtTest {
         screenRobot
             .givenState { initialState.copy(shouldShowLoading = true) }
             .whenLaunch()
-            .thenCheck { composeRule.checkIfLoadingIsDisplayed() }
+            .thenCheck { checkIfLoadingIsDisplayed() }
     }
 
     @Test
@@ -80,7 +73,7 @@ internal class DetailScreenKtTest {
                 doReturn = { initialState.copy(isFavoriteChecked = true) }
             )
             .whenLaunch { onNodeWithTag(FAVORITE_TOGGLE_VIEW_TAG).performClick() }
-            .thenCheck { composeRule.checkIfFavoriteToggleIsChecked() }
+            .thenCheck { checkIfFavoriteToggleIsChecked() }
     }
 
     @Test
@@ -88,17 +81,15 @@ internal class DetailScreenKtTest {
         screenRobot
             .givenState { initialState.copy(detail = detailDataPreview()) }
             .whenLaunch()
-            .thenCheck { composeRule.checkIfMovieTitleHasExactlyText() }
+            .thenCheck { checkIfMovieTitleHasExactlyText() }
     }
 
     @Test
     fun genres_Should_displayGenres_When_screenIsShowing() {
-        val expectedGenres = listOf("Science Fiction", "Adventure", "Action")
-
         screenRobot
             .givenState { initialState.copy(detail = detailDataPreview()) }
             .whenLaunch()
-            .thenCheck { composeRule.checkIfHasExactlyGenreList() }
+            .thenCheck { checkIfHasExactlyGenreList() }
     }
 
     @Test
@@ -112,12 +103,12 @@ internal class DetailScreenKtTest {
 
         screenRobot.givenState { initialState.copy(detail = detailDataPreview()) }
             .whenLaunch()
-            .thenCheck { composeRule.checkIfHasExactlyText(expectedAverageVotesTitle) }
-            .thenCheck { composeRule.checkIfHasExactlyText(expectedAverageVotes) }
-            .thenCheck { composeRule.checkIfHasExactlyText(expectedDurationTitle) }
-            .thenCheck { composeRule.checkIfHasExactlyText(expectedDuration) }
-            .thenCheck { composeRule.checkIfHasExactlyText(expectedReleaseTitle) }
-            .thenCheck { composeRule.checkIfHasExactlyText(expectedRelease) }
+            .thenCheck { checkIfHasExactlyText(expectedAverageVotesTitle) }
+            .thenCheck { checkIfHasExactlyText(expectedAverageVotes) }
+            .thenCheck { checkIfHasExactlyText(expectedDurationTitle) }
+            .thenCheck { checkIfHasExactlyText(expectedDuration) }
+            .thenCheck { checkIfHasExactlyText(expectedReleaseTitle) }
+            .thenCheck { checkIfHasExactlyText(expectedRelease) }
     }
 
     @Test
@@ -129,7 +120,7 @@ internal class DetailScreenKtTest {
                 doReturn = { initialState.copy(shouldCollapseText = false) }
             )
             .whenLaunch { onNodeWithTag(SYNOPSIS_VIEW_TAG).performClick() }
-            .thenCheck { composeRule.checkIfArrowIconIsChanged() }
+            .thenCheck { checkIfArrowIconIsChanged() }
     }
 
     @Test
@@ -139,12 +130,11 @@ internal class DetailScreenKtTest {
         screenRobot
             .givenState { initialState.copy(movies = flowOf(PagingData.from(movies))) }
             .whenLaunch()
-            .thenCheck { composeRule.checkIfMovieItemsIsPopulated(movies) }
+            .thenCheck { checkIfMovieItemsIsPopulated(movies) }
     }
 
     @Test
     fun itemClicked_Should_Navigate_When_ClickedOnMovieItem() {
-        // Given
         val movies = moviesDataPreview()
         val movie = movies.first()
         every { detailNavigation.navigateToDetail(navController, movie.id) } just Runs

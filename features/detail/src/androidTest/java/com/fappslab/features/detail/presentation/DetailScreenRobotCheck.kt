@@ -12,53 +12,55 @@ import androidx.compose.ui.test.onNodeWithText
 import com.fappslab.core.domain.model.Movie
 import com.fappslab.features.detail.presentation.component.MOVIE_TITLE_VIEW_TAG
 import com.fappslab.features.detail.presentation.component.PROGRESS_HEADER_VIEW_TAG
-import com.fappslab.features.detail.presentation.robot.RobotCheck
+import com.fappslab.libraries.arch.testing.robot.RobotCheck
 import com.fappslab.libraries.design.component.APP_BAR_VIEW_TAG
 import com.fappslab.libraries.design.component.COVER_VIEW_TAG
 import com.fappslab.libraries.design.component.FAVORITE_TOGGLE_VIEW_TAG
 
-internal class DetailScreenRobotCheck : RobotCheck<DetailScreenRobotCheck> {
+internal class DetailScreenRobotCheck(
+    override val composeTestRule: ComposeContentTestRule
+) : RobotCheck<DetailScreenRobotCheck> {
 
-    fun ComposeContentTestRule.checkIfHasExactlyText(text: String) {
-        onNodeWithText(text).assertExists()
+    fun checkIfHasExactlyText(text: String) {
+        composeTestRule.onNodeWithText(text).assertExists()
     }
 
-    fun ComposeContentTestRule.checkIfToolbarHasExactlyText() {
+    fun checkIfToolbarHasExactlyText() {
         val expectedTitle = "Movie Detail"
-        onNodeWithTag(APP_BAR_VIEW_TAG)
+        composeTestRule.onNodeWithTag(APP_BAR_VIEW_TAG)
             .onChild()
             .assertTextEquals(expectedTitle)
     }
 
-    fun ComposeContentTestRule.checkIfLoadingIsDisplayed() {
-        onNodeWithTag(PROGRESS_HEADER_VIEW_TAG).assertIsDisplayed()
+    fun checkIfLoadingIsDisplayed() {
+        composeTestRule.onNodeWithTag(PROGRESS_HEADER_VIEW_TAG).assertIsDisplayed()
     }
 
-    fun ComposeContentTestRule.checkIfFavoriteToggleIsChecked() {
-        onNodeWithTag(FAVORITE_TOGGLE_VIEW_TAG).assertIsOn()
+    fun checkIfFavoriteToggleIsChecked() {
+        composeTestRule.onNodeWithTag(FAVORITE_TOGGLE_VIEW_TAG).assertIsOn()
     }
 
-    fun ComposeContentTestRule.checkIfMovieTitleHasExactlyText() {
+    fun checkIfMovieTitleHasExactlyText() {
         val expectedTitle = "Avatar: The Way of Water"
-        onNodeWithTag(MOVIE_TITLE_VIEW_TAG).assertTextEquals(expectedTitle)
+        composeTestRule.onNodeWithTag(MOVIE_TITLE_VIEW_TAG).assertTextEquals(expectedTitle)
     }
 
-    fun ComposeContentTestRule.checkIfHasExactlyGenreList() {
+    fun checkIfHasExactlyGenreList() {
         val expectedGenres = listOf("Science Fiction", "Adventure", "Action")
         expectedGenres.forEach { genre ->
-            onNodeWithText(genre).assertExists()
+            composeTestRule.onNodeWithText(genre).assertExists()
         }
     }
 
-    fun ComposeContentTestRule.checkIfArrowIconIsChanged() {
-        onNodeWithTag(Icons.Default.KeyboardArrowUp.name, useUnmergedTree = true)
+    fun checkIfArrowIconIsChanged() {
+        composeTestRule.onNodeWithTag(Icons.Default.KeyboardArrowUp.name, useUnmergedTree = true)
             .assertIsDisplayed()
     }
 
-    fun ComposeContentTestRule.checkIfMovieItemsIsPopulated(movies: List<Movie>) {
+    fun checkIfMovieItemsIsPopulated(movies: List<Movie>) {
         repeat(movies.size) { index ->
             val id = movies[index].id
-            onNodeWithTag("${COVER_VIEW_TAG}_$id").assertExists()
+            composeTestRule.onNodeWithTag("${COVER_VIEW_TAG}_$id").assertExists()
         }
     }
 }

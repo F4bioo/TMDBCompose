@@ -1,4 +1,4 @@
-package com.fappslab.features.detail.presentation.robot
+package com.fappslab.libraries.arch.testing.robot
 
 import androidx.annotation.VisibleForTesting
 import androidx.compose.runtime.Composable
@@ -10,26 +10,23 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 
-
 @VisibleForTesting
 abstract class Robot<RC : RobotCheck<RC>, S, A, VM : ViewModel<S, A>>(
-    private val robotCheck: RC,
-    private val composeTestRule: ComposeContentTestRule,
-    private val subject: @Composable (viewModel: VM) -> Unit
+    private val composeTestRule: ComposeContentTestRule
 ) {
 
+    protected abstract val robotCheck: RC
     protected abstract val fakeState: MutableStateFlow<S>
     protected abstract val fakeAction: MutableSharedFlow<A>
     protected abstract val fakeViewModel: VM
+    protected abstract val subject: @Composable (viewModel: VM) -> Unit
 
-    open fun givenState(
-        state: () -> S
-    ): Robot<RC, S, A, VM> {
+    fun givenState(state: () -> S): Robot<RC, S, A, VM> {
         fakeState.update { state() }
         return this
     }
 
-    open fun everyState(
+    fun everyState(
         onInvoke: MockKMatcherScope.(viewModel: VM) -> Unit,
         doReturn: () -> S
     ): Robot<RC, S, A, VM> {
@@ -39,7 +36,7 @@ abstract class Robot<RC : RobotCheck<RC>, S, A, VM : ViewModel<S, A>>(
         return this
     }
 
-    open fun everyAction(
+    fun everyAction(
         onInvoke: MockKMatcherScope.(viewModel: VM) -> Unit,
         doReturn: () -> A
     ): Robot<RC, S, A, VM> {
@@ -49,19 +46,15 @@ abstract class Robot<RC : RobotCheck<RC>, S, A, VM : ViewModel<S, A>>(
         return this
     }
 
-    open fun whenLaunch(
-        ruleBlock: ComposeContentTestRule.() -> Unit = {}
-    ): Robot<RC, S, A, VM> {
-        composeTestRule.setContent {
-            subject(fakeViewModel)
+    fun whenLaunch(ruleBlock: ComposeContentTestRule.() -> Unit = {}): Robot<RC, S, A, VM> {
+        composeTestRule.apply {
+            setContent { subject(fakeViewModel) }
+            ruleBlock(this)
         }
-        ruleBlock(composeTestRule)
         return this
     }
 
-    open fun thenCheck(
-        checkBlock: RC.() -> Unit
-    ): RC {
+    fun thenCheck(checkBlock: RC.() -> Unit): RC {
         checkBlock(robotCheck)
         return robotCheck
     }
