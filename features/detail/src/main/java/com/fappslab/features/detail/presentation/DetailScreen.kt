@@ -52,7 +52,7 @@ internal fun DetailScreen(
 private fun DetailScaffold(
     state: State<DetailViewState>,
     navigateToDetail: (id: Int) -> Unit,
-    onCollapse: () -> Unit,
+    onCollapse: (isExpanded: Boolean) -> Unit,
     onFavorite: (movie: Movie) -> Unit,
     onTryAgain: (pagingItems: LazyPagingItems<Movie>) -> Unit
 ) {
@@ -80,7 +80,7 @@ private fun DetailScaffold(
 
 @Preview
 @Composable
-fun DetailScreenPreview() {
+private fun DetailScreenPreview() {
     val state = remember { mutableStateOf(DetailViewState(detail = detailDataPreview())) }
 
     DetailScaffold(

@@ -16,9 +16,9 @@ import com.fappslab.core.navigation.FavoriteNavigation
 import com.fappslab.core.navigation.PopularNavigation
 import com.fappslab.core.navigation.SearchNavigation
 import com.fappslab.features.favorite.presentation.model.FavoriteNavItem
+import com.fappslab.features.popular.presentation.model.PopularNavItem
 import com.fappslab.features.search.presentation.model.SearchNavItem
 import com.fappslab.libraries.arch.extension.isNotNull
-import com.fappslab.libraries.popular.presentation.model.PopularNavItem
 import com.fappslab.tmdbcompose.presentaion.component.BottomBarView
 import com.fappslab.tmdbcompose.presentaion.component.NavGraph
 import com.fappslab.tmdbcompose.presentaion.component.currentRout

@@ -16,60 +16,64 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.fappslab.core.domain.model.Movie
 import com.fappslab.libraries.design.component.preview.movieDataPreview
+
+const val COVER_VIEW_TAG = "CoverView"
 
 @Composable
 fun CoverView(
-    id: Int,
-    title: String,
-    imageUrl: String,
-    voteAverage: Double,
+    movie: Movie?,
     onItemClick: (id: Int) -> Unit
 ) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(200.dp)
-            .padding(4.dp)
-            .clickable {
-                onItemClick(id)
-            },
-        elevation = 0.dp,
-        shape = RoundedCornerShape(8.dp)
-    ) {
-        Box(
-            modifier = Modifier.background(Color(0xFF2F2F2F))
+    movie?.apply {
+        Card(
+            modifier = Modifier
+                .testTag("${COVER_VIEW_TAG}_$id")
+                .fillMaxWidth()
+                .height(200.dp)
+                .padding(4.dp)
+                .clickable {
+                    onItemClick(id)
+                },
+            elevation = 0.dp,
+            shape = RoundedCornerShape(8.dp)
         ) {
-            Text(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .wrapContentSize(Alignment.Center)
-                    .padding(8.dp),
-                text = title,
-                maxLines = 2,
-                fontSize = 14.sp,
-                color = Color.White,
-                overflow = TextOverflow.Ellipsis,
-                textAlign = TextAlign.Center
-            )
-            ImageLoaderView(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .clip(RoundedCornerShape(8.dp)),
-                imageUrl = imageUrl
-            )
-            RateView(
-                modifier = Modifier
-                    .align(Alignment.BottomStart)
-                    .fillMaxWidth()
-                    .background(Color(0x80000000)),
-                voteAverage = voteAverage
-            )
+            Box(
+                modifier = Modifier.background(Color(0xFF2F2F2F))
+            ) {
+                Text(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .wrapContentSize(Alignment.Center)
+                        .padding(8.dp),
+                    text = title,
+                    maxLines = 2,
+                    fontSize = 14.sp,
+                    color = Color.White,
+                    overflow = TextOverflow.Ellipsis,
+                    textAlign = TextAlign.Center
+                )
+                ImageLoaderView(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .clip(RoundedCornerShape(8.dp)),
+                    imageUrl = imageUrl
+                )
+                RateView(
+                    modifier = Modifier
+                        .align(Alignment.BottomStart)
+                        .fillMaxWidth()
+                        .background(Color(0x80000000)),
+                    voteAverage = voteAverage
+                )
+            }
         }
     }
 }
@@ -80,10 +84,7 @@ fun CoverViewPreview() {
     val movie = movieDataPreview()
 
     CoverView(
-        id = movie.id,
-        title = movie.title,
-        imageUrl = movie.imageUrl,
-        voteAverage = movie.voteAverage,
+        movie = movie,
         onItemClick = {}
     )
 }

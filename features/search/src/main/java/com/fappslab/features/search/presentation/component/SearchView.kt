@@ -76,7 +76,7 @@ internal fun SearchView(
 
 @Preview
 @Composable
-fun SearchViewPreview() {
+private fun SearchViewPreview() {
     SearchView(
         query = "Avatar",
         onSearch = {},

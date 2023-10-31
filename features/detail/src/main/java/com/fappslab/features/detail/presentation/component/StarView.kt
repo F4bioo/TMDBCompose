@@ -20,12 +20,11 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.fappslab.tmdbcompose.features.detail.presentation.component.RatingView
 import kotlin.math.cos
 import kotlin.math.sin
 
 @Composable
-fun StarView(
+internal fun StarView(
     rating: Float,
     ratingColor: Color = Color.Yellow,
     backgroundColor: Color = Color.Gray

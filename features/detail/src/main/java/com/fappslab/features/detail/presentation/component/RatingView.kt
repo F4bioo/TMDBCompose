@@ -1,14 +1,13 @@
-package com.fappslab.tmdbcompose.features.detail.presentation.component
+package com.fappslab.features.detail.presentation.component
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.fappslab.features.detail.presentation.component.StarView
 
 @Composable
-fun RatingView(
+internal fun RatingView(
     modifier: Modifier = Modifier,
     rating: Float,
     color: Color = Color.Yellow

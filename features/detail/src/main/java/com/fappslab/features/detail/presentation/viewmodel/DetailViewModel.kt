@@ -61,9 +61,8 @@ internal class DetailViewModel @Inject constructor(
         onAction { DetailViewAction.ItemClicked(id) }
     }
 
-    fun onCollapse() {
-        val current = state.value.shouldCollapseText
-        onState { it.copy(shouldCollapseText = current.not()) }
+    fun onCollapse(shouldCollapse: Boolean) {
+        onState { it.copy(shouldCollapseText = shouldCollapse) }
     }
 
     fun onFavorite(movie: Movie) {

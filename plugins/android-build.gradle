@@ -61,7 +61,7 @@ android {
 
 dependencies {
     // Libs
-    implementation libs.bundles.defaultAndroid
+    implementation libs.bundles.defaultAndroidBundle
     implementation libs.lifecycleViewmodel
     implementation libs.materialIcons
     implementation libs.flowlayout
@@ -73,5 +73,22 @@ dependencies {
     kapt libs.androidxHiltCompiler
 
     // TestLibs
-    testImplementation libs.bundles.defaultAndroidTest
+    debugImplementation libs.bundles.debugBundle
+
+    implementation libs.bundles.defaultAndroidTestBundle
+    implementation libs.hiltAndroidTesting
+    implementation libs.mockkAndroid
+    implementation libs.truth
+
+    testImplementation libs.bundles.defaultTestBundle
+    testImplementation libs.kotlinTest
+    testImplementation libs.mockk
+    testImplementation libs.truth
+    testImplementation libs.turbine
+
+    androidTestImplementation libs.bundles.defaultAndroidTestBundle
+    androidTestImplementation libs.hiltAndroidTesting
+    androidTestImplementation libs.kotlinTest
+    androidTestImplementation libs.mockkAndroid
+    androidTestImplementation libs.truth
 }
