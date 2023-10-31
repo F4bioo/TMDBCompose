@@ -2,60 +2,41 @@ package com.fappslab.libraries.arch.testing.robot
 
 import androidx.annotation.VisibleForTesting
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import com.fappslab.libraries.arch.viewmodel.ViewModel
-import io.mockk.MockKMatcherScope
-import io.mockk.every
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.update
+
+/**
+ * Robot base class.
+ *
+ * @param RC RobotCheck type
+ * @param S State type
+ * @param A Action type
+ * @param VM ViewModel type
+ */
+@VisibleForTesting
+abstract class Robot<RC : RobotCheck<RC>, S, A, VM : ViewModel<S, A>> : RobotCheck<RC> {
+    abstract val robotCheck: RC
+    abstract val fakeState: MutableStateFlow<S>
+    abstract val fakeAction: MutableSharedFlow<A>
+    abstract val fakeViewModel: VM
+    abstract val subject: @Composable (viewModel: VM) -> Unit
+}
 
 @VisibleForTesting
-abstract class Robot<RC : RobotCheck<RC>, S, A, VM : ViewModel<S, A>>(
-    private val composeTestRule: ComposeContentTestRule
-) {
+inline fun <reified R : Robot<*, *, *, *>> R.onGiven(noinline block: R.() -> Unit): R {
+    return this.apply(block)
+}
 
-    protected abstract val robotCheck: RC
-    protected abstract val fakeState: MutableStateFlow<S>
-    protected abstract val fakeAction: MutableSharedFlow<A>
-    protected abstract val fakeViewModel: VM
-    protected abstract val subject: @Composable (viewModel: VM) -> Unit
+@VisibleForTesting
+inline fun <reified R : Robot<RC, S, A, VM>, RC : RobotCheck<RC>, S, A, VM : ViewModel<S, A>> R.onWhen(
+    noinline block: R.() -> Unit = {}
+): R {
+    composeTestRule.setContent { subject(fakeViewModel) }
+    return this.apply(block)
+}
 
-    fun givenState(state: () -> S): Robot<RC, S, A, VM> {
-        fakeState.update { state() }
-        return this
-    }
-
-    fun everyState(
-        onInvoke: MockKMatcherScope.(viewModel: VM) -> Unit,
-        doReturn: () -> S
-    ): Robot<RC, S, A, VM> {
-        every { onInvoke(fakeViewModel) } answers {
-            fakeState.update { doReturn() }
-        }
-        return this
-    }
-
-    fun everyAction(
-        onInvoke: MockKMatcherScope.(viewModel: VM) -> Unit,
-        doReturn: () -> A
-    ): Robot<RC, S, A, VM> {
-        every { onInvoke(fakeViewModel) } coAnswers {
-            fakeAction.emit(doReturn())
-        }
-        return this
-    }
-
-    fun whenLaunch(ruleBlock: ComposeContentTestRule.() -> Unit = {}): Robot<RC, S, A, VM> {
-        composeTestRule.apply {
-            setContent { subject(fakeViewModel) }
-            ruleBlock(this)
-        }
-        return this
-    }
-
-    fun thenCheck(checkBlock: RC.() -> Unit): RC {
-        checkBlock(robotCheck)
-        return robotCheck
-    }
+@VisibleForTesting
+inline fun <reified R : Robot<RC, *, *, *>, reified RC : RobotCheck<RC>> R.onThen(noinline block: RC.() -> Unit) {
+    (robotCheck as? RC)?.apply(block)
 }

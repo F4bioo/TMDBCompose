@@ -1,16 +1,13 @@
 package com.fappslab.features.favorite.presentation
 
 import androidx.compose.ui.test.junit4.createComposeRule
-import androidx.compose.ui.test.onNodeWithTag
-import androidx.compose.ui.test.performClick
 import androidx.navigation.NavHostController
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.fappslab.core.navigation.DetailNavigation
-import com.fappslab.features.favorite.presentation.component.ITEM_VIEW_TAG
-import com.fappslab.features.favorite.presentation.viewmodel.FavoriteViewAction
 import com.fappslab.features.favorite.presentation.viewmodel.FavoriteViewState
-import com.fappslab.libraries.design.component.FAVORITE_TOGGLE_VIEW_TAG
-import com.fappslab.libraries.design.component.preview.movieDataPreview
+import com.fappslab.libraries.arch.testing.robot.onGiven
+import com.fappslab.libraries.arch.testing.robot.onThen
+import com.fappslab.libraries.arch.testing.robot.onWhen
 import com.fappslab.libraries.design.component.preview.moviesDataPreview
 import io.mockk.Runs
 import io.mockk.clearAllMocks
@@ -48,16 +45,16 @@ internal class FavoriteScreenKtTest {
     @Test
     fun toolbarTitle_Should_displayTopBarTile_When_screenIsShowing() {
         screenRobot
-            .whenLaunch()
-            .thenCheck { checkIfToolbarHasExactlyText() }
+            .onWhen()
+            .onThen { checkIfToolbarHasExactlyText() }
     }
 
     @Test
     fun emptyScreen_Should_displayEmptyScreen_When_favoriteListIsEmpty() {
         val expectedText = "It seems you haven\'t added any movies to your favorites yet."
         screenRobot
-            .whenLaunch()
-            .thenCheck { checkIfHasExactlyText(expectedText) }
+            .onWhen()
+            .onThen { checkIfHasExactlyText(expectedText) }
     }
 
     @Test
@@ -65,21 +62,17 @@ internal class FavoriteScreenKtTest {
         val expectedTitle = "Avatar: The Way of Water"
 
         screenRobot
-            .givenState { initialState.copy(movies = listOf(movieDataPreview())) }
-            .whenLaunch()
-            .thenCheck { checkIfHasExactlyText(expectedTitle) }
+            .onGiven { movieTitleBehavior() }
+            .onWhen()
+            .onThen { checkIfHasExactlyText(expectedTitle) }
     }
 
     @Test
     fun favoriteUnchecked_Should_BecomeUnchecked_When_ClickedWhileChecked() {
         screenRobot
-            .givenState { initialState.copy(movies = listOf(movieDataPreview())) }
-            .everyState(
-                onInvoke = { it.onFavorite(any()) },
-                doReturn = { initialState.copy(isFavoriteChecked = false) }
-            )
-            .whenLaunch { onNodeWithTag(FAVORITE_TOGGLE_VIEW_TAG).performClick() }
-            .thenCheck { checkIfFavoriteToggleIsChecked() }
+            .onGiven { favoriteUncheckedBehavior() }
+            .onWhen { favoriteUncheckedAction() }
+            .onThen { checkIfFavoriteToggleIsUnchecked() }
     }
 
     @Test
@@ -87,9 +80,9 @@ internal class FavoriteScreenKtTest {
         val movies = moviesDataPreview()
 
         screenRobot
-            .givenState { initialState.copy(movies = movies) }
-            .whenLaunch()
-            .thenCheck { checkIfMovieItemsIsPopulated(movies) }
+            .onGiven { favoriteContentBehavior(movies) }
+            .onWhen()
+            .onThen { checkIfMovieItemsIsPopulated(movies) }
     }
 
     @Test
@@ -99,12 +92,8 @@ internal class FavoriteScreenKtTest {
         every { detailNavigation.navigateToDetail(navController, movie.id) } just Runs
 
         screenRobot
-            .givenState { initialState.copy(movies = movies) }
-            .everyAction(
-                onInvoke = { it.onItemClicked(any()) },
-                doReturn = { FavoriteViewAction.ItemClicked(movie.id) }
-            )
-            .whenLaunch { onNodeWithTag(testTag = "${ITEM_VIEW_TAG}_${movie.id}").performClick() }
+            .onGiven { itemClickedBehavior() }
+            .onWhen { itemClickedAction() }
 
         verify { detailNavigation.navigateToDetail(navController, movie.id) }
     }
