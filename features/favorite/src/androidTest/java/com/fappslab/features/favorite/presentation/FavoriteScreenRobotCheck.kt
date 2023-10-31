@@ -1,6 +1,6 @@
 package com.fappslab.features.favorite.presentation
 
-import androidx.compose.ui.test.assertIsOn
+import androidx.compose.ui.test.assertIsOff
 import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.onChild
@@ -20,8 +20,8 @@ internal class FavoriteScreenRobotCheck(
         composeTestRule.onNodeWithText(text).assertExists()
     }
 
-    fun checkIfFavoriteToggleIsChecked() {
-        composeTestRule.onNodeWithTag(FAVORITE_TOGGLE_VIEW_TAG).assertIsOn()
+    fun checkIfFavoriteToggleIsUnchecked() {
+        composeTestRule.onNodeWithTag(FAVORITE_TOGGLE_VIEW_TAG).assertIsOff()
     }
 
     fun checkIfMovieItemsIsPopulated(movies: List<Movie>) {

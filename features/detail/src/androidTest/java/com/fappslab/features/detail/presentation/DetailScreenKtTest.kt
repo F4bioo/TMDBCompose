@@ -1,18 +1,14 @@
 package com.fappslab.features.detail.presentation
 
 import androidx.compose.ui.test.junit4.createComposeRule
-import androidx.compose.ui.test.onNodeWithTag
-import androidx.compose.ui.test.performClick
 import androidx.navigation.NavHostController
-import androidx.paging.PagingData
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.fappslab.core.navigation.DetailNavigation
-import com.fappslab.features.detail.presentation.component.SYNOPSIS_VIEW_TAG
-import com.fappslab.features.detail.presentation.viewmodel.DetailViewAction
 import com.fappslab.features.detail.presentation.viewmodel.DetailViewState
-import com.fappslab.libraries.design.component.COVER_VIEW_TAG
-import com.fappslab.libraries.design.component.FAVORITE_TOGGLE_VIEW_TAG
-import com.fappslab.libraries.design.component.preview.detailDataPreview
+import com.fappslab.libraries.arch.testing.robot.onGiven
+import com.fappslab.libraries.arch.testing.robot.onThen
+import com.fappslab.libraries.arch.testing.robot.onWhen
+import com.fappslab.libraries.design.component.preview.movieDataPreview
 import com.fappslab.libraries.design.component.preview.moviesDataPreview
 import io.mockk.Runs
 import io.mockk.clearAllMocks
@@ -20,7 +16,6 @@ import io.mockk.every
 import io.mockk.just
 import io.mockk.mockk
 import io.mockk.verify
-import kotlinx.coroutines.flow.flowOf
 import org.junit.After
 import org.junit.Rule
 import org.junit.Test
@@ -51,76 +46,56 @@ internal class DetailScreenKtTest {
     @Test
     fun toolbarTitle_Should_displayTopBarTile_When_screenIsShowing() {
         screenRobot
-            .whenLaunch()
-            .thenCheck { checkIfToolbarHasExactlyText() }
+            .onWhen()
+            .onThen { checkIfToolbarHasExactlyText() }
     }
 
     @Test
     fun showLoading_Should_displayProgress_When_screenIsShowing() {
         screenRobot
-            .givenState { initialState.copy(shouldShowLoading = true) }
-            .whenLaunch()
-            .thenCheck { checkIfLoadingIsDisplayed() }
+            .onGiven { showLoadingBehavior() }
+            .onWhen()
+            .onThen { checkIfLoadingIsDisplayed() }
     }
 
     @Test
     fun favoriteChecked_Should_BecomeChecked_When_ClickedWhileUnchecked() {
         screenRobot
-            .givenState { initialState.copy(detail = detailDataPreview()) }
-            .everyState(
-                onInvoke = { it.onFavorite(any()) },
-                doReturn = { initialState.copy(isFavoriteChecked = true) }
-            )
-            .whenLaunch { onNodeWithTag(FAVORITE_TOGGLE_VIEW_TAG).performClick() }
-            .thenCheck { checkIfFavoriteToggleIsChecked() }
+            .onGiven { favoriteCheckedBehavior() }
+            .onWhen { favoriteCheckedAction() }
+            .onThen { checkIfFavoriteToggleIsChecked() }
     }
 
     @Test
     fun movieTitle_Should_displayMovieTitle_When_screenIsShowing() {
         screenRobot
-            .givenState { initialState.copy(detail = detailDataPreview()) }
-            .whenLaunch()
-            .thenCheck { checkIfMovieTitleHasExactlyText() }
+            .onGiven { movieTitleBehavior() }
+            .onWhen()
+            .onThen { checkIfMovieTitleHasExactlyText() }
     }
 
     @Test
     fun genres_Should_displayGenres_When_screenIsShowing() {
         screenRobot
-            .givenState { initialState.copy(detail = detailDataPreview()) }
-            .whenLaunch()
-            .thenCheck { checkIfHasExactlyGenreList() }
+            .onGiven { genresBehavior() }
+            .onWhen()
+            .onThen { checkIfHasExactlyGenreList() }
     }
 
     @Test
     fun infoGroup_Should_displayCorrectInfo_When_screenIsShowing() {
-        val expectedAverageVotesTitle = "Average (votes)"
-        val expectedAverageVotes = "7.65"
-        val expectedDurationTitle = "Duration"
-        val expectedDuration = "192 min."
-        val expectedReleaseTitle = "Release"
-        val expectedRelease = "2022-12-14"
-
         screenRobot
-            .givenState { initialState.copy(detail = detailDataPreview()) }
-            .whenLaunch()
-            .thenCheck { checkIfHasExactlyText(expectedAverageVotesTitle) }
-            .thenCheck { checkIfHasExactlyText(expectedAverageVotes) }
-            .thenCheck { checkIfHasExactlyText(expectedDurationTitle) }
-            .thenCheck { checkIfHasExactlyText(expectedDuration) }
-            .thenCheck { checkIfHasExactlyText(expectedReleaseTitle) }
-            .thenCheck { checkIfHasExactlyText(expectedRelease) }
+            .onGiven { infoGroupBehavior() }
+            .onWhen()
+            .onThen { checkIfHasExactlyInfoGroupTexts() }
     }
 
     @Test
     fun synopsisView_Should_toggleExpanded_When_textIsClicked() {
         screenRobot
-            .givenState { initialState.copy(detail = detailDataPreview()) }
-            .everyState(
-                onInvoke = { it.onCollapse(any()) },
-                doReturn = { initialState.copy(shouldCollapseText = false) }
-            )
-            .whenLaunch { onNodeWithTag(SYNOPSIS_VIEW_TAG).performClick() }
-            .thenCheck { checkIfArrowIconIsChanged() }
+            .onGiven { toggleExpandedBehavior() }
+            .onWhen { toggleExpandedAction() }
+            .onThen { checkIfArrowIconIsChanged() }
     }
 
     @Test
@@ -128,24 +103,19 @@ internal class DetailScreenKtTest {
         val movies = moviesDataPreview()
 
         screenRobot
-            .givenState { initialState.copy(movies = flowOf(PagingData.from(movies))) }
-            .whenLaunch()
-            .thenCheck { checkIfMovieItemsIsPopulated(movies) }
+            .onGiven { detailContentBehavior() }
+            .onWhen()
+            .onThen { checkIfMovieItemsIsPopulated(movies) }
     }
 
     @Test
     fun itemClicked_Should_Navigate_When_ClickedOnMovieItem() {
-        val movies = moviesDataPreview()
-        val movie = movies.first()
+        val movie = movieDataPreview()
         every { detailNavigation.navigateToDetail(navController, movie.id) } just Runs
 
         screenRobot
-            .givenState { initialState.copy(movies = flowOf(PagingData.from(movies))) }
-            .everyAction(
-                onInvoke = { it.onItemClicked(any()) },
-                doReturn = { DetailViewAction.ItemClicked(movie.id) }
-            )
-            .whenLaunch { onNodeWithTag(testTag = "${COVER_VIEW_TAG}_${movie.id}").performClick() }
+            .onGiven { itemClickedBehavior() }
+            .onWhen { itemClickedAction() }
 
         verify { detailNavigation.navigateToDetail(navController, movie.id) }
     }

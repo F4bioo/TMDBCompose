@@ -21,8 +21,11 @@ internal class DetailScreenRobotCheck(
     override val composeTestRule: ComposeContentTestRule
 ) : RobotCheck<DetailScreenRobotCheck> {
 
-    fun checkIfHasExactlyText(text: String) {
-        composeTestRule.onNodeWithText(text).assertExists()
+    fun checkIfHasExactlyInfoGroupTexts() {
+        listOf("Average (votes)", "7.65", "Duration", "192 min.", "Release", "2022-12-14")
+            .forEach { expectedText ->
+                 composeTestRule.onNodeWithText(expectedText).assertExists()
+            }
     }
 
     fun checkIfToolbarHasExactlyText() {
