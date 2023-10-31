@@ -21,6 +21,7 @@ hilt-android = "2.45"
 hilt-androidx = "1.0.0"
 javax-inject = "1"
 junit = "4.13.2"
+kotlin-test = "1.9.10"
 lifecycle-viewmodel = "2.6.2"
 material-icons = "1.5.4"
 mockk = "1.12.3"
@@ -86,6 +87,8 @@ mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 mockkAndroid = { module = "io.mockk:mockk-android", version.ref = "mockk-android" }
 truth = { module = "androidx.test.ext:truth", version.ref = "truth" }
 hiltAndroidTesting = { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt-android-testing" }
+kotlinTest = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin-test" }
+turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
