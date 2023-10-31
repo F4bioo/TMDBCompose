@@ -1,6 +1,6 @@
 # TMDBCompose
 
-Work in Progress...
+This proof of concept project focuses on Android `Instrumentation Tests`, utilizing the `Robot Pattern` for test structure. The code is feature-modularized and built upon Clean Architecture and MVVM. Hilt handles dependency injection, while Kotlin Coroutines, Flow, StateFlow, and SharedFlow manage asynchronous tasks. Additionally, `Jetpack Compose` is incorporated for building the UI.
 
 ---
 
