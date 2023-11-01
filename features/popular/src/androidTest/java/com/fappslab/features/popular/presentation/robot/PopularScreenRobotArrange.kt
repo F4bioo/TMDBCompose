@@ -1,16 +1,13 @@
-package com.fappslab.features.popular.presentation
+package com.fappslab.features.popular.presentation.robot
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
-import androidx.compose.ui.test.onNodeWithTag
-import androidx.compose.ui.test.performClick
 import androidx.paging.PagingData
 import com.fappslab.core.domain.model.Movie
 import com.fappslab.features.popular.presentation.viewmodel.PopularViewAction
 import com.fappslab.features.popular.presentation.viewmodel.PopularViewModel
 import com.fappslab.features.popular.presentation.viewmodel.PopularViewState
-import com.fappslab.libraries.arch.testing.robot.Robot
-import com.fappslab.libraries.design.component.COVER_VIEW_TAG
+import com.fappslab.libraries.arch.testing.robot.RobotArrange
 import com.fappslab.libraries.design.component.preview.movieDataPreview
 import com.fappslab.libraries.design.component.preview.moviesDataPreview
 import io.mockk.every
@@ -20,11 +17,12 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.update
 
-internal class PopularScreenRobot(
-    override val composeTestRule: ComposeContentTestRule,
+internal class PopularScreenRobotArrange(
+    composeTestRule: ComposeContentTestRule,
     override val subject: @Composable (viewModel: PopularViewModel) -> Unit
-) : Robot<PopularScreenRobotCheck, PopularViewState, PopularViewAction, PopularViewModel>() {
+) : RobotArrange<PopularScreenRobotAction, PopularScreenRobotCheck, PopularViewState, PopularViewAction, PopularViewModel>() {
 
+    override val robotAction = PopularScreenRobotAction(composeTestRule)
     override val robotCheck = PopularScreenRobotCheck(composeTestRule)
     override val fakeState = MutableStateFlow(PopularViewState())
     override val fakeAction = MutableSharedFlow<PopularViewAction>()
@@ -45,10 +43,5 @@ internal class PopularScreenRobot(
         every { fakeViewModel.onItemClicked(any()) } coAnswers {
             fakeAction.emit(PopularViewAction.ItemClicked(movie.id))
         }
-    }
-
-    fun itemClickedAction() {
-        val movie = movieDataPreview()
-        composeTestRule.onNodeWithTag(testTag = "${COVER_VIEW_TAG}_${movie.id}").performClick()
     }
 }

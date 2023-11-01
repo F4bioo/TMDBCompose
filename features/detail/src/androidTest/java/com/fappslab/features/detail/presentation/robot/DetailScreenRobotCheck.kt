@@ -1,4 +1,4 @@
-package com.fappslab.features.detail.presentation
+package com.fappslab.features.detail.presentation.robot
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowUp

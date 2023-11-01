@@ -1,4 +1,4 @@
-package com.fappslab.features.favorite.presentation
+package com.fappslab.features.favorite.presentation.robot
 
 import androidx.compose.ui.test.assertIsOff
 import androidx.compose.ui.test.assertTextEquals

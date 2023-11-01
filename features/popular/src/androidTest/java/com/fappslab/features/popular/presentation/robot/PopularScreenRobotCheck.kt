@@ -1,4 +1,4 @@
-package com.fappslab.features.popular.presentation
+package com.fappslab.features.popular.presentation.robot
 
 import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.junit4.ComposeContentTestRule

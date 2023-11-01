@@ -4,6 +4,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.navigation.NavHostController
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.fappslab.core.navigation.DetailNavigation
+import com.fappslab.features.favorite.presentation.robot.FavoriteScreenRobotArrange
 import com.fappslab.libraries.arch.testing.robot.givenArrange
 import com.fappslab.libraries.arch.testing.robot.thenCheck
 import com.fappslab.libraries.arch.testing.robot.whenAction
@@ -28,7 +29,7 @@ internal class FavoriteScreenKtTest {
 
     private val navController = mockk<NavHostController>()
     private val detailNavigation = mockk<DetailNavigation>()
-    private val screenRobot = FavoriteScreenRobot(composeRule) {
+    private val screenRobot = FavoriteScreenRobotArrange(composeRule) {
         FavoriteScreen(
             navController = navController,
             detailNavigation = detailNavigation,
@@ -69,9 +70,15 @@ internal class FavoriteScreenKtTest {
     @Test
     fun favoriteUnchecked_Should_BecomeUnchecked_When_ClickedWhileChecked() {
         screenRobot
-            .givenArrange { favoriteUncheckedArrange() }
-            .whenAction { favoriteUncheckedAction() }
-            .thenCheck { checkIfFavoriteToggleIsUnchecked() }
+            .givenArrange {
+                favoriteUncheckedArrange()
+            }
+            .whenAction {
+                favoriteUncheckedAction()
+            }
+            .thenCheck {
+                checkIfFavoriteToggleIsUnchecked()
+            }
     }
 
     @Test

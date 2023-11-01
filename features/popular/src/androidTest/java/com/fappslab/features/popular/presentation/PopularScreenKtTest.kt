@@ -4,6 +4,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.navigation.NavHostController
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.fappslab.core.navigation.DetailNavigation
+import com.fappslab.features.popular.presentation.robot.PopularScreenRobotArrange
 import com.fappslab.libraries.arch.testing.robot.givenArrange
 import com.fappslab.libraries.arch.testing.robot.thenCheck
 import com.fappslab.libraries.arch.testing.robot.whenAction
@@ -28,7 +29,7 @@ internal class PopularScreenKtTest {
 
     private val navController = mockk<NavHostController>()
     private val detailNavigation = mockk<DetailNavigation>()
-    private val screenRobot = PopularScreenRobot(composeRule) {
+    private val screenRobot = PopularScreenRobotArrange(composeRule) {
         PopularScreen(
             navController = navController,
             detailNavigation = detailNavigation,
