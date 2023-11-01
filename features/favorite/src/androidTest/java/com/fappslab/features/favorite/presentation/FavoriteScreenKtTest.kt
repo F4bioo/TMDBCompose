@@ -4,9 +4,10 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.navigation.NavHostController
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.fappslab.core.navigation.DetailNavigation
-import com.fappslab.libraries.arch.testing.robot.onGiven
-import com.fappslab.libraries.arch.testing.robot.onThen
-import com.fappslab.libraries.arch.testing.robot.onWhen
+import com.fappslab.libraries.arch.testing.robot.givenArrange
+import com.fappslab.libraries.arch.testing.robot.thenCheck
+import com.fappslab.libraries.arch.testing.robot.whenAction
+import com.fappslab.libraries.design.component.preview.movieDataPreview
 import com.fappslab.libraries.design.component.preview.moviesDataPreview
 import io.mockk.Runs
 import io.mockk.clearAllMocks
@@ -43,16 +44,16 @@ internal class FavoriteScreenKtTest {
     @Test
     fun toolbarTitle_Should_displayTopBarTile_When_screenIsShowing() {
         screenRobot
-            .onWhen()
-            .onThen { checkIfToolbarHasExactlyText() }
+            .whenAction()
+            .thenCheck { checkIfToolbarHasExactlyText() }
     }
 
     @Test
     fun emptyScreen_Should_displayEmptyScreen_When_favoriteListIsEmpty() {
         val expectedText = "It seems you haven\'t added any movies to your favorites yet."
         screenRobot
-            .onWhen()
-            .onThen { checkIfHasExactlyText(expectedText) }
+            .whenAction()
+            .thenCheck { checkIfHasExactlyText(expectedText) }
     }
 
     @Test
@@ -60,17 +61,17 @@ internal class FavoriteScreenKtTest {
         val expectedTitle = "Avatar: The Way of Water"
 
         screenRobot
-            .onGiven { movieTitleArrange() }
-            .onWhen()
-            .onThen { checkIfHasExactlyText(expectedTitle) }
+            .givenArrange { movieTitleArrange() }
+            .whenAction()
+            .thenCheck { checkIfHasExactlyText(expectedTitle) }
     }
 
     @Test
     fun favoriteUnchecked_Should_BecomeUnchecked_When_ClickedWhileChecked() {
         screenRobot
-            .onGiven { favoriteUncheckedArrange() }
-            .onWhen { favoriteUncheckedAction() }
-            .onThen { checkIfFavoriteToggleIsUnchecked() }
+            .givenArrange { favoriteUncheckedArrange() }
+            .whenAction { favoriteUncheckedAction() }
+            .thenCheck { checkIfFavoriteToggleIsUnchecked() }
     }
 
     @Test
@@ -78,20 +79,19 @@ internal class FavoriteScreenKtTest {
         val movies = moviesDataPreview()
 
         screenRobot
-            .onGiven { favoriteContentArrange(movies) }
-            .onWhen()
-            .onThen { checkIfMovieItemsIsPopulated(movies) }
+            .givenArrange { favoriteContentArrange(movies) }
+            .whenAction()
+            .thenCheck { checkIfMovieItemsIsPopulated(movies) }
     }
 
     @Test
     fun itemClicked_Should_Navigate_When_ClickedOnMovieItem() {
-        val movies = moviesDataPreview()
-        val movie = movies.first()
+        val movie = movieDataPreview()
         every { detailNavigation.navigateToDetail(navController, movie.id) } just Runs
 
         screenRobot
-            .onGiven { itemClickedArrange() }
-            .onWhen { itemClickedAction() }
+            .givenArrange { itemClickedArrange() }
+            .whenAction { itemClickedAction() }
 
         verify { detailNavigation.navigateToDetail(navController, movie.id) }
     }

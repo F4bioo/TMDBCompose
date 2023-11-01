@@ -4,9 +4,9 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.navigation.NavHostController
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.fappslab.core.navigation.DetailNavigation
-import com.fappslab.libraries.arch.testing.robot.onGiven
-import com.fappslab.libraries.arch.testing.robot.onThen
-import com.fappslab.libraries.arch.testing.robot.onWhen
+import com.fappslab.libraries.arch.testing.robot.givenArrange
+import com.fappslab.libraries.arch.testing.robot.thenCheck
+import com.fappslab.libraries.arch.testing.robot.whenAction
 import com.fappslab.libraries.design.component.preview.movieDataPreview
 import com.fappslab.libraries.design.component.preview.moviesDataPreview
 import io.mockk.Runs
@@ -44,8 +44,8 @@ internal class PopularScreenKtTest {
     @Test
     fun toolbarTitle_Should_displayTopBarTile_When_screenIsShowing() {
         screenRobot
-            .onWhen()
-            .onThen { checkIfToolbarHasExactlyText() }
+            .whenAction()
+            .thenCheck { checkIfToolbarHasExactlyText() }
     }
 
     @Test
@@ -53,9 +53,9 @@ internal class PopularScreenKtTest {
         val movies = moviesDataPreview()
 
         screenRobot
-            .onGiven { detailContentArrange(movies) }
-            .onWhen()
-            .onThen { checkIfMovieItemsIsPopulated(movies) }
+            .givenArrange { detailContentArrange(movies) }
+            .whenAction()
+            .thenCheck { checkIfMovieItemsIsPopulated(movies) }
     }
 
     @Test
@@ -64,8 +64,8 @@ internal class PopularScreenKtTest {
         every { detailNavigation.navigateToDetail(navController, movie.id) } just Runs
 
         screenRobot
-            .onGiven { itemClickedArrange() }
-            .onWhen { itemClickedAction() }
+            .givenArrange { itemClickedArrange() }
+            .whenAction { itemClickedAction() }
 
         verify { detailNavigation.navigateToDetail(navController, movie.id) }
     }

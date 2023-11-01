@@ -4,9 +4,9 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.navigation.NavHostController
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.fappslab.core.navigation.DetailNavigation
-import com.fappslab.libraries.arch.testing.robot.onGiven
-import com.fappslab.libraries.arch.testing.robot.onThen
-import com.fappslab.libraries.arch.testing.robot.onWhen
+import com.fappslab.libraries.arch.testing.robot.givenArrange
+import com.fappslab.libraries.arch.testing.robot.thenCheck
+import com.fappslab.libraries.arch.testing.robot.whenAction
 import com.fappslab.libraries.design.component.preview.movieDataPreview
 import com.fappslab.libraries.design.component.preview.moviesDataPreview
 import io.mockk.Runs
@@ -44,56 +44,56 @@ internal class DetailScreenKtTest {
     @Test
     fun toolbarTitle_Should_displayTopBarTile_When_screenIsShowing() {
         screenRobot
-            .onWhen()
-            .onThen { checkIfToolbarHasExactlyText() }
+            .whenAction()
+            .thenCheck { checkIfToolbarHasExactlyText() }
     }
 
     @Test
     fun showLoading_Should_displayProgress_When_screenIsShowing() {
         screenRobot
-            .onGiven { showLoadingArrange() }
-            .onWhen()
-            .onThen { checkIfLoadingIsDisplayed() }
+            .givenArrange { showLoadingArrange() }
+            .whenAction()
+            .thenCheck { checkIfLoadingIsDisplayed() }
     }
 
     @Test
     fun favoriteChecked_Should_BecomeChecked_When_ClickedWhileUnchecked() {
         screenRobot
-            .onGiven { favoriteCheckedArrange() }
-            .onWhen { favoriteCheckedAction() }
-            .onThen { checkIfFavoriteToggleIsChecked() }
+            .givenArrange { favoriteCheckedArrange() }
+            .whenAction { favoriteCheckedAction() }
+            .thenCheck { checkIfFavoriteToggleIsChecked() }
     }
 
     @Test
     fun movieTitle_Should_displayMovieTitle_When_screenIsShowing() {
         screenRobot
-            .onGiven { movieTitleArrange() }
-            .onWhen()
-            .onThen { checkIfMovieTitleHasExactlyText() }
+            .givenArrange { movieTitleArrange() }
+            .whenAction()
+            .thenCheck { checkIfMovieTitleHasExactlyText() }
     }
 
     @Test
     fun genres_Should_displayGenres_When_screenIsShowing() {
         screenRobot
-            .onGiven { genresArrange() }
-            .onWhen()
-            .onThen { checkIfHasExactlyGenreList() }
+            .givenArrange { genresArrange() }
+            .whenAction()
+            .thenCheck { checkIfHasExactlyGenreList() }
     }
 
     @Test
     fun infoGroup_Should_displayCorrectInfo_When_screenIsShowing() {
         screenRobot
-            .onGiven { infoGroupArrange() }
-            .onWhen()
-            .onThen { checkIfHasExactlyInfoGroupTexts() }
+            .givenArrange { infoGroupArrange() }
+            .whenAction()
+            .thenCheck { checkIfHasExactlyInfoGroupTexts() }
     }
 
     @Test
     fun synopsisView_Should_toggleExpanded_When_textIsClicked() {
         screenRobot
-            .onGiven { toggleExpandedArrange() }
-            .onWhen { toggleExpandedAction() }
-            .onThen { checkIfArrowIconIsChanged() }
+            .givenArrange { toggleExpandedArrange() }
+            .whenAction { toggleExpandedAction() }
+            .thenCheck { checkIfArrowIconIsChanged() }
     }
 
     @Test
@@ -101,9 +101,9 @@ internal class DetailScreenKtTest {
         val movies = moviesDataPreview()
 
         screenRobot
-            .onGiven { detailContentArrange() }
-            .onWhen()
-            .onThen { checkIfMovieItemsIsPopulated(movies) }
+            .givenArrange { detailContentArrange() }
+            .whenAction()
+            .thenCheck { checkIfMovieItemsIsPopulated(movies) }
     }
 
     @Test
@@ -112,8 +112,8 @@ internal class DetailScreenKtTest {
         every { detailNavigation.navigateToDetail(navController, movie.id) } just Runs
 
         screenRobot
-            .onGiven { itemClickedArrange() }
-            .onWhen { itemClickedAction() }
+            .givenArrange { itemClickedArrange() }
+            .whenAction { itemClickedAction() }
 
         verify { detailNavigation.navigateToDetail(navController, movie.id) }
     }

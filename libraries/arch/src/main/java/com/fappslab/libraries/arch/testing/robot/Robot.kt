@@ -24,12 +24,12 @@ abstract class Robot<RC : RobotCheck<RC>, S, A, VM : ViewModel<S, A>> : RobotChe
 }
 
 @VisibleForTesting
-inline fun <reified R : Robot<*, *, *, *>> R.onGiven(noinline block: R.() -> Unit): R {
+inline fun <reified R : Robot<*, *, *, *>> R.givenArrange(noinline block: R.() -> Unit): R {
     return this.apply(block)
 }
 
 @VisibleForTesting
-inline fun <reified R : Robot<RC, S, A, VM>, RC : RobotCheck<RC>, S, A, VM : ViewModel<S, A>> R.onWhen(
+inline fun <reified R : Robot<RC, S, A, VM>, RC : RobotCheck<RC>, S, A, VM : ViewModel<S, A>> R.whenAction(
     noinline block: R.() -> Unit = {}
 ): R {
     composeTestRule.setContent { subject(fakeViewModel) }
@@ -37,6 +37,6 @@ inline fun <reified R : Robot<RC, S, A, VM>, RC : RobotCheck<RC>, S, A, VM : Vie
 }
 
 @VisibleForTesting
-inline fun <reified R : Robot<RC, *, *, *>, reified RC : RobotCheck<RC>> R.onThen(noinline block: RC.() -> Unit) {
+inline fun <reified R : Robot<RC, *, *, *>, reified RC : RobotCheck<RC>> R.thenCheck(noinline block: RC.() -> Unit) {
     (robotCheck as? RC)?.apply(block)
 }
