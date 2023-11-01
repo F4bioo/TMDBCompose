@@ -70,15 +70,9 @@ internal class FavoriteScreenKtTest {
     @Test
     fun favoriteUnchecked_Should_BecomeUnchecked_When_ClickedWhileChecked() {
         screenRobot
-            .givenArrange {
-                favoriteUncheckedArrange()
-            }
-            .whenAction {
-                favoriteUncheckedAction()
-            }
-            .thenCheck {
-                checkIfFavoriteToggleIsUnchecked()
-            }
+            .givenArrange { favoriteUncheckedArrange() }
+            .whenAction { favoriteUncheckedAction() }
+            .thenCheck { checkIfFavoriteToggleIsUnchecked() }
     }
 
     @Test
