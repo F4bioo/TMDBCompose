@@ -4,7 +4,6 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.navigation.NavHostController
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.fappslab.core.navigation.DetailNavigation
-import com.fappslab.features.favorite.presentation.viewmodel.FavoriteViewState
 import com.fappslab.libraries.arch.testing.robot.onGiven
 import com.fappslab.libraries.arch.testing.robot.onThen
 import com.fappslab.libraries.arch.testing.robot.onWhen
@@ -26,14 +25,13 @@ internal class FavoriteScreenKtTest {
     @get:Rule
     val composeRule = createComposeRule()
 
-    private val initialState = FavoriteViewState()
     private val navController = mockk<NavHostController>()
     private val detailNavigation = mockk<DetailNavigation>()
-    private val screenRobot = FavoriteScreenRobot(initialState, composeRule) { viewModel ->
+    private val screenRobot = FavoriteScreenRobot(composeRule) {
         FavoriteScreen(
             navController = navController,
             detailNavigation = detailNavigation,
-            viewModel = viewModel
+            viewModel = it
         )
     }
 
@@ -62,7 +60,7 @@ internal class FavoriteScreenKtTest {
         val expectedTitle = "Avatar: The Way of Water"
 
         screenRobot
-            .onGiven { movieTitleBehavior() }
+            .onGiven { movieTitleArrange() }
             .onWhen()
             .onThen { checkIfHasExactlyText(expectedTitle) }
     }
@@ -70,7 +68,7 @@ internal class FavoriteScreenKtTest {
     @Test
     fun favoriteUnchecked_Should_BecomeUnchecked_When_ClickedWhileChecked() {
         screenRobot
-            .onGiven { favoriteUncheckedBehavior() }
+            .onGiven { favoriteUncheckedArrange() }
             .onWhen { favoriteUncheckedAction() }
             .onThen { checkIfFavoriteToggleIsUnchecked() }
     }
@@ -80,7 +78,7 @@ internal class FavoriteScreenKtTest {
         val movies = moviesDataPreview()
 
         screenRobot
-            .onGiven { favoriteContentBehavior(movies) }
+            .onGiven { favoriteContentArrange(movies) }
             .onWhen()
             .onThen { checkIfMovieItemsIsPopulated(movies) }
     }
@@ -92,7 +90,7 @@ internal class FavoriteScreenKtTest {
         every { detailNavigation.navigateToDetail(navController, movie.id) } just Runs
 
         screenRobot
-            .onGiven { itemClickedBehavior() }
+            .onGiven { itemClickedArrange() }
             .onWhen { itemClickedAction() }
 
         verify { detailNavigation.navigateToDetail(navController, movie.id) }

@@ -21,24 +21,23 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.update
 
 internal class PopularScreenRobot(
-    initialState: PopularViewState,
     override val composeTestRule: ComposeContentTestRule,
     override val subject: @Composable (viewModel: PopularViewModel) -> Unit
 ) : Robot<PopularScreenRobotCheck, PopularViewState, PopularViewAction, PopularViewModel>() {
 
     override val robotCheck = PopularScreenRobotCheck(composeTestRule)
-    override val fakeState = MutableStateFlow(initialState)
+    override val fakeState = MutableStateFlow(PopularViewState())
     override val fakeAction = MutableSharedFlow<PopularViewAction>()
     override val fakeViewModel = mockk<PopularViewModel>(relaxed = true) {
         every { state } returns fakeState
         every { action } returns fakeAction
     }
 
-    fun detailContentBehavior(movies: List<Movie>) {
+    fun detailContentArrange(movies: List<Movie>) {
         fakeState.update { it.copy(movies = flowOf(PagingData.from(movies))) }
     }
 
-    fun itemClickedBehavior() {
+    fun itemClickedArrange() {
         val movies = flowOf(PagingData.from(moviesDataPreview()))
         val movie = movieDataPreview()
         fakeState.update { it.copy(movies = movies) }

@@ -23,24 +23,23 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.update
 
 internal class DetailScreenRobot(
-    initialState: DetailViewState,
     override val composeTestRule: ComposeContentTestRule,
     override val subject: @Composable (viewModel: DetailViewModel) -> Unit
 ) : Robot<DetailScreenRobotCheck, DetailViewState, DetailViewAction, DetailViewModel>() {
 
     override val robotCheck = DetailScreenRobotCheck(composeTestRule)
-    override val fakeState = MutableStateFlow(initialState)
+    override val fakeState = MutableStateFlow(DetailViewState())
     override val fakeAction = MutableSharedFlow<DetailViewAction>()
     override val fakeViewModel = mockk<DetailViewModel>(relaxed = true) {
         every { state } returns fakeState
         every { action } returns fakeAction
     }
 
-    fun showLoadingBehavior() {
+    fun showLoadingArrange() {
         fakeState.update { it.copy(shouldShowLoading = true) }
     }
 
-    fun favoriteCheckedBehavior() {
+    fun favoriteCheckedArrange() {
         fakeState.update { it.copy(detail = detailDataPreview()) }
 
         every { fakeViewModel.onFavorite(any()) } answers {
@@ -52,24 +51,24 @@ internal class DetailScreenRobot(
         composeTestRule.onNodeWithTag(FAVORITE_TOGGLE_VIEW_TAG).performClick()
     }
 
-    fun movieTitleBehavior() {
+    fun movieTitleArrange() {
         fakeState.update { it.copy(detail = detailDataPreview()) }
     }
 
-    fun genresBehavior() {
+    fun genresArrange() {
         fakeState.update { it.copy(detail = detailDataPreview()) }
     }
 
-    fun infoGroupBehavior() {
+    fun infoGroupArrange() {
         fakeState.update { it.copy(detail = detailDataPreview()) }
     }
 
-    fun detailContentBehavior() {
+    fun detailContentArrange() {
         val movies = flowOf(PagingData.from(moviesDataPreview()))
         fakeState.update { it.copy(movies = movies) }
     }
 
-    fun toggleExpandedBehavior() {
+    fun toggleExpandedArrange() {
         fakeState.update { it.copy(detail = detailDataPreview()) }
 
         every { fakeViewModel.onCollapse(any()) } answers {
@@ -81,7 +80,7 @@ internal class DetailScreenRobot(
         composeTestRule.onNodeWithTag(SYNOPSIS_VIEW_TAG).performClick()
     }
 
-    fun itemClickedBehavior() {
+    fun itemClickedArrange() {
         val movies = flowOf(PagingData.from(moviesDataPreview()))
         val movie = movieDataPreview()
         fakeState.update { it.copy(movies = movies) }

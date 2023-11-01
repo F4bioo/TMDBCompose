@@ -20,24 +20,23 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 
 internal class FavoriteScreenRobot(
-    initialState: FavoriteViewState,
     override val composeTestRule: ComposeContentTestRule,
     override val subject: @Composable (viewModel: FavoriteViewModel) -> Unit
 ) : Robot<FavoriteScreenRobotCheck, FavoriteViewState, FavoriteViewAction, FavoriteViewModel>() {
 
     override val robotCheck = FavoriteScreenRobotCheck(composeTestRule)
-    override val fakeState = MutableStateFlow(initialState)
+    override val fakeState = MutableStateFlow(FavoriteViewState())
     override val fakeAction = MutableSharedFlow<FavoriteViewAction>()
     override val fakeViewModel = mockk<FavoriteViewModel>(relaxed = true) {
         every { state } returns fakeState
         every { action } returns fakeAction
     }
 
-    fun movieTitleBehavior() {
+    fun movieTitleArrange() {
         fakeState.update { it.copy(movies = listOf(movieDataPreview())) }
     }
 
-    fun favoriteUncheckedBehavior() {
+    fun favoriteUncheckedArrange() {
         fakeState.update { it.copy(movies = listOf(movieDataPreview())) }
 
         every { fakeViewModel.onFavorite(any()) } answers {
@@ -49,11 +48,11 @@ internal class FavoriteScreenRobot(
         composeTestRule.onNodeWithTag(FAVORITE_TOGGLE_VIEW_TAG).performClick()
     }
 
-    fun favoriteContentBehavior(movies: List<Movie>) {
+    fun favoriteContentArrange(movies: List<Movie>) {
         fakeState.update { it.copy(movies = movies) }
     }
 
-    fun itemClickedBehavior() {
+    fun itemClickedArrange() {
         val movies = moviesDataPreview()
         val movie = movieDataPreview()
         fakeState.update { it.copy(movies = movies) }

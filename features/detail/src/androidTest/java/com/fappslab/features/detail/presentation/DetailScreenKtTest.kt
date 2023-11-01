@@ -4,7 +4,6 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.navigation.NavHostController
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.fappslab.core.navigation.DetailNavigation
-import com.fappslab.features.detail.presentation.viewmodel.DetailViewState
 import com.fappslab.libraries.arch.testing.robot.onGiven
 import com.fappslab.libraries.arch.testing.robot.onThen
 import com.fappslab.libraries.arch.testing.robot.onWhen
@@ -27,14 +26,13 @@ internal class DetailScreenKtTest {
     @get:Rule
     val composeRule = createComposeRule()
 
-    private val initialState = DetailViewState()
     private val navController = mockk<NavHostController>()
     private val detailNavigation = mockk<DetailNavigation>()
-    private val screenRobot = DetailScreenRobot(initialState, composeRule) { viewModel ->
+    private val screenRobot = DetailScreenRobot(composeRule) {
         DetailScreen(
             navController = navController,
             detailNavigation = detailNavigation,
-            viewModel = viewModel
+            viewModel = it
         )
     }
 
@@ -53,7 +51,7 @@ internal class DetailScreenKtTest {
     @Test
     fun showLoading_Should_displayProgress_When_screenIsShowing() {
         screenRobot
-            .onGiven { showLoadingBehavior() }
+            .onGiven { showLoadingArrange() }
             .onWhen()
             .onThen { checkIfLoadingIsDisplayed() }
     }
@@ -61,7 +59,7 @@ internal class DetailScreenKtTest {
     @Test
     fun favoriteChecked_Should_BecomeChecked_When_ClickedWhileUnchecked() {
         screenRobot
-            .onGiven { favoriteCheckedBehavior() }
+            .onGiven { favoriteCheckedArrange() }
             .onWhen { favoriteCheckedAction() }
             .onThen { checkIfFavoriteToggleIsChecked() }
     }
@@ -69,7 +67,7 @@ internal class DetailScreenKtTest {
     @Test
     fun movieTitle_Should_displayMovieTitle_When_screenIsShowing() {
         screenRobot
-            .onGiven { movieTitleBehavior() }
+            .onGiven { movieTitleArrange() }
             .onWhen()
             .onThen { checkIfMovieTitleHasExactlyText() }
     }
@@ -77,7 +75,7 @@ internal class DetailScreenKtTest {
     @Test
     fun genres_Should_displayGenres_When_screenIsShowing() {
         screenRobot
-            .onGiven { genresBehavior() }
+            .onGiven { genresArrange() }
             .onWhen()
             .onThen { checkIfHasExactlyGenreList() }
     }
@@ -85,7 +83,7 @@ internal class DetailScreenKtTest {
     @Test
     fun infoGroup_Should_displayCorrectInfo_When_screenIsShowing() {
         screenRobot
-            .onGiven { infoGroupBehavior() }
+            .onGiven { infoGroupArrange() }
             .onWhen()
             .onThen { checkIfHasExactlyInfoGroupTexts() }
     }
@@ -93,7 +91,7 @@ internal class DetailScreenKtTest {
     @Test
     fun synopsisView_Should_toggleExpanded_When_textIsClicked() {
         screenRobot
-            .onGiven { toggleExpandedBehavior() }
+            .onGiven { toggleExpandedArrange() }
             .onWhen { toggleExpandedAction() }
             .onThen { checkIfArrowIconIsChanged() }
     }
@@ -103,7 +101,7 @@ internal class DetailScreenKtTest {
         val movies = moviesDataPreview()
 
         screenRobot
-            .onGiven { detailContentBehavior() }
+            .onGiven { detailContentArrange() }
             .onWhen()
             .onThen { checkIfMovieItemsIsPopulated(movies) }
     }
@@ -114,7 +112,7 @@ internal class DetailScreenKtTest {
         every { detailNavigation.navigateToDetail(navController, movie.id) } just Runs
 
         screenRobot
-            .onGiven { itemClickedBehavior() }
+            .onGiven { itemClickedArrange() }
             .onWhen { itemClickedAction() }
 
         verify { detailNavigation.navigateToDetail(navController, movie.id) }

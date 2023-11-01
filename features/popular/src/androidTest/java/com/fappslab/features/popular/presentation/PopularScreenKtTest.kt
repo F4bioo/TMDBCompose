@@ -4,7 +4,6 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.navigation.NavHostController
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.fappslab.core.navigation.DetailNavigation
-import com.fappslab.features.popular.presentation.viewmodel.PopularViewState
 import com.fappslab.libraries.arch.testing.robot.onGiven
 import com.fappslab.libraries.arch.testing.robot.onThen
 import com.fappslab.libraries.arch.testing.robot.onWhen
@@ -27,14 +26,13 @@ internal class PopularScreenKtTest {
     @get:Rule
     val composeRule = createComposeRule()
 
-    private val initialState = PopularViewState()
     private val navController = mockk<NavHostController>()
     private val detailNavigation = mockk<DetailNavigation>()
-    private val screenRobot = PopularScreenRobot(initialState, composeRule) { viewModel ->
+    private val screenRobot = PopularScreenRobot(composeRule) {
         PopularScreen(
             navController = navController,
             detailNavigation = detailNavigation,
-            viewModel = viewModel
+            viewModel = it
         )
     }
 
@@ -55,7 +53,7 @@ internal class PopularScreenKtTest {
         val movies = moviesDataPreview()
 
         screenRobot
-            .onGiven { detailContentBehavior(movies) }
+            .onGiven { detailContentArrange(movies) }
             .onWhen()
             .onThen { checkIfMovieItemsIsPopulated(movies) }
     }
@@ -66,7 +64,7 @@ internal class PopularScreenKtTest {
         every { detailNavigation.navigateToDetail(navController, movie.id) } just Runs
 
         screenRobot
-            .onGiven { itemClickedBehavior() }
+            .onGiven { itemClickedArrange() }
             .onWhen { itemClickedAction() }
 
         verify { detailNavigation.navigateToDetail(navController, movie.id) }
