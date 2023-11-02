@@ -18,14 +18,12 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.update
 
 internal class DetailScreenRobotArrange(
-    composeTestRule: ComposeContentTestRule,
+    override val composeTestRule: ComposeContentTestRule,
     override val subject: @Composable (viewModel: DetailViewModel) -> Unit
-) : RobotArrange<DetailScreenRobotAction, DetailScreenRobotCheck, DetailViewState, DetailViewAction, DetailViewModel>() {
+) : RobotArrange<DetailScreenRobotArrange, DetailScreenRobotAction, DetailViewModel>() {
 
-    override val robotAction = DetailScreenRobotAction(composeTestRule)
-    override val robotCheck = DetailScreenRobotCheck(composeTestRule)
-    override val fakeState = MutableStateFlow(DetailViewState())
-    override val fakeAction = MutableSharedFlow<DetailViewAction>()
+    private val fakeState = MutableStateFlow(DetailViewState())
+    private val fakeAction = MutableSharedFlow<DetailViewAction>()
     override val fakeViewModel = mockk<DetailViewModel>(relaxed = true) {
         every { state } returns fakeState
         every { action } returns fakeAction

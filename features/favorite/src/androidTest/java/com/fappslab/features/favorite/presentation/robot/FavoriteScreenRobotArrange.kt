@@ -16,14 +16,12 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 
 internal class FavoriteScreenRobotArrange(
-    composeTestRule: ComposeContentTestRule,
+    override val composeTestRule: ComposeContentTestRule,
     override val subject: @Composable (viewModel: FavoriteViewModel) -> Unit
-) : RobotArrange<FavoriteScreenRobotAction, FavoriteScreenRobotCheck, FavoriteViewState, FavoriteViewAction, FavoriteViewModel>() {
+) : RobotArrange<FavoriteScreenRobotArrange, FavoriteScreenRobotAction, FavoriteViewModel>() {
 
-    override val robotAction = FavoriteScreenRobotAction(composeTestRule)
-    override val robotCheck = FavoriteScreenRobotCheck(composeTestRule)
-    override val fakeState = MutableStateFlow(FavoriteViewState())
-    override val fakeAction = MutableSharedFlow<FavoriteViewAction>()
+    private val fakeState = MutableStateFlow(FavoriteViewState())
+    private val fakeAction = MutableSharedFlow<FavoriteViewAction>()
     override val fakeViewModel = mockk<FavoriteViewModel>(relaxed = true) {
         every { state } returns fakeState
         every { action } returns fakeAction

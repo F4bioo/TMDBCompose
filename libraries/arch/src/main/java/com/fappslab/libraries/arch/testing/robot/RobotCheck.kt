@@ -1,16 +1,11 @@
 package com.fappslab.libraries.arch.testing.robot
 
 import androidx.annotation.VisibleForTesting
-import androidx.compose.ui.test.junit4.ComposeContentTestRule
 
 @VisibleForTesting
-interface RobotCheck<RC> {
-    val composeTestRule: ComposeContentTestRule
-}
+abstract class RobotCheck<SELF : RobotCheck<SELF>> : RobotAction<SELF, RobotCheck<*>>()
 
 @VisibleForTesting
-inline fun <reified R : RobotArrange<*, RC, *, *, *>, reified RC : RobotCheck<RC>> R.thenCheck(
-    noinline block: RC.() -> Unit
-) {
-    block(robotCheck)
+fun <T : RobotCheck<*>> T.thenCheck(block: T.() -> Unit): T {
+    return this.apply(block)
 }

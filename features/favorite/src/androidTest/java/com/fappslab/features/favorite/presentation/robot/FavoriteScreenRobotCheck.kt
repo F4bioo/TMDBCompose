@@ -14,7 +14,7 @@ import com.fappslab.libraries.design.component.FAVORITE_TOGGLE_VIEW_TAG
 
 internal class FavoriteScreenRobotCheck(
     override val composeTestRule: ComposeContentTestRule
-) : RobotCheck<FavoriteScreenRobotCheck> {
+) : RobotCheck<FavoriteScreenRobotCheck>() {
 
     fun checkIfHasExactlyText(text: String) {
         composeTestRule.onNodeWithText(text).assertExists()

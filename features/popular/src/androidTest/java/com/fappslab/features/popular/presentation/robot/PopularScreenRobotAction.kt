@@ -9,7 +9,7 @@ import com.fappslab.libraries.design.component.preview.movieDataPreview
 
 internal class PopularScreenRobotAction(
     override val composeTestRule: ComposeContentTestRule
-) : RobotAction<PopularScreenRobotAction> {
+) : RobotAction<PopularScreenRobotAction, PopularScreenRobotCheck>() {
 
     fun itemClickedAction() {
         val movie = movieDataPreview()

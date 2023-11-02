@@ -29,7 +29,7 @@ internal class PopularScreenKtTest {
 
     private val navController = mockk<NavHostController>()
     private val detailNavigation = mockk<DetailNavigation>()
-    private val screenRobot = PopularScreenRobotArrange(composeRule) {
+    private val robotScreen = PopularScreenRobotArrange(composeRule) {
         PopularScreen(
             navController = navController,
             detailNavigation = detailNavigation,
@@ -44,7 +44,8 @@ internal class PopularScreenKtTest {
 
     @Test
     fun toolbarTitle_Should_displayTopBarTile_When_screenIsShowing() {
-        screenRobot
+        robotScreen
+            .givenArrange()
             .whenAction()
             .thenCheck { checkIfToolbarHasExactlyText() }
     }
@@ -53,7 +54,7 @@ internal class PopularScreenKtTest {
     fun detailContent_Should_PopulateMovieList_When_ThereAreMovies() {
         val movies = moviesDataPreview()
 
-        screenRobot
+        robotScreen
             .givenArrange { detailContentArrange(movies) }
             .whenAction()
             .thenCheck { checkIfMovieItemsIsPopulated(movies) }
@@ -64,7 +65,7 @@ internal class PopularScreenKtTest {
         val movie = movieDataPreview()
         every { detailNavigation.navigateToDetail(navController, movie.id) } just Runs
 
-        screenRobot
+        robotScreen
             .givenArrange { itemClickedArrange() }
             .whenAction { itemClickedAction() }
 

@@ -29,7 +29,7 @@ internal class DetailScreenKtTest {
 
     private val navController = mockk<NavHostController>()
     private val detailNavigation = mockk<DetailNavigation>()
-    private val screenRobot = DetailScreenRobotArrange(composeRule) {
+    private val robotScreen = DetailScreenRobotArrange(composeRule) {
         DetailScreen(
             navController = navController,
             detailNavigation = detailNavigation,
@@ -44,14 +44,15 @@ internal class DetailScreenKtTest {
 
     @Test
     fun toolbarTitle_Should_displayTopBarTile_When_screenIsShowing() {
-        screenRobot
+        robotScreen
+            .givenArrange()
             .whenAction()
             .thenCheck { checkIfToolbarHasExactlyText() }
     }
 
     @Test
     fun showLoading_Should_displayProgress_When_screenIsShowing() {
-        screenRobot
+        robotScreen
             .givenArrange { showLoadingArrange() }
             .whenAction()
             .thenCheck { checkIfLoadingIsDisplayed() }
@@ -59,15 +60,17 @@ internal class DetailScreenKtTest {
 
     @Test
     fun favoriteChecked_Should_BecomeChecked_When_ClickedWhileUnchecked() {
-        screenRobot
-            .givenArrange { favoriteCheckedArrange() }
+        robotScreen
+            .givenArrange {
+                favoriteCheckedArrange()
+            }
             .whenAction { favoriteCheckedAction() }
             .thenCheck { checkIfFavoriteToggleIsChecked() }
     }
 
     @Test
     fun movieTitle_Should_displayMovieTitle_When_screenIsShowing() {
-        screenRobot
+        robotScreen
             .givenArrange { movieTitleArrange() }
             .whenAction()
             .thenCheck { checkIfMovieTitleHasExactlyText() }
@@ -75,7 +78,7 @@ internal class DetailScreenKtTest {
 
     @Test
     fun genres_Should_displayGenres_When_screenIsShowing() {
-        screenRobot
+        robotScreen
             .givenArrange { genresArrange() }
             .whenAction()
             .thenCheck { checkIfHasExactlyGenreList() }
@@ -83,7 +86,7 @@ internal class DetailScreenKtTest {
 
     @Test
     fun infoGroup_Should_displayCorrectInfo_When_screenIsShowing() {
-        screenRobot
+        robotScreen
             .givenArrange { infoGroupArrange() }
             .whenAction()
             .thenCheck { checkIfHasExactlyInfoGroupTexts() }
@@ -91,7 +94,7 @@ internal class DetailScreenKtTest {
 
     @Test
     fun synopsisView_Should_toggleExpanded_When_textIsClicked() {
-        screenRobot
+        robotScreen
             .givenArrange { toggleExpandedArrange() }
             .whenAction { toggleExpandedAction() }
             .thenCheck { checkIfArrowIconIsChanged() }
@@ -101,7 +104,7 @@ internal class DetailScreenKtTest {
     fun detailContent_Should_PopulateMovieList_When_ThereAreMovies() {
         val movies = moviesDataPreview()
 
-        screenRobot
+        robotScreen
             .givenArrange { detailContentArrange() }
             .whenAction()
             .thenCheck { checkIfMovieItemsIsPopulated(movies) }
@@ -112,7 +115,7 @@ internal class DetailScreenKtTest {
         val movie = movieDataPreview()
         every { detailNavigation.navigateToDetail(navController, movie.id) } just Runs
 
-        screenRobot
+        robotScreen
             .givenArrange { itemClickedArrange() }
             .whenAction { itemClickedAction() }
 

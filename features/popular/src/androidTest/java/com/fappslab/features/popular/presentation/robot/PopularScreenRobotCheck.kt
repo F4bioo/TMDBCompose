@@ -11,7 +11,7 @@ import com.fappslab.libraries.design.component.COVER_VIEW_TAG
 
 internal class PopularScreenRobotCheck(
     override val composeTestRule: ComposeContentTestRule
-) : RobotCheck<PopularScreenRobotCheck> {
+) : RobotCheck<PopularScreenRobotCheck>() {
 
     fun checkIfToolbarHasExactlyText() {
         val expectedTitle = "Popular Movies"

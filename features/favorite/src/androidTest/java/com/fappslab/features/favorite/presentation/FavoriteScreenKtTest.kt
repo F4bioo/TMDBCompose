@@ -29,7 +29,7 @@ internal class FavoriteScreenKtTest {
 
     private val navController = mockk<NavHostController>()
     private val detailNavigation = mockk<DetailNavigation>()
-    private val screenRobot = FavoriteScreenRobotArrange(composeRule) {
+    private val robotScreen = FavoriteScreenRobotArrange(composeRule) {
         FavoriteScreen(
             navController = navController,
             detailNavigation = detailNavigation,
@@ -44,7 +44,8 @@ internal class FavoriteScreenKtTest {
 
     @Test
     fun toolbarTitle_Should_displayTopBarTile_When_screenIsShowing() {
-        screenRobot
+        robotScreen
+            .givenArrange()
             .whenAction()
             .thenCheck { checkIfToolbarHasExactlyText() }
     }
@@ -52,7 +53,8 @@ internal class FavoriteScreenKtTest {
     @Test
     fun emptyScreen_Should_displayEmptyScreen_When_favoriteListIsEmpty() {
         val expectedText = "It seems you haven\'t added any movies to your favorites yet."
-        screenRobot
+        robotScreen
+            .givenArrange()
             .whenAction()
             .thenCheck { checkIfHasExactlyText(expectedText) }
     }
@@ -61,7 +63,7 @@ internal class FavoriteScreenKtTest {
     fun movieTitle_Should_displayMovieTitle_When_screenIsShowing() {
         val expectedTitle = "Avatar: The Way of Water"
 
-        screenRobot
+        robotScreen
             .givenArrange { movieTitleArrange() }
             .whenAction()
             .thenCheck { checkIfHasExactlyText(expectedTitle) }
@@ -69,7 +71,7 @@ internal class FavoriteScreenKtTest {
 
     @Test
     fun favoriteUnchecked_Should_BecomeUnchecked_When_ClickedWhileChecked() {
-        screenRobot
+        robotScreen
             .givenArrange { favoriteUncheckedArrange() }
             .whenAction { favoriteUncheckedAction() }
             .thenCheck { checkIfFavoriteToggleIsUnchecked() }
@@ -79,7 +81,7 @@ internal class FavoriteScreenKtTest {
     fun favoriteContent_Should_PopulateMovieList_When_ThereAreMovies() {
         val movies = moviesDataPreview()
 
-        screenRobot
+        robotScreen
             .givenArrange { favoriteContentArrange(movies) }
             .whenAction()
             .thenCheck { checkIfMovieItemsIsPopulated(movies) }
@@ -90,7 +92,7 @@ internal class FavoriteScreenKtTest {
         val movie = movieDataPreview()
         every { detailNavigation.navigateToDetail(navController, movie.id) } just Runs
 
-        screenRobot
+        robotScreen
             .givenArrange { itemClickedArrange() }
             .whenAction { itemClickedAction() }
 
