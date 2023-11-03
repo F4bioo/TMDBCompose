@@ -4,10 +4,10 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.navigation.NavHostController
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.fappslab.core.navigation.DetailNavigation
-import com.fappslab.features.detail.presentation.viewmodel.DetailViewState
-import com.fappslab.libraries.arch.testing.robot.onGiven
-import com.fappslab.libraries.arch.testing.robot.onThen
-import com.fappslab.libraries.arch.testing.robot.onWhen
+import com.fappslab.features.detail.presentation.robot.DetailScreenRobotArrange
+import com.fappslab.libraries.arch.testing.robot.givenArrange
+import com.fappslab.libraries.arch.testing.robot.thenCheck
+import com.fappslab.libraries.arch.testing.robot.whenAction
 import com.fappslab.libraries.design.component.preview.movieDataPreview
 import com.fappslab.libraries.design.component.preview.moviesDataPreview
 import io.mockk.Runs
@@ -27,14 +27,13 @@ internal class DetailScreenKtTest {
     @get:Rule
     val composeRule = createComposeRule()
 
-    private val initialState = DetailViewState()
     private val navController = mockk<NavHostController>()
     private val detailNavigation = mockk<DetailNavigation>()
-    private val screenRobot = DetailScreenRobot(initialState, composeRule) { viewModel ->
+    private val robotScreen = DetailScreenRobotArrange(composeRule) {
         DetailScreen(
             navController = navController,
             detailNavigation = detailNavigation,
-            viewModel = viewModel
+            viewModel = it
         )
     }
 
@@ -45,67 +44,70 @@ internal class DetailScreenKtTest {
 
     @Test
     fun toolbarTitle_Should_displayTopBarTile_When_screenIsShowing() {
-        screenRobot
-            .onWhen()
-            .onThen { checkIfToolbarHasExactlyText() }
+        robotScreen
+            .givenArrange()
+            .whenAction()
+            .thenCheck { checkIfToolbarHasExactlyText() }
     }
 
     @Test
     fun showLoading_Should_displayProgress_When_screenIsShowing() {
-        screenRobot
-            .onGiven { showLoadingBehavior() }
-            .onWhen()
-            .onThen { checkIfLoadingIsDisplayed() }
+        robotScreen
+            .givenArrange { showLoadingArrange() }
+            .whenAction()
+            .thenCheck { checkIfLoadingIsDisplayed() }
     }
 
     @Test
     fun favoriteChecked_Should_BecomeChecked_When_ClickedWhileUnchecked() {
-        screenRobot
-            .onGiven { favoriteCheckedBehavior() }
-            .onWhen { favoriteCheckedAction() }
-            .onThen { checkIfFavoriteToggleIsChecked() }
+        robotScreen
+            .givenArrange {
+                favoriteCheckedArrange()
+            }
+            .whenAction { favoriteCheckedAction() }
+            .thenCheck { checkIfFavoriteToggleIsChecked() }
     }
 
     @Test
     fun movieTitle_Should_displayMovieTitle_When_screenIsShowing() {
-        screenRobot
-            .onGiven { movieTitleBehavior() }
-            .onWhen()
-            .onThen { checkIfMovieTitleHasExactlyText() }
+        robotScreen
+            .givenArrange { movieTitleArrange() }
+            .whenAction()
+            .thenCheck { checkIfMovieTitleHasExactlyText() }
     }
 
     @Test
     fun genres_Should_displayGenres_When_screenIsShowing() {
-        screenRobot
-            .onGiven { genresBehavior() }
-            .onWhen()
-            .onThen { checkIfHasExactlyGenreList() }
+        robotScreen
+            .givenArrange { genresArrange() }
+            .whenAction()
+            .thenCheck { checkIfHasExactlyGenreList() }
     }
 
     @Test
     fun infoGroup_Should_displayCorrectInfo_When_screenIsShowing() {
-        screenRobot
-            .onGiven { infoGroupBehavior() }
-            .onWhen()
-            .onThen { checkIfHasExactlyInfoGroupTexts() }
+        robotScreen
+            .givenArrange { infoGroupArrange() }
+            .whenAction()
+            .thenCheck { checkIfHasExactlyInfoGroupTexts() }
     }
 
     @Test
     fun synopsisView_Should_toggleExpanded_When_textIsClicked() {
-        screenRobot
-            .onGiven { toggleExpandedBehavior() }
-            .onWhen { toggleExpandedAction() }
-            .onThen { checkIfArrowIconIsChanged() }
+        robotScreen
+            .givenArrange { toggleExpandedArrange() }
+            .whenAction { toggleExpandedAction() }
+            .thenCheck { checkIfArrowIconIsChanged() }
     }
 
     @Test
     fun detailContent_Should_PopulateMovieList_When_ThereAreMovies() {
         val movies = moviesDataPreview()
 
-        screenRobot
-            .onGiven { detailContentBehavior() }
-            .onWhen()
-            .onThen { checkIfMovieItemsIsPopulated(movies) }
+        robotScreen
+            .givenArrange { detailContentArrange() }
+            .whenAction()
+            .thenCheck { checkIfMovieItemsIsPopulated(movies) }
     }
 
     @Test
@@ -113,9 +115,9 @@ internal class DetailScreenKtTest {
         val movie = movieDataPreview()
         every { detailNavigation.navigateToDetail(navController, movie.id) } just Runs
 
-        screenRobot
-            .onGiven { itemClickedBehavior() }
-            .onWhen { itemClickedAction() }
+        robotScreen
+            .givenArrange { itemClickedArrange() }
+            .whenAction { itemClickedAction() }
 
         verify { detailNavigation.navigateToDetail(navController, movie.id) }
     }

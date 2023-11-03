@@ -1,16 +1,12 @@
-package com.fappslab.features.favorite.presentation
+package com.fappslab.features.favorite.presentation.robot
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
-import androidx.compose.ui.test.onNodeWithTag
-import androidx.compose.ui.test.performClick
 import com.fappslab.core.domain.model.Movie
-import com.fappslab.features.favorite.presentation.component.ITEM_VIEW_TAG
 import com.fappslab.features.favorite.presentation.viewmodel.FavoriteViewAction
 import com.fappslab.features.favorite.presentation.viewmodel.FavoriteViewModel
 import com.fappslab.features.favorite.presentation.viewmodel.FavoriteViewState
-import com.fappslab.libraries.arch.testing.robot.Robot
-import com.fappslab.libraries.design.component.FAVORITE_TOGGLE_VIEW_TAG
+import com.fappslab.libraries.arch.testing.robot.RobotArrange
 import com.fappslab.libraries.design.component.preview.movieDataPreview
 import com.fappslab.libraries.design.component.preview.moviesDataPreview
 import io.mockk.every
@@ -19,25 +15,23 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 
-internal class FavoriteScreenRobot(
-    initialState: FavoriteViewState,
+internal class FavoriteScreenRobotArrange(
     override val composeTestRule: ComposeContentTestRule,
     override val subject: @Composable (viewModel: FavoriteViewModel) -> Unit
-) : Robot<FavoriteScreenRobotCheck, FavoriteViewState, FavoriteViewAction, FavoriteViewModel>() {
+) : RobotArrange<FavoriteScreenRobotArrange, FavoriteScreenRobotAction, FavoriteViewModel>() {
 
-    override val robotCheck = FavoriteScreenRobotCheck(composeTestRule)
-    override val fakeState = MutableStateFlow(initialState)
-    override val fakeAction = MutableSharedFlow<FavoriteViewAction>()
+    private val fakeState = MutableStateFlow(FavoriteViewState())
+    private val fakeAction = MutableSharedFlow<FavoriteViewAction>()
     override val fakeViewModel = mockk<FavoriteViewModel>(relaxed = true) {
         every { state } returns fakeState
         every { action } returns fakeAction
     }
 
-    fun movieTitleBehavior() {
+    fun movieTitleArrange() {
         fakeState.update { it.copy(movies = listOf(movieDataPreview())) }
     }
 
-    fun favoriteUncheckedBehavior() {
+    fun favoriteUncheckedArrange() {
         fakeState.update { it.copy(movies = listOf(movieDataPreview())) }
 
         every { fakeViewModel.onFavorite(any()) } answers {
@@ -45,15 +39,11 @@ internal class FavoriteScreenRobot(
         }
     }
 
-    fun favoriteUncheckedAction() {
-        composeTestRule.onNodeWithTag(FAVORITE_TOGGLE_VIEW_TAG).performClick()
-    }
-
-    fun favoriteContentBehavior(movies: List<Movie>) {
+    fun favoriteContentArrange(movies: List<Movie>) {
         fakeState.update { it.copy(movies = movies) }
     }
 
-    fun itemClickedBehavior() {
+    fun itemClickedArrange() {
         val movies = moviesDataPreview()
         val movie = movieDataPreview()
         fakeState.update { it.copy(movies = movies) }
@@ -61,10 +51,5 @@ internal class FavoriteScreenRobot(
         every { fakeViewModel.onItemClicked(any()) } coAnswers {
             fakeAction.emit(FavoriteViewAction.ItemClicked(movie.id))
         }
-    }
-
-    fun itemClickedAction() {
-        val movie = movieDataPreview()
-        composeTestRule.onNodeWithTag(testTag = "${ITEM_VIEW_TAG}_${movie.id}").performClick()
     }
 }

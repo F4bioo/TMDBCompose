@@ -4,10 +4,10 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.navigation.NavHostController
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.fappslab.core.navigation.DetailNavigation
-import com.fappslab.features.popular.presentation.viewmodel.PopularViewState
-import com.fappslab.libraries.arch.testing.robot.onGiven
-import com.fappslab.libraries.arch.testing.robot.onThen
-import com.fappslab.libraries.arch.testing.robot.onWhen
+import com.fappslab.features.popular.presentation.robot.PopularScreenRobotArrange
+import com.fappslab.libraries.arch.testing.robot.givenArrange
+import com.fappslab.libraries.arch.testing.robot.thenCheck
+import com.fappslab.libraries.arch.testing.robot.whenAction
 import com.fappslab.libraries.design.component.preview.movieDataPreview
 import com.fappslab.libraries.design.component.preview.moviesDataPreview
 import io.mockk.Runs
@@ -27,14 +27,13 @@ internal class PopularScreenKtTest {
     @get:Rule
     val composeRule = createComposeRule()
 
-    private val initialState = PopularViewState()
     private val navController = mockk<NavHostController>()
     private val detailNavigation = mockk<DetailNavigation>()
-    private val screenRobot = PopularScreenRobot(initialState, composeRule) { viewModel ->
+    private val robotScreen = PopularScreenRobotArrange(composeRule) {
         PopularScreen(
             navController = navController,
             detailNavigation = detailNavigation,
-            viewModel = viewModel
+            viewModel = it
         )
     }
 
@@ -45,19 +44,20 @@ internal class PopularScreenKtTest {
 
     @Test
     fun toolbarTitle_Should_displayTopBarTile_When_screenIsShowing() {
-        screenRobot
-            .onWhen()
-            .onThen { checkIfToolbarHasExactlyText() }
+        robotScreen
+            .givenArrange()
+            .whenAction()
+            .thenCheck { checkIfToolbarHasExactlyText() }
     }
 
     @Test
     fun detailContent_Should_PopulateMovieList_When_ThereAreMovies() {
         val movies = moviesDataPreview()
 
-        screenRobot
-            .onGiven { detailContentBehavior(movies) }
-            .onWhen()
-            .onThen { checkIfMovieItemsIsPopulated(movies) }
+        robotScreen
+            .givenArrange { detailContentArrange(movies) }
+            .whenAction()
+            .thenCheck { checkIfMovieItemsIsPopulated(movies) }
     }
 
     @Test
@@ -65,9 +65,9 @@ internal class PopularScreenKtTest {
         val movie = movieDataPreview()
         every { detailNavigation.navigateToDetail(navController, movie.id) } just Runs
 
-        screenRobot
-            .onGiven { itemClickedBehavior() }
-            .onWhen { itemClickedAction() }
+        robotScreen
+            .givenArrange { itemClickedArrange() }
+            .whenAction { itemClickedAction() }
 
         verify { detailNavigation.navigateToDetail(navController, movie.id) }
     }

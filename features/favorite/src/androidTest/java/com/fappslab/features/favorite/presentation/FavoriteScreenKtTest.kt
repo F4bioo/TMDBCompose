@@ -4,10 +4,11 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.navigation.NavHostController
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.fappslab.core.navigation.DetailNavigation
-import com.fappslab.features.favorite.presentation.viewmodel.FavoriteViewState
-import com.fappslab.libraries.arch.testing.robot.onGiven
-import com.fappslab.libraries.arch.testing.robot.onThen
-import com.fappslab.libraries.arch.testing.robot.onWhen
+import com.fappslab.features.favorite.presentation.robot.FavoriteScreenRobotArrange
+import com.fappslab.libraries.arch.testing.robot.givenArrange
+import com.fappslab.libraries.arch.testing.robot.thenCheck
+import com.fappslab.libraries.arch.testing.robot.whenAction
+import com.fappslab.libraries.design.component.preview.movieDataPreview
 import com.fappslab.libraries.design.component.preview.moviesDataPreview
 import io.mockk.Runs
 import io.mockk.clearAllMocks
@@ -26,14 +27,13 @@ internal class FavoriteScreenKtTest {
     @get:Rule
     val composeRule = createComposeRule()
 
-    private val initialState = FavoriteViewState()
     private val navController = mockk<NavHostController>()
     private val detailNavigation = mockk<DetailNavigation>()
-    private val screenRobot = FavoriteScreenRobot(initialState, composeRule) { viewModel ->
+    private val robotScreen = FavoriteScreenRobotArrange(composeRule) {
         FavoriteScreen(
             navController = navController,
             detailNavigation = detailNavigation,
-            viewModel = viewModel
+            viewModel = it
         )
     }
 
@@ -44,56 +44,57 @@ internal class FavoriteScreenKtTest {
 
     @Test
     fun toolbarTitle_Should_displayTopBarTile_When_screenIsShowing() {
-        screenRobot
-            .onWhen()
-            .onThen { checkIfToolbarHasExactlyText() }
+        robotScreen
+            .givenArrange()
+            .whenAction()
+            .thenCheck { checkIfToolbarHasExactlyText() }
     }
 
     @Test
     fun emptyScreen_Should_displayEmptyScreen_When_favoriteListIsEmpty() {
         val expectedText = "It seems you haven\'t added any movies to your favorites yet."
-        screenRobot
-            .onWhen()
-            .onThen { checkIfHasExactlyText(expectedText) }
+        robotScreen
+            .givenArrange()
+            .whenAction()
+            .thenCheck { checkIfHasExactlyText(expectedText) }
     }
 
     @Test
     fun movieTitle_Should_displayMovieTitle_When_screenIsShowing() {
         val expectedTitle = "Avatar: The Way of Water"
 
-        screenRobot
-            .onGiven { movieTitleBehavior() }
-            .onWhen()
-            .onThen { checkIfHasExactlyText(expectedTitle) }
+        robotScreen
+            .givenArrange { movieTitleArrange() }
+            .whenAction()
+            .thenCheck { checkIfHasExactlyText(expectedTitle) }
     }
 
     @Test
     fun favoriteUnchecked_Should_BecomeUnchecked_When_ClickedWhileChecked() {
-        screenRobot
-            .onGiven { favoriteUncheckedBehavior() }
-            .onWhen { favoriteUncheckedAction() }
-            .onThen { checkIfFavoriteToggleIsUnchecked() }
+        robotScreen
+            .givenArrange { favoriteUncheckedArrange() }
+            .whenAction { favoriteUncheckedAction() }
+            .thenCheck { checkIfFavoriteToggleIsUnchecked() }
     }
 
     @Test
     fun favoriteContent_Should_PopulateMovieList_When_ThereAreMovies() {
         val movies = moviesDataPreview()
 
-        screenRobot
-            .onGiven { favoriteContentBehavior(movies) }
-            .onWhen()
-            .onThen { checkIfMovieItemsIsPopulated(movies) }
+        robotScreen
+            .givenArrange { favoriteContentArrange(movies) }
+            .whenAction()
+            .thenCheck { checkIfMovieItemsIsPopulated(movies) }
     }
 
     @Test
     fun itemClicked_Should_Navigate_When_ClickedOnMovieItem() {
-        val movies = moviesDataPreview()
-        val movie = movies.first()
+        val movie = movieDataPreview()
         every { detailNavigation.navigateToDetail(navController, movie.id) } just Runs
 
-        screenRobot
-            .onGiven { itemClickedBehavior() }
-            .onWhen { itemClickedAction() }
+        robotScreen
+            .givenArrange { itemClickedArrange() }
+            .whenAction { itemClickedAction() }
 
         verify { detailNavigation.navigateToDetail(navController, movie.id) }
     }

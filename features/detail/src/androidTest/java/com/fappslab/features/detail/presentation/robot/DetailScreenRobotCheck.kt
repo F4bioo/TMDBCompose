@@ -1,4 +1,4 @@
-package com.fappslab.features.detail.presentation
+package com.fappslab.features.detail.presentation.robot
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowUp
@@ -19,12 +19,12 @@ import com.fappslab.libraries.design.component.FAVORITE_TOGGLE_VIEW_TAG
 
 internal class DetailScreenRobotCheck(
     override val composeTestRule: ComposeContentTestRule
-) : RobotCheck<DetailScreenRobotCheck> {
+) : RobotCheck<DetailScreenRobotCheck>() {
 
     fun checkIfHasExactlyInfoGroupTexts() {
         listOf("Average (votes)", "7.65", "Duration", "192 min.", "Release", "2022-12-14")
             .forEach { expectedText ->
-                 composeTestRule.onNodeWithText(expectedText).assertExists()
+                composeTestRule.onNodeWithText(expectedText).assertExists()
             }
     }
 
