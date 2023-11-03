@@ -25,11 +25,11 @@ import org.junit.runner.RunWith
 internal class DetailScreenKtTest {
 
     @get:Rule
-    val composeRule = createComposeRule()
+    val composeTestRule = createComposeRule()
 
     private val navController = mockk<NavHostController>()
     private val detailNavigation = mockk<DetailNavigation>()
-    private val robotScreen = DetailScreenRobotArrange(composeRule) {
+    private val robotScreen = DetailScreenRobotArrange(composeTestRule) {
         DetailScreen(
             navController = navController,
             detailNavigation = detailNavigation,
@@ -61,9 +61,7 @@ internal class DetailScreenKtTest {
     @Test
     fun favoriteChecked_Should_BecomeChecked_When_ClickedWhileUnchecked() {
         robotScreen
-            .givenArrange {
-                favoriteCheckedArrange()
-            }
+            .givenArrange { favoriteCheckedArrange() }
             .whenAction { favoriteCheckedAction() }
             .thenCheck { checkIfFavoriteToggleIsChecked() }
     }

@@ -20,7 +20,7 @@ import kotlinx.coroutines.flow.update
 internal class DetailScreenRobotArrange(
     override val composeTestRule: ComposeContentTestRule,
     override val subject: @Composable (viewModel: DetailViewModel) -> Unit
-) : RobotArrange<DetailScreenRobotArrange, DetailScreenRobotAction, DetailViewModel>() {
+) : RobotArrange<DetailScreenRobotAction, DetailViewModel> {
 
     private val fakeState = MutableStateFlow(DetailViewState())
     private val fakeAction = MutableSharedFlow<DetailViewAction>()
