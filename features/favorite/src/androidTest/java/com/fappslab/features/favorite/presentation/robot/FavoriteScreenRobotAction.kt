@@ -10,7 +10,7 @@ import com.fappslab.libraries.design.component.preview.movieDataPreview
 
 internal class FavoriteScreenRobotAction(
     override val composeTestRule: ComposeContentTestRule
-) : RobotAction<FavoriteScreenRobotAction, FavoriteScreenRobotCheck>() {
+) : RobotAction<FavoriteScreenRobotCheck> {
 
     fun favoriteUncheckedAction() {
         composeTestRule.onNodeWithTag(FAVORITE_TOGGLE_VIEW_TAG).performClick()
