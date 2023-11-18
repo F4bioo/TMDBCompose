@@ -10,11 +10,13 @@ android {
 
 dependencies {
     // Libs
+    implementation libs.room
 
     // Modules
     implementation project(Modules.domain)
     implementation project(Modules.arch)
     implementation project(Modules.design)
     implementation project(Modules.local)
+    implementation project(Modules.remote)
     implementation project(Modules.navigation)
 }

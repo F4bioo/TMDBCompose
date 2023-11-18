@@ -36,6 +36,7 @@ room = "2.6.0"
 timber = "5.0.1"
 truth = "1.5.0"
 turbine = "0.8.0"
+core-testing = "2.2.0"
 ui = "1.5.4"
 
 [libraries]

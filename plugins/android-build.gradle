@@ -85,10 +85,12 @@ dependencies {
     testImplementation libs.mockk
     testImplementation libs.truth
     testImplementation libs.turbine
+    testImplementation libs.coreTesting
 
     androidTestImplementation libs.bundles.defaultAndroidTestBundle
     androidTestImplementation libs.hiltAndroidTesting
     androidTestImplementation libs.kotlinTest
     androidTestImplementation libs.mockkAndroid
     androidTestImplementation libs.truth
+    androidTestImplementation libs.turbine
 }
