@@ -96,6 +96,8 @@ hiltAndroidTesting = { module = "com.google.dagger:hilt-android-testing", versio
 kotlinTest = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin-test" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "mockwebserver" }
+coroutinesTest = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test-jvm", version.ref = "coroutines" }
+coreTesting = { module = "androidx.arch.core:core-testing", version.ref = "core-testing" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
