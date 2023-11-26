@@ -100,6 +100,7 @@ internal class DetailViewModelTest {
         val expectedSecondState = expectedFirstState.copy(shouldShowLoading = false)
         val expectedFinalState = expectedSecondState.copy(errorMessage = message)
         coEvery { provider.getMovieDetailUseCase(any()) } throws cause
+        coEvery { provider.isFavoriteUseCase(any()) } returns true
 
         // When
         subject.getMovieDetail()
