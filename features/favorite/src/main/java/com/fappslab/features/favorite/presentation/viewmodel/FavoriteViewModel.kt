@@ -37,8 +37,8 @@ internal class FavoriteViewModel @Inject constructor(
         viewModelScope.launch {
             onState { it.copy(shouldShowLoading = true) }
                 .runCatching { deleteFavoriteUseCase(movie) }
-                .apply { onState { it.copy(shouldShowLoading = false) } }
                 .onFailure { }
+                .also { onState { it.copy(shouldShowLoading = false) } }
         }
     }
 

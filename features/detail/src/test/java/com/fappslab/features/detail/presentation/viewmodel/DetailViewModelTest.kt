@@ -64,9 +64,9 @@ internal class DetailViewModelTest {
         val detail = detailDataPreview()
         val movies = flowOf(PagingData.from(moviesDataPreview()))
         val expectedFirstState = initialState.copy(shouldShowLoading = true)
-        val expectedSecondState = expectedFirstState.copy(shouldShowLoading = false)
-        val expectedFinalState = expectedSecondState
+        val expectedSecondState = expectedFirstState
             .copy(detail = detail, movies = movies, isFavoriteChecked = true)
+        val expectedFinalState = expectedSecondState.copy(shouldShowLoading = false)
         val pack = Pack(detail, movies)
         coEvery { provider.getMovieDetailUseCase(any()) } returns pack
         coEvery { provider.isFavoriteUseCase(any()) } returns true
@@ -78,12 +78,13 @@ internal class DetailViewModelTest {
         subject.state.test {
             assertEquals(initialState, awaitItem())
             assertEquals(expectedFirstState, awaitItem())
-            assertEquals(expectedSecondState, awaitItem())
 
-            val finalState = awaitItem()
-            assertEquals(expectedFinalState.detail, finalState.detail)
-            assertEquals(expectedFinalState.isFavoriteChecked, finalState.isFavoriteChecked)
-            assertNotNull(finalState.movies)
+            val secondState = awaitItem()
+            assertEquals(expectedSecondState.detail, secondState.detail)
+            assertEquals(expectedSecondState.isFavoriteChecked, secondState.isFavoriteChecked)
+            assertNotNull(secondState.movies)
+
+            assertEquals(expectedFinalState.shouldShowLoading, awaitItem().shouldShowLoading)
             cancelAndConsumeRemainingEvents()
         }
         coVerify { provider.getMovieDetailUseCase(any()) }
@@ -97,8 +98,8 @@ internal class DetailViewModelTest {
         val message = "Some error message"
         val cause = Throwable(message)
         val expectedFirstState = initialState.copy(shouldShowLoading = true)
-        val expectedSecondState = expectedFirstState.copy(shouldShowLoading = false)
-        val expectedFinalState = expectedSecondState.copy(errorMessage = message)
+        val expectedSecondState = expectedFirstState.copy(errorMessage = message)
+        val expectedFinalState = expectedSecondState.copy(shouldShowLoading = false)
         coEvery { provider.getMovieDetailUseCase(any()) } throws cause
         coEvery { provider.isFavoriteUseCase(any()) } returns true
 
@@ -165,11 +166,11 @@ internal class DetailViewModelTest {
         // Then
         subject.state.test {
             assertEquals(expected = true, awaitItem().shouldShowLoading)
-            assertEquals(expected = false, awaitItem().shouldShowLoading)
             assertEquals(expected = true, awaitItem().isFavoriteChecked)
-            assertEquals(expected = true, awaitItem().shouldShowLoading)
             assertEquals(expected = false, awaitItem().shouldShowLoading)
+            assertEquals(expected = true, awaitItem().shouldShowLoading)
             assertEquals(expected = false, awaitItem().isFavoriteChecked)
+            assertEquals(expected = false, awaitItem().shouldShowLoading)
             cancelAndConsumeRemainingEvents()
         }
         favoriteJob.join()
@@ -195,11 +196,11 @@ internal class DetailViewModelTest {
         // Then
         subject.state.test {
             assertEquals(expected = true, awaitItem().shouldShowLoading)
-            assertEquals(expected = false, awaitItem().shouldShowLoading)
             assertEquals(expected = false, awaitItem().isFavoriteChecked)
-            assertEquals(expected = true, awaitItem().shouldShowLoading)
             assertEquals(expected = false, awaitItem().shouldShowLoading)
+            assertEquals(expected = true, awaitItem().shouldShowLoading)
             assertEquals(expected = true, awaitItem().isFavoriteChecked)
+            assertEquals(expected = false, awaitItem().shouldShowLoading)
             cancelAndConsumeRemainingEvents()
         }
         favoriteJob.join()

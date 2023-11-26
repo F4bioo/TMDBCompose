@@ -50,9 +50,9 @@ internal class DetailViewModel @Inject constructor(
                         detail to isFavorite
                     }
                 }
-                .apply { onState { it.copy(shouldShowLoading = false) } }
                 .onFailure { getMovieDetailFailure(message = it.message) }
                 .onSuccess { getMovieDetailSuccess(successPair = it) }
+                .also { onState { it.copy(shouldShowLoading = false) } }
         }
     }
 
@@ -85,9 +85,9 @@ internal class DetailViewModel @Inject constructor(
                         provider.deleteFavoriteUseCase(movie)
                     } else provider.setFavoriteUseCase(movie)
                 }
-                .apply { onState { it.copy(shouldShowLoading = false) } }
                 .onFailure { }
                 .onSuccess { onState { it.copy(isFavoriteChecked = isFavoriteChecked.not()) } }
+                .also { onState { it.copy(shouldShowLoading = false) } }
         }
     }
 

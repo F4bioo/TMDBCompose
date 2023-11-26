@@ -21,6 +21,8 @@ dependencies {
     implementation libs.mockwebserver
     implementation libs.rxjavaAdapter
     implementation libs.kotlinReflect
+    implementation libs.kotlinTest
+    implementation libs.turbine
 
     // Modules
 
