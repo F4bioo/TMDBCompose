@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class FavoriteLocalDataSourceImpl @Inject constructor(
+internal class FavoriteLocalDataSourceImpl @Inject constructor(
     private val dao: MovieDao,
     @IO private val dispatcher: CoroutineDispatcher
 ) : FavoriteLocalDataSource {

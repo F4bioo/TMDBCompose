@@ -21,7 +21,7 @@ internal class DetailRepositoryImplIntegrationTest {
     val remoteRule = RemoteTestRule()
 
     @get:Rule
-    var mainCoroutineRule = MainCoroutineTestRule()
+    val mainCoroutineRule = MainCoroutineTestRule()
 
     private lateinit var subject: DetailRepository
 
@@ -36,7 +36,7 @@ internal class DetailRepositoryImplIntegrationTest {
     }
 
     @Test
-    fun `getMovies Should return detail object When is invoked`() {
+    fun `getMovies Should return detail object When invoked`() {
         runTest {
             // Given
             val expectedResult = ResponseFactory.detail
@@ -52,7 +52,7 @@ internal class DetailRepositoryImplIntegrationTest {
     }
 
     @Test
-    fun `getSimilar Should validate flow data creation When is invoked`() = runTest {
+    fun `getSimilar Should validate flow data creation When invoked`() = runTest {
         // Given
         remoteRule.toServerSuccessResponse { SIMILAR_SUCCESS_RESPONSE }
 

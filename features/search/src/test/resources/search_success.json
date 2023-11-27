@@ -1,0 +1,459 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/vL5LR6WdxWPjLPFRLe133jXWsh5.jpg",
+      "id": 19995,
+      "title": "Avatar",
+      "original_language": "en",
+      "original_title": "Avatar",
+      "overview": "In the 22nd century, a paraplegic Marine is dispatched to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization.",
+      "poster_path": "/kyeqWdyUXW608qlYkRqosgbbJyK.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        28,
+        12,
+        14,
+        878
+      ],
+      "popularity": 123.387,
+      "release_date": "2009-12-15",
+      "video": false,
+      "vote_average": 7.575,
+      "vote_count": 30004
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/pzgzH4LJoFmQKVPgKs0VZPWUoFZ.jpg",
+      "id": 1096978,
+      "title": "Avatar",
+      "original_language": "es",
+      "original_title": "Avatar",
+      "overview": "Tension mounts between a quadraplegic man and his wife as she prepares a bath for him.",
+      "poster_path": "/gmnD2e1RvMdCl9D1rsDEQaQlJxK.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        18
+      ],
+      "popularity": 4.527,
+      "release_date": "2006-04-11",
+      "video": false,
+      "vote_average": 6,
+      "vote_count": 23
+    },
+    {
+      "adult": false,
+      "id": 2510253,
+      "name": "Avatar",
+      "original_name": "Avatar",
+      "media_type": "person",
+      "popularity": 0.6,
+      "gender": 0,
+      "known_for_department": "Production",
+      "profile_path": null,
+      "known_for": [
+        {
+          "adult": false,
+          "backdrop_path": null,
+          "id": 663910,
+          "title": "Legend of Avatar Country: A Metal Odyssey",
+          "original_language": "en",
+          "original_title": "Legend of Avatar Country: A Metal Odyssey",
+          "overview": "The mighty tale of your favorite band and their adventures in Avatar Country, made possible through the backing and support of our beloved Citizens!",
+          "poster_path": "/pnAPPmD0ifEZuuUJSD56cOqhuNZ.jpg",
+          "media_type": "movie",
+          "genre_ids": [
+            10402,
+            35
+          ],
+          "popularity": 1.029,
+          "release_date": "2019-11-22",
+          "video": false,
+          "vote_average": 0,
+          "vote_count": 0
+        },
+        {
+          "adult": false,
+          "backdrop_path": "/dj8g4jrYMfK6tQ26ra3IaqOx5Ho.jpg",
+          "id": 874700,
+          "title": "Avatar Ages: Dreams",
+          "original_language": "en",
+          "original_title": "Avatar Ages: Dreams",
+          "overview": "On the night of dreams Avatar performed Hunter Gatherer in its entirety, plus a selection of their most popular songs.  Originally aired January 9th 2021",
+          "poster_path": "/4twG59wnuHpGIRR9gYsqZnVysSP.jpg",
+          "media_type": "movie",
+          "genre_ids": [
+            10402
+          ],
+          "popularity": 0.6,
+          "release_date": "2021-01-09",
+          "video": false,
+          "vote_average": 0,
+          "vote_count": 0
+        }
+      ]
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/8rpDcsfLJypbO6vREc0547VKqEv.jpg",
+      "id": 76600,
+      "title": "Avatar: The Way of Water",
+      "original_language": "en",
+      "original_title": "Avatar: The Way of Water",
+      "overview": "Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
+      "poster_path": "/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        878,
+        12,
+        28
+      ],
+      "popularity": 279.381,
+      "release_date": "2022-12-14",
+      "video": false,
+      "vote_average": 7.648,
+      "vote_count": 10160
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/iyt1okJXL52gJFcwIZhltHGBBZB.jpg",
+      "id": 153918,
+      "name": "Avataro Sentai Donbrothers",
+      "original_language": "ja",
+      "original_name": "暴太郎戦隊ドンブラザーズ",
+      "overview": "21 years ago, a baby arrived on earth inside of a peach. Today, five warriors based on the legend of Momotaro fight enemies that are inhabiting humans, invisible to the naked eye. Together they fight to take back gears based on previous Super Sentai.",
+      "poster_path": "/qFu4THkPaCJiHMBT6YzEFKCsfV1.jpg",
+      "media_type": "tv",
+      "genre_ids": [
+        10759,
+        18,
+        10765
+      ],
+      "popularity": 32.836,
+      "first_air_date": "2022-03-06",
+      "vote_average": 9.1,
+      "vote_count": 10,
+      "origin_country": [
+        "JP"
+      ]
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/uEwGFGtao9YG2JolmdvtHLLVbA9.jpg",
+      "id": 111332,
+      "title": "Avatar: Creating the World of Pandora",
+      "original_language": "en",
+      "original_title": "Avatar: Creating the World of Pandora",
+      "overview": "The Making-of James Cameron's Avatar. It shows interesting parts of the work on the set.",
+      "poster_path": "/d9oqcfeCyc3zmMal6eJbfj3gatc.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        99
+      ],
+      "popularity": 19.977,
+      "release_date": "2010-02-07",
+      "video": false,
+      "vote_average": 6.8,
+      "vote_count": 125
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/kU98MbVVgi72wzceyrEbClZmMFe.jpg",
+      "id": 246,
+      "name": "Avatar: The Last Airbender",
+      "original_language": "en",
+      "original_name": "Avatar: The Last Airbender",
+      "overview": "In a war-torn world of elemental magic, a young boy reawakens to undertake a dangerous mystic quest to fulfill his destiny as the Avatar, and bring peace to the world.",
+      "poster_path": "/cHFZA8Tlv03nKTGXhLOYOLtqoSm.jpg",
+      "media_type": "tv",
+      "genre_ids": [
+        16,
+        10759,
+        10765
+      ],
+      "popularity": 102.161,
+      "first_air_date": "2005-02-21",
+      "vote_average": 8.7,
+      "vote_count": 3556,
+      "origin_country": [
+        "US"
+      ]
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/u60TgdPLhfhGT94Xm3es2urm052.jpg",
+      "id": 71194,
+      "name": "The King's Avatar",
+      "original_language": "zh",
+      "original_name": "全职高手",
+      "overview": "In the multiplayer online game Glory, Ye Xiu is regarded as a textbook and a top-tier pro-player. However, due to a myriad of reasons, he is kicked from the team. After leaving the pro scene, he finds work in an Internet Cafe as a manager. When Glory launches its tenth server, he throws himself in to the game once more. Possessing ten years of experience, the memories of his past, and an incomplete, self-made weapon, his return along the road to the summit begins!",
+      "poster_path": "/aXWmkDgM3Aq2SFCc2qNJlEZQSo2.jpg",
+      "media_type": "tv",
+      "genre_ids": [
+        16,
+        10759
+      ],
+      "popularity": 41.121,
+      "first_air_date": "2017-04-07",
+      "vote_average": 8.2,
+      "vote_count": 40,
+      "origin_country": [
+        "CN"
+      ]
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/syc4jp5vlEBlI4QX3RSTUk52EUN.jpg",
+      "id": 82452,
+      "name": "Avatar: The Last Airbender",
+      "original_language": "en",
+      "original_name": "Avatar: The Last Airbender",
+      "overview": "Water. Earth. Fire. Air. Long ago, the four nations lived together in harmony — then everything changed.",
+      "poster_path": "/afOVe53kXHSY198dwd7KdSppwca.jpg",
+      "media_type": "tv",
+      "genre_ids": [
+        10765,
+        10759,
+        18
+      ],
+      "popularity": 43.326,
+      "first_air_date": "2024-02-22",
+      "vote_average": 0,
+      "vote_count": 0,
+      "origin_country": [
+        "US"
+      ]
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/itWZjJ6pLAfVzBOhV9I4Us31bqm.jpg",
+      "id": 91470,
+      "name": "The King's Avatar",
+      "original_language": "zh",
+      "original_name": "全职高手",
+      "overview": "Ye Xiu is the star player on an esports team that dominates the Chinese leagues of hit multiplayer titled “Glory.” His gaming days appear to have come to an abrupt halt, however, when he is forced out of his team – who are keen to accept a lucrative sponsorship deal he is vehemently opposed to. Dejected, Ye Xiu takes a job at a late-night Internet cafe, and eventually strikes up a friendship with Chen Guo, the cafe’s owner. Eventually, Chen Guo reveals her plan – to launch a new “Glory” team led by Ye Xui. Will Ye Xiu resume his “Glory” days? And can he recruit – and train – enough fellow members to return to the top of the national rankings...and take revenge on his disloyal former teammates?",
+      "poster_path": "/kmSxnAQ0YeQKh3Rm2VwqKZhkTt6.jpg",
+      "media_type": "tv",
+      "genre_ids": [
+        10759
+      ],
+      "popularity": 23.593,
+      "first_air_date": "2019-07-24",
+      "vote_average": 8.5,
+      "vote_count": 29,
+      "origin_country": [
+        "CN"
+      ]
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "id": 1132450,
+      "title": "Avataro Sentai Donbrothers vs. Avataro Sentai Donburies",
+      "original_language": "ja",
+      "original_title": "暴太郎戦隊ドンブラザーズVS暴太郎戦隊ドンブリーズ",
+      "overview": "The Avataro Sentai Donburies, which first appeared in Avataro Sentai Donbrothers' press conference gets a TTFC special!",
+      "poster_path": "/9hiiML3NMC4Qj25V97XEYl7bVKw.jpg",
+      "media_type": "movie",
+      "genre_ids": [],
+      "popularity": 4.572,
+      "release_date": "2023-11-05",
+      "video": false,
+      "vote_average": 10,
+      "vote_count": 1
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/fCK2T5ruQrqRsciJ01jjQSkNWVq.jpg",
+      "id": 613200,
+      "title": "The King's Avatar: For the Glory",
+      "original_language": "zh",
+      "original_title": "全职高手之巅峰荣耀",
+      "overview": "In this prequel to the animated series The King's Avatar, Ye Xiu enters into the pro gaming world of Glory, and competes in the first Pro League series tournament.",
+      "poster_path": "/6lyXW6GC7ruwDmhvEcRd9d46ZO7.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        16,
+        28,
+        12,
+        14
+      ],
+      "popularity": 7.763,
+      "release_date": "2019-08-16",
+      "video": false,
+      "vote_average": 7,
+      "vote_count": 37
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/agnESua8QxISkOERvs7td6BAesa.jpg",
+      "id": 1092060,
+      "title": "Avataro Sentai Donbrothers vs. Zenkaiger",
+      "original_language": "ja",
+      "original_title": "暴太郎戦隊ドンブラザーズVSゼンカイジャー",
+      "overview": "",
+      "poster_path": "/h5MwCuYy2EUv3AmD3d3E6AUYo90.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        28,
+        18,
+        878
+      ],
+      "popularity": 6.425,
+      "release_date": "2023-05-03",
+      "video": false,
+      "vote_average": 5.643,
+      "vote_count": 7
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "id": 926519,
+      "title": "The Botanical Avatar of Mademoiselle Flora",
+      "original_language": "fr",
+      "original_title": "L'Avatar botanique de mademoiselle Flora",
+      "overview": "A young woman lives sadly in a small garrison town with a soldier. Little by little, won over by boredom, sadness, total inaction, she develops a relationship with plants and starts talking to plants.",
+      "poster_path": "/jV7LWoQbwXplgdIbMvT4UB8O1E3.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        35
+      ],
+      "popularity": 1.671,
+      "release_date": "1965-05-05",
+      "video": false,
+      "vote_average": 6.8,
+      "vote_count": 7
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/eoAvHxfbaPOcfiQyjqypWIXWxDr.jpg",
+      "id": 1059673,
+      "title": "Avatar: The Deep Dive - A Special Edition of 20/20",
+      "original_language": "en",
+      "original_title": "Avatar: The Deep Dive - A Special Edition of 20/20",
+      "overview": "An inside look at one of the most anticipated movie sequels ever with James Cameron and cast.",
+      "poster_path": "/rtVeIsmeXnpjNbEKnm9Say58XjV.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        99
+      ],
+      "popularity": 20.045,
+      "release_date": "2022-12-14",
+      "video": false,
+      "vote_average": 7.3,
+      "vote_count": 60
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/cu1C5GoChAksELYsMcpPBHWfBr2.jpg",
+      "id": 194485,
+      "name": "Avataro Sentai Donbrothers meets Kamen Rider Den-O: Aim for it! The Don-O",
+      "original_language": "ja",
+      "original_name": "「暴太郎戦隊ドンブラザーズ」 meets 「仮面ライダー電王」目指せ！ドン王",
+      "overview": "A short 3-episode crossover between Avataro Sentai Donbrothers and Kamen Rider Den-O that aired on Bandai official YouTube channel.",
+      "poster_path": "/wJ5m8vvrXgtkIq6KB5qwsehMJ2n.jpg",
+      "media_type": "tv",
+      "genre_ids": [
+        10759,
+        35,
+        10765
+      ],
+      "popularity": 3.362,
+      "first_air_date": "2022-03-01",
+      "vote_average": 10,
+      "vote_count": 1,
+      "origin_country": [
+        "JP"
+      ]
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "id": 83533,
+      "title": "Avatar 3",
+      "original_language": "en",
+      "original_title": "Avatar 3",
+      "overview": "The third entry in the Avatar franchise.",
+      "poster_path": "/eZXoA5BjUxm1fdAKb3lPvbDY2L8.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        28,
+        878,
+        12
+      ],
+      "popularity": 14.741,
+      "release_date": "2025-12-17",
+      "video": false,
+      "vote_average": 0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "id": 100287,
+      "title": "My Avatar and Me",
+      "original_language": "da",
+      "original_title": "Min Avatar og mig",
+      "overview": "is a creative documentary-fiction film and a film that might expand your sense of reality. It is the story about a man who enters the virtual world Second Life to pursue his personal dreams and ambitions. His journey into cyberspace becomes a magic learning experience, which gradually opens the gates to a much larger reality.",
+      "poster_path": "/dZCj0jiOoDzAzbQM7ryYFEjkjs7.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        99,
+        878
+      ],
+      "popularity": 1.595,
+      "release_date": "2010-11-10",
+      "video": false,
+      "vote_average": 6.357,
+      "vote_count": 7
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/1T4sqygTH5SYzU5DtmI5K9ep2eP.jpg",
+      "id": 937315,
+      "title": "Avataro Sentai Donbrothers The Movie: New First Love Hero",
+      "original_language": "ja",
+      "original_title": "暴太郎戦隊ドンブラザーズ THE MOVIE 新・初恋ヒーロー",
+      "overview": "",
+      "poster_path": "/8MacEBNLdMnmroPAx6LNmi6oJaj.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        28,
+        12,
+        14,
+        878
+      ],
+      "popularity": 4.557,
+      "release_date": "2022-07-22",
+      "video": false,
+      "vote_average": 7.2,
+      "vote_count": 7
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "id": 216527,
+      "title": "Avatar 4",
+      "original_language": "en",
+      "original_title": "Avatar 4",
+      "overview": "",
+      "poster_path": "/xGcd3ob2DWC3TmlVhnJg1RLyTGi.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        28,
+        878,
+        12,
+        14,
+        53
+      ],
+      "popularity": 12.38,
+      "release_date": "2029-12-20",
+      "video": false,
+      "vote_average": 0,
+      "vote_count": 0
+    }
+  ],
+  "total_pages": 5,
+  "total_results": 87
+}

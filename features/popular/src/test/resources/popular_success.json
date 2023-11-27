@@ -1,0 +1,402 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg",
+      "genre_ids": [
+        18,
+        36
+      ],
+      "id": 872585,
+      "original_language": "en",
+      "original_title": "Oppenheimer",
+      "overview": "A história do físico americano J. Robert Oppenheimer, seu papel no Projeto Manhattan e no desenvolvimento da bomba atômica durante a Segunda Guerra Mundial, e o quanto isso mudaria a história do mundo para sempre.",
+      "popularity": 2464.545,
+      "poster_path": "/c0DCmfC7Et2K3URnIJ4ahJpeXR2.jpg",
+      "release_date": "2023-07-19",
+      "title": "Oppenheimer",
+      "video": false,
+      "vote_average": 8.211,
+      "vote_count": 4549
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/t5zCBSB5xMDKcDqe91qahCOUYVV.jpg",
+      "genre_ids": [
+        27,
+        9648
+      ],
+      "id": 507089,
+      "original_language": "en",
+      "original_title": "Five Nights at Freddy's",
+      "overview": "Enquanto passa sua primeira noite no trabalho, um problemático guarda de segurança da Pizzaria Freddy Fazbear logo percebe que não será uma tarefa fácil sobreviver ao seu primeiro turno.",
+      "popularity": 1355.052,
+      "poster_path": "/1yUbmAiw2cUSpyXNIaiST7JzCtG.jpg",
+      "release_date": "2023-10-25",
+      "title": "Five Nights at Freddy's - O Pesadelo Sem Fim",
+      "video": false,
+      "vote_average": 7.946,
+      "vote_count": 2276
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/1AZcHRuWvmuUNhLj3XWcd54V80B.jpg",
+      "genre_ids": [
+        878,
+        28,
+        53
+      ],
+      "id": 670292,
+      "original_language": "en",
+      "original_title": "The Creator",
+      "overview": "Em meio a uma futura guerra entre a raça humana e as forças da inteligência artificial, Joshua, um endurecido ex-agente das forças especiais que lamenta o desaparecimento de sua esposa, é recrutado para caçar e matar o Criador, o indescritível arquiteto da IA avançada que desenvolveu uma arma misteriosa com o poder de acabar com a guerra - e a própria humanidade.",
+      "popularity": 1139.869,
+      "poster_path": "/187OBBT5oMQ2XPXgx9F8JhlycvK.jpg",
+      "release_date": "2023-09-27",
+      "title": "Resistência",
+      "video": false,
+      "vote_average": 7.121,
+      "vote_count": 729
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/628Dep6AxEtDxjZoGP78TsOxYbK.jpg",
+      "genre_ids": [
+        28,
+        53
+      ],
+      "id": 575264,
+      "original_language": "en",
+      "original_title": "Mission: Impossible - Dead Reckoning Part One",
+      "overview": "Ethan Hunt e sua equipe embarcam em sua missão mais perigosa: rastrear uma nova arma aterrorizante que ameaça toda a humanidade antes que caia em mãos erradas. Com o controle do futuro e o destino do mundo em jogo e as forças sombrias do passado de Ethan se aproximando, uma corrida mortal ao redor do globo começa. Confrontado por um inimigo misterioso e todo-poderoso, Ethan é forçado a considerar que nada pode importar mais do que sua missão – nem mesmo a vida daqueles com quem ele mais se importa.",
+      "popularity": 1017.362,
+      "poster_path": "/8hjno4uE19pm0qlfUDcM8e5WK13.jpg",
+      "release_date": "2023-07-08",
+      "title": "Missão: Impossível - Acerto de Contas Parte 1",
+      "video": false,
+      "vote_average": 7.591,
+      "vote_count": 2445
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/wl4NWiZwpzZH67HiDgpDImLyds9.jpg",
+      "genre_ids": [
+        28,
+        12,
+        53
+      ],
+      "id": 299054,
+      "original_language": "en",
+      "original_title": "Expend4bles",
+      "overview": "Os Mercenários enfrentam um traficante de armas que comanda o poder de um enorme exército privado.",
+      "popularity": 996.214,
+      "poster_path": "/dQxlUkhKGILgq9jbVEe3WPaiW2q.jpg",
+      "release_date": "2023-09-15",
+      "title": "Os Mercenários 4",
+      "video": false,
+      "vote_average": 6.417,
+      "vote_count": 739
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/4XM8DUTQb3lhLemJC51Jx4a2EuA.jpg",
+      "genre_ids": [
+        28,
+        80,
+        53
+      ],
+      "id": 385687,
+      "original_language": "en",
+      "original_title": "Fast X",
+      "overview": "O fim da estrada está chegando. Velozes & Furiosos 10, é o décimo filme da franquia Velozes & Furiosos, lança os capítulos finais de uma grande saga, uma das mais famosas e populares do cinema, agora com sua terceira década e ainda mais forte. Com o mesmo elenco e personagens principais de quando começou. Ao longo de muitas missões e lutando contra todos os obstáculos impossíveis, Dom Toretto (Vin Diesel) e sua família foram mais espertos, mais furiosos e mais rápidos do que todos os inimigos em seu caminho. Agora, eles enfrentam o seu oponente mais letal: uma ameaça terrível das sombras do passado, alimentada por sede de vingança e determinada a destruir esta família.",
+      "popularity": 723.627,
+      "poster_path": "/wDWAA5QApz5L5BKfFaaj8HJCAQM.jpg",
+      "release_date": "2023-05-17",
+      "title": "Velozes & Furiosos 10",
+      "video": false,
+      "vote_average": 7.217,
+      "vote_count": 4280
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/feSiISwgEpVzR1v3zv2n2AU4ANJ.jpg",
+      "genre_ids": [
+        28,
+        12,
+        878
+      ],
+      "id": 609681,
+      "original_language": "en",
+      "original_title": "The Marvels",
+      "overview": "Quando suas obrigações a levam a uma fenda espacial anômala ligada a um revolucionário Kree, os poderes de Carol Danvers, a Capitã Marvel, se entrelaçam aos de Kamala Khan, a Ms. Marvel, e aos da sobrinha de Carol, astronauta da S.A.B.E.R., Capitã Monica Rambeau. Juntas, esse trio improvável deve ser unir para salvar o universo como \"As Marvels\".",
+      "popularity": 599.062,
+      "poster_path": "/sPmmgdmApfjX9x2mg02bo0aUOU9.jpg",
+      "release_date": "2023-11-08",
+      "title": "As Marvels",
+      "video": false,
+      "vote_average": 6.55,
+      "vote_count": 417
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/tC78Pck2YCsUAtEdZwuHYUFYtOj.jpg",
+      "genre_ids": [
+        28,
+        53,
+        80
+      ],
+      "id": 926393,
+      "original_language": "en",
+      "original_title": "The Equalizer 3",
+      "overview": "Sentindo-se em casa no sul da Itália, o ex-agente Robert McCall logo descobre que seus novos amigos estão sob o controle dos chefes do crime local.  À medida que os acontecimentos se tornam mortais, McCall sabe o que tem de fazer: tornar-se o protetor dos seus amigos, enfrentando a máfia.",
+      "popularity": 594.63,
+      "poster_path": "/AnJOKbSQsp0QqiUhsQooqFRjPsD.jpg",
+      "release_date": "2023-08-30",
+      "title": "O Protetor: Capítulo Final",
+      "video": false,
+      "vote_average": 7.422,
+      "vote_count": 1638
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/5a4JdoFwll5DRtKMe7JLuGQ9yJm.jpg",
+      "genre_ids": [
+        28,
+        12,
+        878
+      ],
+      "id": 695721,
+      "original_language": "en",
+      "original_title": "The Hunger Games: The Ballad of Songbirds & Snakes",
+      "overview": "Anos antes de se tornar o tirânico presidente de Panem, Coriolanus Snow aos 18 anos vê uma chance de mudança de sorte quando é escolhido para ser mentor de Lucy Gray Baird, a garota tributo do empobrecido Distrito 12.",
+      "popularity": 577.038,
+      "poster_path": "/nNNxK2NwqHmAjuStya7SwOQeMwq.jpg",
+      "release_date": "2023-11-15",
+      "title": "Jogos Vorazes: A Cantiga dos Pássaros e das Serpentes",
+      "video": false,
+      "vote_average": 7.333,
+      "vote_count": 123
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/pA3vdhadJPxF5GA1uo8OPTiNQDT.jpg",
+      "genre_ids": [
+        28,
+        18
+      ],
+      "id": 678512,
+      "original_language": "en",
+      "original_title": "Sound of Freedom",
+      "overview": "A história de Tim Ballard, um ex-agente do governo dos EUA, que largou seu emprego para dedicar sua vida a resgatar crianças de traficantes sexuais globais.",
+      "popularity": 573.294,
+      "poster_path": "/hwOHbymoAhjrMx7v5ShHCNIP4NI.jpg",
+      "release_date": "2023-07-03",
+      "title": "Som da Liberdade",
+      "video": false,
+      "vote_average": 8.084,
+      "vote_count": 1451
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/dZbLqRjjiiNCpTYzhzL2NMvz4J0.jpg",
+      "genre_ids": [
+        27,
+        53
+      ],
+      "id": 951491,
+      "original_language": "en",
+      "original_title": "Saw X",
+      "overview": "Entre os eventos de “Jogos Mortais” e “Jogos Mortais II”, um doente e desesperado John Kramer viaja para o México para um arriscado e experimental procedimento médico na esperança de uma cura milagrosa para seu câncer — apenas para descobrir que toda a operação é uma farsa para fraudar os mais vulneráveis. Armado com um propósito recém-descoberto, o infame assassino em série retorna ao seu trabalho, virando a mesa contra os vigaristas em sua maneira visceral característica por meio de armadilhas tortuosas, perturbadas e engenhosas.",
+      "popularity": 532.544,
+      "poster_path": "/ch1BGjadaiPU59zYbb6zPUTZtyO.jpg",
+      "release_date": "2023-09-26",
+      "title": "Jogos Mortais X",
+      "video": false,
+      "vote_average": 7.412,
+      "vote_count": 1062
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/3H9NA1KWEQN0ItL3Wl3SFZYP6yV.jpg",
+      "genre_ids": [
+        28,
+        878,
+        12
+      ],
+      "id": 565770,
+      "original_language": "en",
+      "original_title": "Blue Beetle",
+      "overview": "Jaime Reyes, um adolescente de origem mexicana que encontra um artefato alienígena que lhe dá um exoesqueleto mecanizado e poderes, tornando-o no Besouro Azul.",
+      "popularity": 499.472,
+      "poster_path": "/y5sdkgO4IJMTnkjh9PG7kREPWrP.jpg",
+      "release_date": "2023-08-16",
+      "title": "Besouro Azul",
+      "video": false,
+      "vote_average": 7.0,
+      "vote_count": 1600
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/mRmRE4RknbL7qKALWQDz64hWKPa.jpg",
+      "genre_ids": [
+        80,
+        53
+      ],
+      "id": 800158,
+      "original_language": "en",
+      "original_title": "The Killer",
+      "overview": "Depois de um erro desastroso, um assassino enfrenta quem o contratou e a si mesmo em uma caçada internacional por vingança. Mas ele jura que nada disso é pessoal.",
+      "popularity": 497.849,
+      "poster_path": "/mkEQgdQcvmxSYvY4bMhabxLjjXY.jpg",
+      "release_date": "2023-10-25",
+      "title": "O Assassino",
+      "video": false,
+      "vote_average": 6.793,
+      "vote_count": 704
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/zgQQF04u3OgNBJqClRNby1FPz9s.jpg",
+      "genre_ids": [
+        16,
+        10751,
+        28,
+        878
+      ],
+      "id": 893723,
+      "original_language": "en",
+      "original_title": "PAW Patrol: The Mighty Movie",
+      "overview": "Um meteoro mágico cai em Adventure City, dá superpoderes aos filhotes da Patrulha Canina e os transforma em Os Super Filhotes. Quando o arquirrival da Patrulha Canina, Humdinger, foge da prisão e se junta a um cientista maluco para roubar os poderes para si, Os Super Filhotes devem salvar Adventure City e deter os supervilões antes que seja tarde demais.",
+      "popularity": 484.35,
+      "poster_path": "/uzqjYjnnA3fpXFvd4JfMEc1fBhj.jpg",
+      "release_date": "2023-09-21",
+      "title": "Patrulha Canina: Um Filme Superpoderoso",
+      "video": false,
+      "vote_average": 6.941,
+      "vote_count": 171
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/5mzr6JZbrqnqD8rCEvPhuCE5Fw2.jpg",
+      "genre_ids": [
+        28,
+        878,
+        27
+      ],
+      "id": 615656,
+      "original_language": "en",
+      "original_title": "Meg 2: The Trench",
+      "overview": "Um mergulho exploratório nas profundezas do oceano de uma ousada equipe de pesquisa se transforma em caos quando uma operação de mineração malévola ameaça sua missão e os força a uma batalha de alto risco pela sobrevivência.",
+      "popularity": 480.142,
+      "poster_path": "/klGKGITBYYyTiHrph1VDSgGULOR.jpg",
+      "release_date": "2023-08-02",
+      "title": "Megatubarão 2",
+      "video": false,
+      "vote_average": 6.761,
+      "vote_count": 2539
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/dRWhJ4godwy40JdmNuRZy23oViY.jpg",
+      "genre_ids": [
+        27
+      ],
+      "id": 830764,
+      "original_language": "en",
+      "original_title": "Pet Sematary: Bloodlines",
+      "overview": "Em 1969, o jovem Jud Crandall sonha em deixar para trás sua cidade natal, Ludlow, mas logo descobre segredos sinistros no local. Ele é forçado a enfrentar a sombria história de sua família, que o manterá para sempre conectado à cidadezinha.",
+      "popularity": 475.087,
+      "poster_path": "/cTtrFUxMKUX4ZGfMfydym2AZQba.jpg",
+      "release_date": "2023-09-23",
+      "title": "Cemitério Maldito: A Origem",
+      "video": false,
+      "vote_average": 6.14,
+      "vote_count": 200
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/r7DuyYJ0N3cD8bRKsR5Ygq2P7oa.jpg",
+      "genre_ids": [
+        12,
+        28,
+        18
+      ],
+      "id": 980489,
+      "original_language": "en",
+      "original_title": "Gran Turismo",
+      "overview": "Baseado na história de Jann Mardenborough, e relata a trajetória de um jogador de videogame que utilizou suas habilidades nos simuladores para se tornar um piloto profissional de verdade.",
+      "popularity": 466.283,
+      "poster_path": "/qU60nhBRbKU23gIGrZi2CvUj6MQ.jpg",
+      "release_date": "2023-08-09",
+      "title": "Gran Turismo: De Jogador a Corredor",
+      "video": false,
+      "vote_average": 7.987,
+      "vote_count": 1437
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/9WxqnP9c29wXd03sALSpxpTx8fk.jpg",
+      "genre_ids": [
+        9648,
+        53,
+        28
+      ],
+      "id": 1172009,
+      "original_language": "en",
+      "original_title": "The Black Book",
+      "overview": "Para salvar o filho acusado injustamente de sequestro, um homem decide fazer justiça com as próprias mãos e enfrenta uma gangue de policiais corruptos.",
+      "popularity": 465.97,
+      "poster_path": "/r8vVQ0blfRsRth1rCjNt45pY293.jpg",
+      "release_date": "2023-09-22",
+      "title": "A Lista da Vingança",
+      "video": false,
+      "vote_average": 6.544,
+      "vote_count": 57
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/gN79aDbZdaSJkFS1iVA17HplF2X.jpg",
+      "genre_ids": [
+        27,
+        9648,
+        53
+      ],
+      "id": 968051,
+      "original_language": "en",
+      "original_title": "The Nun II",
+      "overview": "Quatro anos após os acontecimentos na abadia de St. Carta, a Irmã Irene (Taissa Farmiga) regressa mais uma vez e depara-se com a força demoníaca de Valak, a Freira (Bonnie Aarons).",
+      "popularity": 453.623,
+      "poster_path": "/omV2IW2OlFTSw6Hih13hz6lFdvP.jpg",
+      "release_date": "2023-09-06",
+      "title": "A Freira 2",
+      "video": false,
+      "vote_average": 6.911,
+      "vote_count": 1422
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/4fLZUr1e65hKPPVw0R3PmKFKxj1.jpg",
+      "genre_ids": [
+        16,
+        35,
+        10751,
+        14,
+        10749
+      ],
+      "id": 976573,
+      "original_language": "en",
+      "original_title": "Elemental",
+      "overview": "Em uma cidade onde moradores do fogo, da água, da terra e do ar vivem juntos, uma jovem impetuosa e um homem tranquilo estão prestes a descobrir algo elementar: o quanto realmente têm em comum.",
+      "popularity": 433.168,
+      "poster_path": "/7QsY7Jo3ZgL3pa1kdo28TA7Z6qo.jpg",
+      "release_date": "2023-06-14",
+      "title": "Elementos",
+      "video": false,
+      "vote_average": 7.735,
+      "vote_count": 2986
+    }
+  ],
+  "total_pages": 41376,
+  "total_results": 827517
+}

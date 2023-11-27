@@ -1,0 +1,399 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/bPkP368pQkRY3m89nP2nWYjIxRC.jpg",
+      "genre_ids": [
+        35,
+        18
+      ],
+      "id": 11354,
+      "original_language": "en",
+      "original_title": "The Upside of Anger",
+      "overview": "Terry Wolfmeyer (Joan Allen) é uma mulher tranquila, que passa por uma verdadeira transformação emocional após seu marido desaparecer sem qualquer explicação. Obrigada a justificar a todos sua ausência, ela passa a beber para controlar sua raiva e se desentende cada vez mais com suas filhas Andy (Erika Christensen), Emily (Keri Russell), Lavender (Evan Rachel Wood) e Hadley (Alicia Witt). É quando ela conhece Denny (Kevin Costner), um vizinho charmoso e beberrão com quem inicia um relacionamento.",
+      "popularity": 10.704,
+      "poster_path": "/dv761QT6dYss5Q3rbtcLGGr4VJS.jpg",
+      "release_date": "2005-01-23",
+      "title": "A Outra Face da Raiva",
+      "video": false,
+      "vote_average": 6.211,
+      "vote_count": 232
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/4AgksenI4v7RMB27HX8PZ9LfZ4c.jpg",
+      "genre_ids": [
+        35
+      ],
+      "id": 11402,
+      "original_language": "en",
+      "original_title": "The Belles of St. Trinian's",
+      "overview": "",
+      "popularity": 5.809,
+      "poster_path": "/fKqPAMTJA7df8bHiPPbpV7RzEl8.jpg",
+      "release_date": "1954-09-28",
+      "title": "The Belles of St. Trinian's",
+      "video": false,
+      "vote_average": 6.146,
+      "vote_count": 48
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/pPhNAnLsGyN5ED2Hb4nv3LmnZdX.jpg",
+      "genre_ids": [
+        18,
+        14,
+        35
+      ],
+      "id": 785761,
+      "original_language": "en",
+      "original_title": "Pink Hill",
+      "overview": "",
+      "popularity": 0.713,
+      "poster_path": "/86kADpxzZrwJw5eea3ovh1LJw3Q.jpg",
+      "release_date": "2019-04-13",
+      "title": "Pink Hill",
+      "video": false,
+      "vote_average": 8.0,
+      "vote_count": 3
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/naGsxof4OVpWQJn1qd9sTwUvYPI.jpg",
+      "genre_ids": [
+        27,
+        35
+      ],
+      "id": 10779,
+      "original_language": "en",
+      "original_title": "The Frighteners",
+      "overview": "Frank Bannister (Michael J. Fox) é um médium charlatão que consegue \"limpar\" casas pelo fato de estar associado aos fantasmas que as assustam. Ele se vê de repente envolvido em combater o fantasma de um \"serial killer\", que voltou para continuar matando e quebrar todos os recordes de assassinatos existentes.",
+      "popularity": 24.773,
+      "poster_path": "/bmnanp9FQWs4J4fhwlt0uY17Iq4.jpg",
+      "release_date": "1996-07-18",
+      "title": "Os Espíritos",
+      "video": false,
+      "vote_average": 6.9,
+      "vote_count": 1381
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/bkTfP6r7Vq6V0wXIuar7gb2inyb.jpg",
+      "genre_ids": [
+        10402,
+        16,
+        12,
+        35,
+        14
+      ],
+      "id": 12105,
+      "original_language": "en",
+      "original_title": "Yellow Submarine",
+      "overview": "John, Paul, George e Ringo enfrentam em seu Submarino Amarelo o exército de Blue Meanies que chegaram a Pepperland para acabar com toda a música, paz e amor que lá reinava.",
+      "popularity": 12.304,
+      "poster_path": "/cjrGM2QYlwzV6vXz2yF7y6fdTRu.jpg",
+      "release_date": "1968-07-17",
+      "title": "Submarino Amarelo",
+      "video": false,
+      "vote_average": 7.132,
+      "vote_count": 451
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/zhFyaUVaQsDRDZUyOJKc2ETPlB9.jpg",
+      "genre_ids": [
+        80,
+        18,
+        10749,
+        9648,
+        53
+      ],
+      "id": 12150,
+      "original_language": "en",
+      "original_title": "Sea of Love",
+      "overview": "O incomodado detetive de Nova York Frank Keller investiga uma assassina em série que procura por vítimas, usando anúncios pessoais em um revista e toca a música \"Sea of Love\" na cena do crime. Com a ajuda de seu parceiro, Sherman Touhey, Frank cria um plano para achar a assassina usando seus próprios anúncios. Mas quando Frank se apaixona por sua principal suspeita, Helen Cruger, ele luta para conciliar sua vida pessoal e seu dever profissional.",
+      "popularity": 13.174,
+      "poster_path": "/jHn4viYVEGFaMIlFfUoeX2V2exJ.jpg",
+      "release_date": "1989-09-15",
+      "title": "Vítimas de Uma Paixão",
+      "video": false,
+      "vote_average": 6.6,
+      "vote_count": 554
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/9lcVC0k5JgBRjT8hJBgncAq8XSQ.jpg",
+      "genre_ids": [
+        35,
+        18
+      ],
+      "id": 12167,
+      "original_language": "no",
+      "original_title": "Kunsten å tenke negativt",
+      "overview": "",
+      "popularity": 3.164,
+      "poster_path": "/8SEaJYnHHQ7IECBrKcI5OxN4OaV.jpg",
+      "release_date": "2006-11-03",
+      "title": "Kunsten å tenke negativt",
+      "video": false,
+      "vote_average": 6.67,
+      "vote_count": 47
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/nPx3FS9ZnQ6fwy9BtgcnNZJpyXC.jpg",
+      "genre_ids": [
+        28,
+        35
+      ],
+      "id": 12207,
+      "original_language": "cn",
+      "original_title": "醉拳二",
+      "overview": "Quando um grupo terrorista internacional decide roubar um tesouro da nação chinesa, a última esperança é Wong Fei-Hung (Jackie Chan), um jovem lutador de Kung-fu sem grandes qualidades mas, quando fica bêbado, se torna invencível.",
+      "popularity": 22.405,
+      "poster_path": "/35FMtXtyKyRBRhkSs051zTebkBB.jpg",
+      "release_date": "1994-02-03",
+      "title": "O Mestre Invencível 2",
+      "video": false,
+      "vote_average": 7.4,
+      "vote_count": 869
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/lFjONSYWA01SFDxnwRLxjUrh0GR.jpg",
+      "genre_ids": [
+        80,
+        18
+      ],
+      "id": 12281,
+      "original_language": "en",
+      "original_title": "Mean Creek",
+      "overview": "",
+      "popularity": 7.36,
+      "poster_path": "/47icHsfwq7qpfPTuGwZxAtQ0olJ.jpg",
+      "release_date": "2004-01-15",
+      "title": "Mean Creek",
+      "video": false,
+      "vote_average": 6.8,
+      "vote_count": 330
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/gnZU2JQRka4jt5ZmTw2Rbe0gI8b.jpg",
+      "genre_ids": [
+        10749,
+        35,
+        18
+      ],
+      "id": 12478,
+      "original_language": "en",
+      "original_title": "Skin Deep",
+      "overview": "",
+      "popularity": 7.224,
+      "poster_path": "/js5a48fyxJEUa4xAaarLpkum6Hb.jpg",
+      "release_date": "1989-03-03",
+      "title": "As Confusões de um Sedutor",
+      "video": false,
+      "vote_average": 6.144,
+      "vote_count": 66
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/dxsMt5JspjPdMk59nap00Z8p4nx.jpg",
+      "genre_ids": [
+        18,
+        35
+      ],
+      "id": 10557,
+      "original_language": "en",
+      "original_title": "East Is East",
+      "overview": "",
+      "popularity": 13.184,
+      "poster_path": "/tDchJ4mB23vGgwdQCmq9FCQ4W23.jpg",
+      "release_date": "1999-05-14",
+      "title": "East Is East",
+      "video": false,
+      "vote_average": 6.568,
+      "vote_count": 191
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "genre_ids": [
+        18,
+        80
+      ],
+      "id": 210278,
+      "original_language": "es",
+      "original_title": "Un dulce olor a muerte",
+      "overview": "",
+      "popularity": 0.946,
+      "poster_path": "/kpqLjtd0ltjmFZ6Os7zyFnLgyAF.jpg",
+      "release_date": "1999-12-13",
+      "title": "Un dulce olor a muerte",
+      "video": false,
+      "vote_average": 6.0,
+      "vote_count": 11
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/2D08E4pqE95FM8yOJ3gOy5zWaW0.jpg",
+      "genre_ids": [
+        35
+      ],
+      "id": 10634,
+      "original_language": "en",
+      "original_title": "Friday",
+      "overview": "Em Los Angeles, Craig Jones (Ice Cube) e Smokey (Chris Tucker) são dois amigos inseparáveis e sem dinheiro. Craig foi despedido na véspera e Smokey só se preocupa em fumar maconha, que lhe foi dada para vender pelo traficante do bairro. Enquanto conversam ficam vendo as várias confusões que acontecem nas vizinhanças. Mas eles podem participar da maior de todas, pois Smokey está sendo pressionado pelo traficante para, às dez horas da noite, lhe entregar duzentos dólares ou então os dois vão morrer.",
+      "popularity": 40.456,
+      "poster_path": "/oM6hiQYs8ERJMo36u3pIZNwLhQN.jpg",
+      "release_date": "1995-04-26",
+      "title": "Sexta-feira em Apuros",
+      "video": false,
+      "vote_average": 7.152,
+      "vote_count": 1610
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/4mopIaKwC0RBK0kGVjgSnkLYn1m.jpg",
+      "genre_ids": [
+        12,
+        35,
+        28,
+        80
+      ],
+      "id": 10694,
+      "original_language": "en",
+      "original_title": "The Chase",
+      "overview": "Jack Hammond (Charlie Sheen) pretendia apenas cruzar a fronteira do México e viver em paz, afastado do pesadelo de ter sido preso injustamente...\r O que ele não contava é que, durante este trajeto, poderia cruzar com a mulher de sua vida (Kristy Swanson), fazer dela sua refém... colocar a polícia toda da Califórnia na sua pista e deixar a cidade inteira de pernas para o ar, na mais alucinante fuga de toda a história das perseguições!",
+      "popularity": 10.458,
+      "poster_path": "/lEmGW4Fc9wMRLIKq6NRojZnTbdp.jpg",
+      "release_date": "1994-03-04",
+      "title": "Rotação Máxima",
+      "video": false,
+      "vote_average": 5.721,
+      "vote_count": 312
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/nO7raOhTt6QcrYjkb1dL8VaTA3e.jpg",
+      "genre_ids": [
+        35,
+        18,
+        10749
+      ],
+      "id": 11240,
+      "original_language": "en",
+      "original_title": "My Beautiful Laundrette",
+      "overview": "",
+      "popularity": 10.2,
+      "poster_path": "/hfGWxrtbRnxg19ouEYBtQKtMZcN.jpg",
+      "release_date": "1985-11-16",
+      "title": "Minha Adorável Lavanderia",
+      "video": false,
+      "vote_average": 6.755,
+      "vote_count": 233
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/f5zu1yyMBYdFyyQV0bHYBwynwzU.jpg",
+      "genre_ids": [
+        35,
+        12
+      ],
+      "id": 11282,
+      "original_language": "en",
+      "original_title": "Harold & Kumar Go to White Castle",
+      "overview": "Harold e Kumar, obcecados com o hambúrguer da White Castle que viram na TV, partem tarde da noite para Nova Jersey a fim de comprá-lo. Mas tudo sai errado, e eles fogem da polícia e de um ladrão de carros antes de saborear o cobiçado sanduíche.",
+      "popularity": 18.53,
+      "poster_path": "/6kf4ZTreCaXfGLAxNQXFV8d9w1K.jpg",
+      "release_date": "2004-05-30",
+      "title": "Madrugada Muito Louca",
+      "video": false,
+      "vote_average": 6.525,
+      "vote_count": 1890
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/p9fIK6WOZJIdHSWd9YuRNAXWvhi.jpg",
+      "genre_ids": [
+        35,
+        10749
+      ],
+      "id": 371095,
+      "original_language": "fr",
+      "original_title": "Les Mouettes",
+      "overview": "",
+      "popularity": 0.883,
+      "poster_path": "/dTujiotFpz7lqIxX661NfL3oSVC.jpg",
+      "release_date": "1991-01-28",
+      "title": "Les Mouettes",
+      "video": false,
+      "vote_average": 8.0,
+      "vote_count": 1
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/aDID5kJeH3wPUmA3rwhV38mxQQC.jpg",
+      "genre_ids": [
+        35,
+        80,
+        18,
+        9648
+      ],
+      "id": 13774,
+      "original_language": "no",
+      "original_title": "Den siste revejakta",
+      "overview": "",
+      "popularity": 1.746,
+      "poster_path": "/erKBgJP9VlC05fDIHFR8coIR64h.jpg",
+      "release_date": "2008-08-29",
+      "title": "Den siste revejakta",
+      "video": false,
+      "vote_average": 6.265,
+      "vote_count": 17
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/p8dOn15Km28pjPwxyfwKwIwmkfL.jpg",
+      "genre_ids": [
+        35,
+        878
+      ],
+      "id": 13820,
+      "original_language": "en",
+      "original_title": "Repo Man",
+      "overview": "Em Los Angeles um jovem é contratado para trabalhar como repo man (repossessor), ou seja, sua função é recuperar carros que não foram integralmente pagos. Em uma de suas missões acaba se envolvendo com um cientista louco, que roubou quatro alienígenas de uma base americana e os colocou na mala do seu carro. Quando uma pessoa abre o porta-malas, simplesmente se desintegra.",
+      "popularity": 15.497,
+      "poster_path": "/bZ8kG84YQ9ucNDk7IHnFgwmaCxA.jpg",
+      "release_date": "1984-02-20",
+      "title": "Repo Man: A Onda Punk",
+      "video": false,
+      "vote_average": 6.7,
+      "vote_count": 530
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/58FLqhrAOYGLoEBGP0Xrzd6a3Mt.jpg",
+      "genre_ids": [
+        35,
+        10402,
+        18
+      ],
+      "id": 13403,
+      "original_language": "en",
+      "original_title": "Hedwig and the Angry Inch",
+      "overview": "Hedwig é uma cantora de rock que nasceu homem, na Alemanha Oriental, e se chamava Hansel. Criado ouvindo uma rádio norte-americana, Hansel só tinha duas certezas na vida: de que seria uma estrela de rock e que um dia encontraria sua alma gêmea. Quando conhece Luther, recruta americano que promete casar-se e levá-lo para os Estados Unidos, Hansel pensa que chegou sua vez de ser feliz. Contudo, para que seu sonho se realize, é obrigado a submeter-se a uma cirurgia de troca de sexo. Hansel torna-se Hedwig, muda-se para a América e forma uma banda de rock. Mas este é apenas o primeiro capítulo de uma história ao mesmo tempo dramática e engraçada, permeada por amores arrebatadores, amargas desilusões e rock do bom.",
+      "popularity": 11.919,
+      "poster_path": "/anfnUsRpCWJulfwauAWxZiMsRmt.jpg",
+      "release_date": "2001-07-20",
+      "title": "Hedwig: Rock, Amor e Traição",
+      "video": false,
+      "vote_average": 7.406,
+      "vote_count": 336
+    }
+  ],
+  "total_pages": 7622,
+  "total_results": 152436
+}

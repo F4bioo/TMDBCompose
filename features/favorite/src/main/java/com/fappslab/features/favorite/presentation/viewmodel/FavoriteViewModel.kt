@@ -21,10 +21,10 @@ internal class FavoriteViewModel @Inject constructor(
 ) : ViewModel<FavoriteViewState, FavoriteViewAction>(FavoriteViewState()) {
 
     init {
-        getMovies()
+        getFavorites()
     }
 
-    private fun getMovies() {
+    private fun getFavorites() {
         getFavoritesUseCase()
             .onStart { onState { it.copy(shouldShowLoading = true) } }
             .onCompletion { onState { it.copy(shouldShowLoading = false) } }
@@ -37,8 +37,8 @@ internal class FavoriteViewModel @Inject constructor(
         viewModelScope.launch {
             onState { it.copy(shouldShowLoading = true) }
                 .runCatching { deleteFavoriteUseCase(movie) }
-                .apply { onState { it.copy(shouldShowLoading = false) } }
                 .onFailure { }
+                .also { onState { it.copy(shouldShowLoading = false) } }
         }
     }
 
