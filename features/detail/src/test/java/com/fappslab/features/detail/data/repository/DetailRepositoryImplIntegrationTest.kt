@@ -43,7 +43,6 @@ internal class DetailRepositoryImplIntegrationTest {
             remoteRule.toServerSuccessResponse { DETAIL_SUCCESS_RESPONSE }
 
             // When
-
             val result = subject.getMovieDetail(id = 100)
 
             // Then
